@@ -39,12 +39,27 @@ const Shot: React.FC<{spec: SceneSpec}> = ({spec}) => {
 			const Custom = spec.component;
 			return (
 				<AbsoluteFill>
-					<Custom />
+					<LivingCamera>
+						<Custom />
+					</LivingCamera>
 					{spec.credit ? <CreditTag text={spec.credit} /> : null}
 				</AbsoluteFill>
 			);
 		}
 	}
+};
+
+/**
+ * «Живая камера» для анимаций: медленный постоянный наезд (~0,6 % в секунду, не больше 12 %) и лёгкий дрейф,
+ * чтобы инфографика не застывала, пока диктор договаривает (собственные движения камеры сцен — поверх).
+ */
+const LivingCamera: React.FC<{children: React.ReactNode}> = ({children}) => {
+	const frame = useCurrentFrame();
+	const sec = frame / 30;
+	const scale = 1 + Math.min(0.12, 0.006 * sec);
+	const dx = Math.sin(sec / 7) * 14;
+	const dy = Math.sin(sec / 9 + 1) * 8;
+	return <AbsoluteFill style={{transform: `translate(${dx}px, ${dy}px) scale(${scale})`}}>{children}</AbsoluteFill>;
 };
 
 /** Затемнение из чёрного в начале и в чёрное в конце главы. */

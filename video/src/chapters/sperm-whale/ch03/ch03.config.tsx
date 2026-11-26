@@ -185,7 +185,7 @@ const PLANS: (Plan & {sceneAnchors?: () => [number, number][]; C?: React.FC<{tz:
 	},
 	{
 		start: b.echo,
-		shot: stock('кашалот-эхолокация-щелчки-и-жужжание-спектрограмма.mp4', 'NOAA Fisheries', {startFromSeconds: 0.5, zoom: [1.3, 1.36], panX: 0, origin: 'center 18%'}),
+		shot: stock('кашалот-эхолокация-щелчки-и-жужжание-спектрограмма.mp4', 'NOAA Fisheries', {startFromSeconds: 0.5, zoom: [1.36, 1.42], panX: 0, origin: 'center 42%'}),
 		xIn: 0,
 	},
 	{

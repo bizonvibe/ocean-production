@@ -174,7 +174,19 @@ export const Scene05: React.FC<P> = ({tz}) => {
 		<SvgScene
 			dir={`${DIR}/scene-05_two-levels`}
 			layers={[...CUTAWAY, '80_callouts']}
-			camera={() => ({scale: mix(1, 1.12, p(t, 34, 36, ease.inOutSine)), origin: [1250, 500]})}
+			// По ТЗ — наезд на голову; дальше (сцена растянута озвучкой) камера медленно переходит
+			// от спермацетового органа к джанку и обратно к звуковым губам.
+			camera={() => {
+				const tour = p(t, 37.4, 41, ease.inOutSine);
+				const back = p(t, 43.6, 46, ease.inOutSine);
+				return {
+					scale: mix(1, 1.12, p(t, 34, 36, ease.inOutSine)) * mix(1, 1.15, tour),
+					focus: [
+						mix(960, mix(mix(1250, 1300, tour), 1450, back), p(t, 34, 36, ease.inOutSine)),
+						mix(540, mix(mix(500, 600, tour), 420, back), p(t, 34, 36, ease.inOutSine)),
+					],
+				};
+			}}
 			animate={() => styles}
 		/>
 	);
@@ -206,7 +218,8 @@ export const Scene06: React.FC<P> = ({tz}) => {
 };
 
 // ─── Сцена 07 — Путь звука (53.8–64.0) ───────────────────────────
-const CLICKS_07 = [57.0, 62.4, 63.0, 63.6];
+// Щелчок на «щелчки», три быстрых повтора по ТЗ, дальше — каждые 1.6 с до конца сцены (сцена растянута озвучкой).
+const CLICKS_07 = [57.0, 62.4, 63.0, 63.6, ...Array.from({length: 30}, (_, i) => 65.2 + i * 1.6)];
 
 export const Scene07: React.FC<P> = ({tz}) => {
 	const t = useT(tz);
@@ -215,7 +228,7 @@ export const Scene07: React.FC<P> = ({tz}) => {
 	const squash = t - lastClick < 0.15 ? Math.sin((Math.PI * (t - lastClick)) / 0.15) : 0;
 	const flash = Math.max(0, 1 - (t - lastClick) / 0.35);
 	const beam = p(t, 61.6, 62.4, ease.outExpo);
-	const beamFlicker = t < 62.4 ? 1 : 0.8 + 0.2 * Math.max(0, 1 - (t - lastClick) / 0.3);
+	const beamFlicker = t < 62.4 ? 1 : 0.6 + 0.4 * Math.max(0, 1 - (t - lastClick) / 0.5);
 	return (
 		<SvgScene
 			dir={`${DIR}/scene-07_sound-path`}
