@@ -1,0 +1,23 @@
+{
+  "name": "ocean-production-video",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "studio": "remotion studio",
+    "typecheck": "tsc -p .",
+    "stills": "scripts/stills.sh",
+    "render:example": "scripts/render.sh Example-ch01 example-ch01"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.545",
+    "@remotion/effects": "4.0.545",
+    "@remotion/transitions": "4.0.545",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "4.0.545"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}
