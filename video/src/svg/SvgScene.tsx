@@ -24,6 +24,8 @@ export type ElStyle = {
 	mixBlendMode?: React.CSSProperties['mixBlendMode'];
 	/** Межбуквенный интервал для текста внутри (px). */
 	letterSpacing?: number;
+	/** Заменить текст первого <text> внутри (счётчики). */
+	text?: string;
 };
 
 export type Camera = {
@@ -162,6 +164,13 @@ function apply(node: SVGGraphicsElement, s: ElStyle) {
 	st.clipPath = s.clipPath ?? '';
 	st.mixBlendMode = s.mixBlendMode ?? '';
 	st.letterSpacing = s.letterSpacing === undefined ? '' : `${s.letterSpacing}px`;
+	if (s.text !== undefined) {
+		const tx = node.tagName === 'text' ? node : node.querySelector('text');
+		if (tx) {
+			if (!tx.hasAttribute('data-orig')) tx.setAttribute('data-orig', tx.textContent ?? '');
+			tx.textContent = s.text;
+		}
+	} else restoreText(node);
 	if (s.draw !== undefined) {
 		for (const p of Array.from(node.querySelectorAll(DRAWABLE)) as SVGGeometryElement[]) {
 			p.setAttribute('pathLength', '1');
@@ -171,6 +180,11 @@ function apply(node: SVGGraphicsElement, s: ElStyle) {
 	} else {
 		clearDraw(node);
 	}
+}
+
+function restoreText(node: Element) {
+	const tx = node.tagName === 'text' ? node : node.querySelector('text');
+	if (tx && tx.hasAttribute('data-orig')) tx.textContent = tx.getAttribute('data-orig');
 }
 
 function clearDraw(node: Element) {
@@ -190,5 +204,6 @@ function reset(node: SVGGraphicsElement) {
 	st.clipPath = '';
 	st.mixBlendMode = '';
 	st.letterSpacing = '';
+	restoreText(node);
 	clearDraw(node);
 }

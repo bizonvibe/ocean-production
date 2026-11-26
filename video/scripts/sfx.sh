@@ -53,4 +53,32 @@ $F -f lavfi -i "sine=f=1320:d=0.8" -af \
 $F -f lavfi -i "sine=f=48:d=2.5" -f lavfi -i "anoisesrc=c=pink:a=0.4:d=2.5:seed=3" -filter_complex \
  "[0]volume=1.2[a];[1]lowpass=f=600,volume=0.5[b];[a][b]amix=inputs=2:normalize=0,afade=t=in:d=0.008,afade=t=out:st=0.03:d=2.4:curve=exp,loudnorm=I=-18:TP=-2" $O public/sfx/hit.wav
 
+# ── Звуки главы 2 ──
+# Песня кита: низкие плавные глиссандо с подводной реверберацией, 7 с.
+$F -f lavfi -i "aevalsrc='0.5*sin(2*PI*(180*t+40*sin(2*PI*0.18*t)))*(0.5-0.5*cos(2*PI*t/7))':d=7:s=48000" -af \
+ "lowpass=f=900,aecho=0.8:0.7:420|900:0.4|0.3,afade=t=in:d=1,afade=t=out:st=5:d=2,loudnorm=I=-26:TP=-6" $O public/sfx/whalesong.wav
+# «Бульк» — всасывание воды, 1 с.
+$F -f lavfi -i "aevalsrc='0.8*sin(2*PI*(90+260*t)*t)*exp(-3*t)':d=1:s=48000" -f lavfi -i "anoisesrc=c=brown:a=0.6:d=1:seed=8" -filter_complex \
+ "[1]lowpass=f=500,afade=t=out:st=0.1:d=0.8[n];[0][n]amix=inputs=2:normalize=0,loudnorm=I=-20:TP=-3" $O public/sfx/gulp.wav
+# Шипение выдавливаемой воды, 2 с.
+$F -f lavfi -i "anoisesrc=c=white:a=0.6:d=2:seed=12" -af \
+ "bandpass=f=2500:w=3000,afade=t=in:d=0.3,afade=t=out:st=1.2:d=0.8,loudnorm=I=-24:TP=-4" $O public/sfx/hiss.wav
+# Глухой «бум» (падение автобуса), 0.7 с.
+$F -f lavfi -i "sine=f=62:d=0.7" -f lavfi -i "anoisesrc=c=brown:a=0.8:d=0.7:seed=4" -filter_complex \
+ "[0]afade=t=out:st=0.01:d=0.5:curve=exp[a];[1]lowpass=f=300,afade=t=out:st=0.0:d=0.25:curve=exp[b];[a][b]amix=inputs=2:normalize=0,loudnorm=I=-20:TP=-3" $O public/sfx/thud.wav
+# «Дзынь» равновесия, 2 с.
+$F -f lavfi -i "sine=f=1568:d=2" -f lavfi -i "sine=f=2093:d=2" -filter_complex \
+ "[0][1]amix=inputs=2,afade=t=in:d=0.004,afade=t=out:st=0.02:d=1.9:curve=exp,aecho=0.6:0.4:120:0.25,loudnorm=I=-24:TP=-5" $O public/sfx/ding.wav
+# Скрип открывающейся челюсти, 0.9 с.
+$F -f lavfi -i "aevalsrc='0.6*sin(2*PI*(70+30*t)*t)*(1+0.6*sin(2*PI*23*t))':d=0.9:s=48000" -af \
+ "lowpass=f=1200,afade=t=in:d=0.1,afade=t=out:st=0.5:d=0.4,loudnorm=I=-24:TP=-5" $O public/sfx/creak.wav
+# Глухой «клац» челюсти / стук зуба, 0.4 с.
+$F -f lavfi -i "anoisesrc=c=pink:a=1:d=0.4:seed=17" -f lavfi -i "sine=f=140:d=0.4" -filter_complex \
+ "[0]bandpass=f=1400:w=1600,afade=t=in:d=0.002,afade=t=out:st=0.005:d=0.08:curve=exp[n];[1]afade=t=out:st=0:d=0.15:curve=exp[s];[n][s]amix=inputs=2:normalize=0,loudnorm=I=-18:TP=-2" $O public/sfx/clack.wav
+# «Вжик» ножа, 0.6 с.
+$F -f lavfi -i "anoisesrc=c=white:a=0.6:d=0.6:seed=19" -af \
+ "highpass=f=2500,afade=t=in:d=0.35:curve=exp,afade=t=out:st=0.35:d=0.25,loudnorm=I=-24:TP=-4" $O public/sfx/swish.wav
+# Мягкий щелчок появления иконки, 0.25 с.
+$F -f lavfi -i "sine=f=880:d=0.25" -af "afade=t=in:d=0.003,afade=t=out:st=0.01:d=0.12:curve=exp,loudnorm=I=-26:TP=-6" $O public/sfx/tick.wav
+
 ls -1 public/sfx

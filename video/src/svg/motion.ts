@@ -26,6 +26,15 @@ export const ease = {
 			const c3 = overshoot + 1;
 			return 1 + c3 * Math.pow(x - 1, 3) + overshoot * Math.pow(x - 1, 2);
 		},
+	/** Падение с отскоками. */
+	outBounce: (x: number) => {
+		const n = 7.5625;
+		const d = 2.75;
+		if (x < 1 / d) return n * x * x;
+		if (x < 2 / d) return n * (x -= 1.5 / d) * x + 0.75;
+		if (x < 2.5 / d) return n * (x -= 2.25 / d) * x + 0.9375;
+		return n * (x -= 2.625 / d) * x + 0.984375;
+	},
 	/** Пружина (затухающие колебания), damping — чем больше, тем быстрее успокаивается. */
 	spring:
 		(damping = 12, freq = 2.2) =>
