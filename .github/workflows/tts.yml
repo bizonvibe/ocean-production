@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'chapter — озвучить главу; compare — пробы голосов'
+        description: 'chapter — озвучить главу (+ тайминги); align — только тайминги слов готовой озвучки; compare — пробы голосов'
         type: choice
-        options: [chapter, compare]
+        options: [chapter, align, compare]
         default: chapter
       project:
         description: 'Проект (папка в voiceover/)'
@@ -44,6 +44,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # WhisperX пока не поддерживает Python 3.13+.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: FFmpeg
         run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
 
@@ -71,7 +76,9 @@ jobs:
           MODEL: ${{ inputs.model }}
         run: |
           set -euo pipefail
-          if [[ "$MODE" == compare ]]; then
+          if [[ "$MODE" == align ]]; then
+            echo "Режим align: озвучка уже есть в ветке voice"
+          elif [[ "$MODE" == compare ]]; then
             python3 video/scripts/tts.py --compare "$TEXT" --voices "$VOICES" --model "$MODEL" \
               "../voice-out/voice/_samples/${GITHUB_RUN_NUMBER}"
             printf '%s\n' "$TEXT" > "../voice-out/voice/_samples/${GITHUB_RUN_NUMBER}/text.txt"
@@ -83,8 +90,21 @@ jobs:
             cp "$SRC" "../voice-out/voice/$PROJECT/$CHAPTER/voice.txt"
           fi
 
+      - name: Коммит озвучки в ветку voice
+        env:
+          MODE: ${{ inputs.mode }}
+          PROJECT: ${{ inputs.project }}
+          CHAPTER: ${{ inputs.chapter }}
+        run: |
+          cd ../voice-out
+          git add -A
+          MSG="Озвучка: $PROJECT/$CHAPTER"
+          if [[ "$MODE" == compare ]]; then MSG="Пробы голосов (запуск ${GITHUB_RUN_NUMBER})"; fi
+          git commit -m "$MSG" || { echo "Нечего коммитить"; exit 0; }
+          git push origin voice
+
       - name: Тайминги слов (WhisperX)
-        if: inputs.mode == 'chapter'
+        if: inputs.mode != 'compare'
         env:
           PROJECT: ${{ inputs.project }}
           CHAPTER: ${{ inputs.chapter }}
@@ -94,7 +114,8 @@ jobs:
           pip install -q -r video/requirements-captions.txt
           python3 video/scripts/transcribe.py "../voice-out/voice/$PROJECT/$CHAPTER/voice.wav" --lang ru
 
-      - name: Коммит в ветку voice
+      - name: Коммит таймингов в ветку voice
+        if: inputs.mode != 'compare'
         env:
           MODE: ${{ inputs.mode }}
           PROJECT: ${{ inputs.project }}
@@ -102,6 +123,7 @@ jobs:
         run: |
           cd ../voice-out
           git add -A
-          if [[ "$MODE" == compare ]]; then MSG="Пробы голосов (запуск ${GITHUB_RUN_NUMBER})"; else MSG="Озвучка: $PROJECT/$CHAPTER"; fi
+          MSG="Тайминги слов: $PROJECT/$CHAPTER"
+          if [[ "$MODE" == compare ]]; then MSG="Пробы голосов (запуск ${GITHUB_RUN_NUMBER})"; fi
           git commit -m "$MSG" || { echo "Нечего коммитить"; exit 0; }
           git push origin voice

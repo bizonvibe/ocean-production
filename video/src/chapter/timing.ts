@@ -123,10 +123,15 @@ export const musicVolume = (c: ChapterConfig, m: MusicSpec) => {
 	const boost = m.boostVolume ?? 0.3;
 	const total = chapterDuration(c);
 	const offset = leadIn(c);
+	const words = chapterWords(c);
 	const pauses = m.boostInPauses
-		? voicePauses(chapterWords(c), m.minPauseMs ?? 5000, voiceSpanMs(c)).map(
-				([s, e]) => [offset + msToFrames(s), offset + msToFrames(e)] as const,
-			)
+		? [
+				// Вступление до первого слова — тоже пауза диктора.
+				...(words.length ? [[-msToFrames(0) - offset * (1000 / FPS), words[0].startMs] as [number, number]] : []),
+				...voicePauses(words, m.minPauseMs ?? 5000, voiceSpanMs(c)),
+			]
+				.filter(([s, e]) => e - s >= (m.minPauseMs ?? 5000))
+				.map(([s, e]) => [offset + msToFrames(s), offset + msToFrames(e)] as const)
 		: [];
 	const RISE = 24; // подъём ~0.8 с после начала паузы
 	const FALL = 15; // спуск ~0.5 с, заканчивается до следующего слова

@@ -234,7 +234,6 @@ export const Scene06: React.FC<P> = ({tz}) => {
 					subtitle: {opacity: sub, transform: `translateY(${mix(10, 0, sub)}px)`},
 				})}
 			/>
-			<Flash color="#eaf6ff" opacity={1 - p(t, 58, 58.5, ease.outCubic)} />
 		</AbsoluteFill>
 	);
 };
