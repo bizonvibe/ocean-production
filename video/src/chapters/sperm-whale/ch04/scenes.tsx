@@ -318,7 +318,7 @@ export const Scene10: React.FC<P> = ({tz}) => {
 		'cold-water': {opacity: p(t, 114, 114.6), dash: {array: '26 14', offset: -120 * Math.max(0, t - 114)}},
 		'label-cool': fade(t, 114.4, 115),
 		'label-solid': fade(t, 120, 120.6),
-		'sink-arrow': {draw: p(t, 124, 124.8, ease.outCubic), opacity: t > 124.8 ? 0.7 + wave(t, 0.8, 0.3) : 1},
+		'sink-arrow': {draw: p(t, 124, 124.8, ease.outCubic), opacity: t < 124 ? 0 : t > 124.8 ? 0.7 + wave(t, 0.8, 0.3) : 1},
 		'label-sink': fade(t, 124.2, 124.8),
 	};
 	for (let i = 1; i <= 9; i++) {
