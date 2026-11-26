@@ -130,7 +130,8 @@ def to_wav(pcm_chunks: list[bytes], gap_s: float, out: Path) -> float:
         tmp.flush()
         subprocess.run(
             ['ffmpeg', '-v', 'error', '-y', '-f', 's16le', '-ar', '24000', '-ac', '1', '-i', tmp.name,
-             '-af', 'highpass=f=60', '-ar', '48000', '-ac', '1', str(out)],
+             # Единая громкость голоса −16 LUFS: музыка и звуки в главе выставляются относительно неё.
+             '-af', 'highpass=f=60,loudnorm=I=-16:TP=-1.5:LRA=11', '-ar', '48000', '-ac', '1', str(out)],
             check=True,
         )
     dur = subprocess.run(

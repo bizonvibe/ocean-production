@@ -156,8 +156,8 @@ const shots: SceneSpec[] = PLANS.map((p, i) => {
 
 // ─── Звуки: акценты ТЗ (время ТЗ → время главы через якоря сцен) + свои подложки ──
 const sfx: SfxSpec[] = [
-	{src: 'sfx/drone.wav', atMs: 0, volume: 0.55},
-	{src: 'sfx/drone.wav', atMs: Math.round(b.s03 * 1000), volume: 0.45},
+	{src: 'sfx/drone.wav', atMs: 0, volume: 0.35},
+	{src: 'sfx/drone.wav', atMs: Math.round(b.s03 * 1000), volume: 0.35},
 	{src: 'sfx/clicks.wav', atMs: Math.round((b.s05 + 1.5) * 1000), volume: 0.12},
 ];
 for (const e of S.SCENE_SFX) {
@@ -178,7 +178,8 @@ export const spermWhaleCh01: ChapterConfig = {
 	tailFrames: 45,
 	shots,
 	transitions,
-	music: {src: `${BASE}/music/Echoes of Time v2.mp3`, volume: 0.14, boostInPauses: true, boostVolume: 0.3},
+	// Трек −21.6 LUFS, голос −16 LUFS: 0.3 ≈ −16 дБ к голосу; во вступлении 0.45 ≈ −12 дБ.
+	music: {src: `${BASE}/music/Echoes of Time v2.mp3`, volume: 0.3, boostInPauses: true, boostVolume: 0.45},
 	sfx,
 	accents: [{text: 'Дышит воздухом', match: 'дышит', durationMs: 2200, position: 'lower'}],
 };
