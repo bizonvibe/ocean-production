@@ -32,7 +32,7 @@ from pathlib import Path
 
 API = 'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent'
 DEFAULT_MODEL = 'gemini-2.5-flash-preview-tts'  # у Pro на бесплатном тарифе лимит 0 запросов
-DEFAULT_VOICE = 'Charon'
+DEFAULT_VOICE = 'Orus'
 # Мужские голоса Gemini TTS, подходящие для спокойного документального диктора.
 MALE_CANDIDATES = ['Charon', 'Orus', 'Iapetus', 'Algenib', 'Gacrux', 'Sadaltager', 'Schedar']
 STYLE = (

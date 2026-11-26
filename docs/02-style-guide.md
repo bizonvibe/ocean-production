@@ -2,8 +2,8 @@
 
 ## Голос
 - Gemini TTS, русский, мужской, спокойный документальный диктор.
-- Выбранный голос: **не выбран** (кандидаты: Charon, Orus, Iapetus, Algenib, Gacrux, Sadaltager, Schedar —
-  пробы: `python3 scripts/tts.py --compare "<фраза>" out/voices/`). После выбора — вписать сюда.
+- Выбранный голос: **Orus** (Gemini TTS, модель `gemini-2.5-flash-preview-tts`) — во всех главах.
+  Пробы других голосов: `tts.yml` с `mode: compare`.
 - Темп ~130–140 слов в минуту, пауза между абзацами 0.6 с.
 
 ## Картинка

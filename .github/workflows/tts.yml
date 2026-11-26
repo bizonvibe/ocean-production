@@ -18,8 +18,8 @@ on:
         description: 'Глава (папка в voiceover/<проект>/), например 01'
         default: '01'
       voice:
-        description: 'Голос для главы'
-        default: Charon
+        description: 'Голос для главы (выбран Orus)'
+        default: Orus
       voices:
         description: 'compare: голоса через запятую'
         default: 'Charon,Gacrux,Schedar,Orus,Iapetus'
