@@ -132,8 +132,16 @@ export const ChapterVideo: React.FC<{config: ChapterConfig}> = ({config}) => {
 				/>
 			) : null}
 			{(config.sfx ?? []).map((s, k) => (
-				<Sequence key={`sfx${k}`} from={msToFrames(s.atMs)}>
-					<Audio src={staticFile(s.src)} volume={s.volume ?? 0.5} />
+				<Sequence
+					key={`sfx${k}`}
+					from={msToFrames(s.atMs)}
+					durationInFrames={s.durationSeconds ? Math.round(s.durationSeconds * 30) : undefined}
+				>
+					<Audio
+						src={staticFile(s.src)}
+						volume={s.volume ?? 0.5}
+						trimBefore={s.startFromSeconds ? Math.round(s.startFromSeconds * 30) : undefined}
+					/>
 				</Sequence>
 			))}
 		</AbsoluteFill>

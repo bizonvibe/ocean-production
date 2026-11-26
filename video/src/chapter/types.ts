@@ -41,6 +41,10 @@ export type SfxSpec = {
 	src: string;
 	/** Время от начала главы, мс. */
 	atMs: number;
+	/** С какой секунды файла играть (например, звук из стокового видео). */
+	startFromSeconds?: number;
+	/** Сколько играть, секунды (по умолчанию — до конца файла). */
+	durationSeconds?: number;
 	volume?: number;
 };
 

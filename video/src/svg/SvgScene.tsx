@@ -26,6 +26,10 @@ export type ElStyle = {
 	letterSpacing?: number;
 	/** Заменить текст первого <text> внутри (счётчики). */
 	text?: string;
+	/** Толщина линий внутри (для вспышек перегородок и т. п.). */
+	strokeWidth?: number;
+	/** Бегущий пунктир: шаблон и смещение (px), для потоков воды и звука. */
+	dash?: {array: string; offset: number};
 };
 
 export type Camera = {
@@ -171,8 +175,17 @@ function apply(node: SVGGraphicsElement, s: ElStyle) {
 			tx.textContent = s.text;
 		}
 	} else restoreText(node);
+	st.strokeWidth = s.strokeWidth === undefined ? '' : String(s.strokeWidth);
+	if (s.dash) {
+		st.strokeDasharray = s.dash.array;
+		st.strokeDashoffset = String(s.dash.offset);
+	} else if (s.draw === undefined) {
+		st.strokeDasharray = '';
+		st.strokeDashoffset = '';
+	}
 	if (s.draw !== undefined) {
-		for (const p of Array.from(node.querySelectorAll(DRAWABLE)) as SVGGeometryElement[]) {
+		const own = node.matches(DRAWABLE) ? [node] : [];
+		for (const p of [...own, ...Array.from(node.querySelectorAll(DRAWABLE))] as SVGGeometryElement[]) {
 			p.setAttribute('pathLength', '1');
 			p.style.strokeDasharray = '1 1';
 			p.style.strokeDashoffset = String(1 - Math.max(0, Math.min(1, s.draw)));
@@ -188,7 +201,8 @@ function restoreText(node: Element) {
 }
 
 function clearDraw(node: Element) {
-	for (const p of Array.from(node.querySelectorAll('[pathLength]')) as SVGGeometryElement[]) {
+	const own = node.hasAttribute('pathLength') ? [node] : [];
+	for (const p of [...own, ...Array.from(node.querySelectorAll('[pathLength]'))] as SVGGeometryElement[]) {
 		p.removeAttribute('pathLength');
 		p.style.strokeDasharray = '';
 		p.style.strokeDashoffset = '';
@@ -204,6 +218,9 @@ function reset(node: SVGGraphicsElement) {
 	st.clipPath = '';
 	st.mixBlendMode = '';
 	st.letterSpacing = '';
+	st.strokeWidth = '';
+	st.strokeDasharray = '';
+	st.strokeDashoffset = '';
 	restoreText(node);
 	clearDraw(node);
 }

@@ -20,6 +20,7 @@ export const FootageLayer: React.FC<{footage: FootageSource; showCredit?: boolea
 		height: '100%',
 		objectFit: footage.fit ?? 'cover',
 		transform: `scale(${scale}) translateX(${x}px)`,
+		transformOrigin: footage.origin ?? 'center',
 		// Единый «грейд» канала: чуть холоднее тени, плотнее контраст.
 		filter: 'contrast(1.08) saturate(0.95)',
 	};

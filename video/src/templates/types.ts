@@ -13,6 +13,8 @@ export type FootageSource = {
 	startFromSeconds?: number;
 	/** Наезд камеры (Ken Burns): масштаб в начале и в конце сцены. */
 	zoom?: [number, number];
+	/** Точка, к которой идёт наезд (CSS transform-origin), например 'center 25%' — чтобы срезать низ кадра. */
+	origin?: string;
 	/** Сдвиг по X в пикселях за сцену — лёгкая панорама. */
 	panX?: number;
 	/** Затемнение футажа (0–1), чтобы текст читался. */

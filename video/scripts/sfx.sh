@@ -81,4 +81,11 @@ $F -f lavfi -i "anoisesrc=c=white:a=0.6:d=0.6:seed=19" -af \
 # Мягкий щелчок появления иконки, 0.25 с.
 $F -f lavfi -i "sine=f=880:d=0.25" -af "afade=t=in:d=0.003,afade=t=out:st=0.01:d=0.12:curve=exp,loudnorm=I=-26:TP=-6" $O public/sfx/tick.wav
 
+# ── Звуки главы 3 ──
+# «Писк» в ушах (перепонка), 1.6 с.
+$F -f lavfi -i "sine=f=4200:d=1.6" -af "afade=t=in:d=0.05,afade=t=out:st=0.4:d=1.2,loudnorm=I=-30:TP=-8" $O public/sfx/ring.wav
+# «Buzz»: щелчки ускоряются от 2 до 40 в секунду за 4 с и резко обрываются.
+$F -f lavfi -i "aevalsrc='if(lt(mod(2*t+4.75*t*t\,1)\,0.015)\,1\,0)*(0.6+0.4*random(0))':d=4:s=48000" -af \
+ "highpass=f=1500,lowpass=f=8000,aecho=0.6:0.3:40:0.2,loudnorm=I=-22:TP=-3" $O public/sfx/buzz.wav
+
 ls -1 public/sfx
