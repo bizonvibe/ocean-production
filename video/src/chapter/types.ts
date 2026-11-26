@@ -64,6 +64,8 @@ export type ChapterConfig = {
 		 * Всё после паузы (голос, слова, акценты) сдвигается.
 		 */
 		gaps?: {atMs: number; padMs: number}[];
+		/** Участки тишины в озвучке [начало, конец] мс (scripts/silences.py) — для проверки разрезов. */
+		silences?: [number, number][];
 	};
 	/** Тайминги слов озвучки (voice.captions.json из scripts/transcribe.py). Нужны для акцентов и пауз. */
 	words?: Word[];

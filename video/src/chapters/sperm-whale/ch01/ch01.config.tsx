@@ -6,6 +6,7 @@ import {BASE, STOCK} from './paths';
 import * as S from './scenes';
 import meta from './voice.json';
 import words from './voice.captions.json';
+import silences from './voice.silences.json';
 
 /**
  * Глава 1 «Вторжение воздуха в вечный мрак» (сценарий «Кашалоты», 00:00–01:40).
@@ -28,23 +29,29 @@ const wordEndMs = (match: string, occ = 1) => {
 	const s = wordMs(match, occ);
 	return W.find((w) => w.startMs === s)!.endMs;
 };
-/** Пауза перед словом: вставляется в тишину между предыдущим словом и этим. */
-const gapBefore = (match: string, padMs: number, occ = 1) => {
+
+const SIL = silences as [number, number][];
+/**
+ * Пауза после фразы: разрез ставится в середину настоящей тишины в аудио сразу после слова
+ * (тайминги WhisperX неточны на границах, поэтому по ним не режем).
+ */
+const gapAfter = (match: string, padMs: number, occ = 1) => {
 	const s = wordMs(match, occ);
-	const prev = [...W].reverse().find((w) => w.endMs <= s);
-	return {atMs: prev ? Math.round((prev.endMs + s) / 2) : s, padMs};
+	const quiet = SIL.find(([a]) => a >= s);
+	if (!quiet) throw new Error(`Глава 1: нет паузы после «${match}»`);
+	return {atMs: Math.round((quiet[0] + quiet[1]) / 2), padMs};
 };
 
 const gaps = [
-	gapBefore('этой', 700), // после «…разрывать любую плоть.»
-	gapBefore('пока', 1500), // тишина перед первым щелчком
-	gapBefore('потому', 2600), // щелчки после «…первый щелчок.»
-	gapBefore('это', 2400, 1), // выдох перед «Это кашалот.»
-	gapBefore('млекопитающее', 1200), // титр держится
-	gapBefore('сегодня', 1200), // «?» перед финалом
+	gapAfter('плоть', 700), // перед «В этой непроглядной тьме…»
+	gapAfter('врагов', 1500), // тишина перед первым щелчком
+	gapAfter('щелчок', 2600), // щелчки после «…первый щелчок.»
+	gapAfter('воздухом', 2400), // выдох перед «Это кашалот.»
+	gapAfter('кашалот', 1200), // титр держится
+	gapAfter('дна', 1200), // «?» перед финалом
 ];
 
-const voice = {src: `${BASE}/voice.wav`, durationMs: meta.durationMs, gaps};
+const voice = {src: `${BASE}/voice.wav`, durationMs: meta.durationMs, gaps, silences: SIL};
 const tmp: ChapterConfig = {id: 'x', voiceover: voice, shots: [], leadInFrames: LEAD_S * 30};
 
 /** Время слова на шкале главы, секунды. */

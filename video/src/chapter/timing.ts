@@ -84,6 +84,13 @@ export const checkChapter = (c: ChapterConfig) => {
 	if (Math.abs(delta) > FPS * 2) {
 		console.warn(`[${c.id}] план короче/длиннее озвучки на ${(delta / FPS).toFixed(1)} с — последний план подогнан.`);
 	}
+	// Разрез озвучки (вставка паузы) обязан попадать в тишину, иначе слышен обрыв/повтор звука.
+	const sil = c.voiceover.silences;
+	for (const g of c.voiceover.gaps ?? []) {
+		if (sil && !sil.some(([a, b]) => g.atMs >= a + 30 && g.atMs <= b - 30)) {
+			console.warn(`[${c.id}] разрез озвучки на ${g.atMs} мс не попадает в тишину — будет слышен обрыв.`);
+		}
+	}
 	if ((c.accents?.length ?? 0) > 3) {
 		console.warn(`[${c.id}] акцентных слов ${c.accents!.length} — их должно быть немного (0–3).`);
 	}

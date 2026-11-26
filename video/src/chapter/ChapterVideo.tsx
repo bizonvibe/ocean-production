@@ -114,7 +114,12 @@ export const ChapterVideo: React.FC<{config: ChapterConfig}> = ({config}) => {
 						src={staticFile(config.voiceover.src)}
 						trimBefore={msToFrames(a)}
 						trimAfter={msToFrames(b)}
-						volume={config.voiceover.volume ?? 1}
+						// Микро-затухание на стыках кусков (1 кадр ≈ 33 мс) — без щелчков.
+						volume={(f) => {
+							const len = msToFrames(b - a);
+							const edge = voicePieces(config).length > 1 ? Math.min(1, (f + 1) / 2, (len - f) / 2) : 1;
+							return (config.voiceover.volume ?? 1) * Math.max(0, edge);
+						}}
 					/>
 				</Sequence>
 			))}

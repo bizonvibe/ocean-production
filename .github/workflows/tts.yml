@@ -88,6 +88,9 @@ jobs:
             python3 video/scripts/tts.py "$SRC" "../voice-out/voice/$PROJECT/$CHAPTER/voice.wav" \
               --voice "$VOICE" --model "$MODEL"
             cp "$SRC" "../voice-out/voice/$PROJECT/$CHAPTER/voice.txt"
+            # Паузы в аудио — для безопасных разрезов при вставке драматических пауз.
+            python3 video/scripts/silences.py "../voice-out/voice/$PROJECT/$CHAPTER/voice.wav" \
+              "../voice-out/voice/$PROJECT/$CHAPTER/voice.silences.json"
           fi
 
       - name: Коммит озвучки в ветку voice

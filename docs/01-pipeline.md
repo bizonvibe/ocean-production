@@ -12,7 +12,9 @@ python3 scripts/tts.py public/projects/<проект>/chNN/voice.txt public/proj
 pip install -r requirements-captions.txt     # один раз, тяжёлое (WhisperX)
 python3 scripts/transcribe.py public/projects/<проект>/chNN/voice.wav --lang ru
 ```
-Получаем `voice.wav`, `voice.json` (`durationMs`) и `voice.captions.json` (тайминги слов).
+Получаем `voice.wav` (−16 LUFS), `voice.json` (`durationMs`), `voice.captions.json` (тайминги слов) и
+`voice.silences.json` (паузы в аудио). Драматические паузы вставляются **только в середину настоящей тишины**
+(`gapAfter` в конфиге главы): тайминги WhisperX на границах слов неточны, разрез по ним обрывает звук.
 Прослушать: ударения, числа, имена. Ошибочное ударение — переписать слово в тексте (например, «вОды» → «во́ды» или синоним) и перегенерировать абзац.
 
 ## 3. Материалы главы
