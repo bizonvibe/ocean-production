@@ -152,6 +152,7 @@ def main() -> int:
         outdir = Path(a.out)
         outdir.mkdir(parents=True, exist_ok=True)
         for v in (a.voices.split(',') if a.voices else MALE_CANDIDATES):
+            print(f'{v}…', flush=True)
             d = to_wav([synth(a.compare, v, a.model, a.style)], 0, outdir / f'{v}.wav')
             print(f'{v}: {d:.1f} с → {outdir / (v + ".wav")}')
         return 0

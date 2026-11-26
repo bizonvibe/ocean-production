@@ -83,6 +83,17 @@ jobs:
             cp "$SRC" "../voice-out/voice/$PROJECT/$CHAPTER/voice.txt"
           fi
 
+      - name: Тайминги слов (WhisperX)
+        if: inputs.mode == 'chapter'
+        env:
+          PROJECT: ${{ inputs.project }}
+          CHAPTER: ${{ inputs.chapter }}
+        run: |
+          set -euo pipefail
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install -q -r video/requirements-captions.txt
+          python3 video/scripts/transcribe.py "../voice-out/voice/$PROJECT/$CHAPTER/voice.wav" --lang ru
+
       - name: Коммит в ветку voice
         env:
           MODE: ${{ inputs.mode }}
