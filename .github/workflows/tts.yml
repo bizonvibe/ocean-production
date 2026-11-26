@@ -1,0 +1,96 @@
+name: Озвучка (Gemini TTS)
+
+# Запуск вручную (Actions → «Озвучка» → Run workflow) или агентом через API.
+# Результат коммитится в ветку `voice`: voice/<project>/<chapter>/voice.wav (+ voice.json),
+# пробы голосов — voice/_samples/<run_number>/<Голос>.wav.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'chapter — озвучить главу; compare — пробы голосов'
+        type: choice
+        options: [chapter, compare]
+        default: chapter
+      project:
+        description: 'Проект (папка в voiceover/)'
+        default: sperm-whale
+      chapter:
+        description: 'Глава (папка в voiceover/<проект>/), например 01'
+        default: '01'
+      voice:
+        description: 'Голос для главы'
+        default: Charon
+      voices:
+        description: 'compare: голоса через запятую'
+        default: 'Charon,Orus,Iapetus,Algenib,Gacrux,Sadaltager,Schedar'
+      text:
+        description: 'compare: фраза для проб'
+        default: 'Потому что самый опасный хищник океанской бездны на самом деле не принадлежит бездне. Он дышит воздухом. Это кашалот.'
+      model:
+        description: 'Модель Gemini TTS (если её нет — скрипт сам выберет доступную)'
+        default: gemini-2.5-pro-preview-tts
+
+permissions:
+  contents: write
+
+concurrency:
+  group: voice-branch
+  cancel-in-progress: false
+
+jobs:
+  tts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: FFmpeg
+        run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+
+      - name: Ветка voice
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin voice >/dev/null; then
+            git fetch --depth 1 origin voice
+            git worktree add -B voice ../voice-out FETCH_HEAD
+          else
+            git worktree add --orphan -b voice ../voice-out
+          fi
+
+      - name: Озвучка
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
+          MODE: ${{ inputs.mode }}
+          PROJECT: ${{ inputs.project }}
+          CHAPTER: ${{ inputs.chapter }}
+          VOICE: ${{ inputs.voice }}
+          VOICES: ${{ inputs.voices }}
+          TEXT: ${{ inputs.text }}
+          MODEL: ${{ inputs.model }}
+        run: |
+          set -euo pipefail
+          if [[ "$MODE" == compare ]]; then
+            python3 video/scripts/tts.py --compare "$TEXT" --voices "$VOICES" --model "$MODEL" \
+              "../voice-out/voice/_samples/${GITHUB_RUN_NUMBER}"
+            printf '%s\n' "$TEXT" > "../voice-out/voice/_samples/${GITHUB_RUN_NUMBER}/text.txt"
+          else
+            SRC="voiceover/$PROJECT/$CHAPTER/voice.txt"
+            [[ -f "$SRC" ]] || { echo "Нет файла $SRC"; exit 1; }
+            python3 video/scripts/tts.py "$SRC" "../voice-out/voice/$PROJECT/$CHAPTER/voice.wav" \
+              --voice "$VOICE" --model "$MODEL"
+            cp "$SRC" "../voice-out/voice/$PROJECT/$CHAPTER/voice.txt"
+          fi
+
+      - name: Коммит в ветку voice
+        env:
+          MODE: ${{ inputs.mode }}
+          PROJECT: ${{ inputs.project }}
+          CHAPTER: ${{ inputs.chapter }}
+        run: |
+          cd ../voice-out
+          git add -A
+          if [[ "$MODE" == compare ]]; then MSG="Пробы голосов (запуск ${GITHUB_RUN_NUMBER})"; else MSG="Озвучка: $PROJECT/$CHAPTER"; fi
+          git commit -m "$MSG" || { echo "Нечего коммитить"; exit 0; }
+          git push origin voice

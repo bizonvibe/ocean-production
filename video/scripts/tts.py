@@ -14,7 +14,8 @@
 а паузы между мыслями получаются ровными.
 
 Ключ API: в облачной среде его подставляет прокси (network secret окружения для хоста
-generativelanguage.googleapis.com, заголовок x-goog-api-key). Локально — переменная GEMINI_API_KEY.
+generativelanguage.googleapis.com, заголовок x-goog-api-key). Локально и в GitHub Actions — переменные GEMINI_API_KEY и GEMINI_API_KEY_2
+(второй ключ используется, когда первый упёрся в квоту).
 В код, конфиги и чат ключ не пишем.
 """
 import argparse
@@ -41,8 +42,38 @@ STYLE = (
 )
 
 
+def _keys() -> list[str]:
+    """Ключи по порядку: основной, запасной. В облаке Claude Code ключ подставляет прокси."""
+    keys = [os.environ.get(k, '').strip() for k in ('GEMINI_API_KEY', 'GEMINI_API_KEY_2')]
+    keys = [k for k in keys if k]
+    return keys or ['injected-by-proxy']
+
+
+def _post(url: str, body: dict, key: str) -> dict:
+    req = urllib.request.Request(
+        url, data=json.dumps(body).encode(),
+        headers={'Content-Type': 'application/json', 'x-goog-api-key': key},
+    )
+    with urllib.request.urlopen(req, timeout=300) as r:
+        return json.load(r)
+
+
+def tts_models(key: str) -> list[str]:
+    """Список моделей с поддержкой TTS (на случай, если модель по умолчанию переименовали)."""
+    req = urllib.request.Request(
+        'https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000', headers={'x-goog-api-key': key})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        data = json.load(r)
+    return [m['name'].split('/')[-1] for m in data.get('models', []) if 'tts' in m['name']]
+
+
+_model_override: str | None = None
+
+
 def synth(text: str, voice: str, model: str, style: str) -> bytes:
-    """Один запрос → сырые PCM s16le 24 кГц моно."""
+    """Один запрос → сырые PCM s16le 24 кГц моно.
+    Квота исчерпана (429) → следующий ключ; модель не найдена (404) → подбор доступной TTS-модели."""
+    global _model_override
     body = {
         'contents': [{'parts': [{'text': style + text}]}],
         'generationConfig': {
@@ -50,26 +81,38 @@ def synth(text: str, voice: str, model: str, style: str) -> bytes:
             'speechConfig': {'voiceConfig': {'prebuiltVoiceConfig': {'voiceName': voice}}},
         },
     }
-    # В облаке прокси заменяет значение ключа настоящим; локально берём из окружения.
-    key = os.environ.get('GEMINI_API_KEY', 'injected-by-proxy')
-    req = urllib.request.Request(
-        API.format(model=model),
-        data=json.dumps(body).encode(),
-        headers={'Content-Type': 'application/json', 'x-goog-api-key': key},
-    )
-    for attempt in range(4):
+    keys = _keys()
+    ki = 0
+    for attempt in range(8):
+        m = _model_override or model
         try:
-            with urllib.request.urlopen(req, timeout=300) as r:
-                data = json.load(r)
+            data = _post(API.format(model=m), body, keys[ki])
             break
         except urllib.error.HTTPError as e:
             msg = e.read().decode(errors='replace')[:500]
-            if e.code in (429, 500, 503) and attempt < 3:
-                time.sleep(5 * 2 ** attempt)
+            if e.code == 429 and ki + 1 < len(keys):
+                ki += 1
+                print(f'  квота ключа {ki} исчерпана — переключаюсь на ключ {ki + 1}', flush=True)
+                continue
+            if e.code == 404 and _model_override is None:
+                avail = tts_models(keys[ki])
+                print(f'  модель {m} не найдена; доступные TTS-модели: {avail}', flush=True)
+                pro = [x for x in avail if 'pro' in x] or avail
+                if not pro:
+                    sys.exit('Нет доступных TTS-моделей')
+                _model_override = pro[0]
+                continue
+            if e.code in (429, 500, 503) and attempt < 7:
+                time.sleep(min(60, 5 * 2 ** attempt))
                 continue
             sys.exit(f'Gemini TTS: HTTP {e.code}: {msg}')
+    else:
+        sys.exit('Gemini TTS: не удалось получить ответ')
     parts = data['candidates'][0]['content']['parts']
-    return b''.join(base64.b64decode(p['inlineData']['data']) for p in parts if 'inlineData' in p)
+    pcm = b''.join(base64.b64decode(p['inlineData']['data']) for p in parts if 'inlineData' in p)
+    if not pcm:
+        sys.exit(f'Gemini TTS: в ответе нет аудио: {json.dumps(data, ensure_ascii=False)[:500]}')
+    return pcm
 
 
 def to_wav(pcm_chunks: list[bytes], gap_s: float, out: Path) -> float:
@@ -101,12 +144,14 @@ def main() -> int:
     ap.add_argument('--model', default=DEFAULT_MODEL)
     ap.add_argument('--gap', type=float, default=0.6, help='пауза между абзацами, с')
     ap.add_argument('--style', default=STYLE, help='инструкция для голоса перед текстом')
-    ap.add_argument('--compare', metavar='TEXT', help='озвучить TEXT всеми голосами из MALE_CANDIDATES')
+    ap.add_argument('--compare', metavar='TEXT', help='озвучить TEXT голосами из --voices (по умолчанию MALE_CANDIDATES)')
+    ap.add_argument('--voices', help='список голосов через запятую для --compare')
     a = ap.parse_args()
 
     if a.compare:
         outdir = Path(a.out)
-        for v in MALE_CANDIDATES:
+        outdir.mkdir(parents=True, exist_ok=True)
+        for v in (a.voices.split(',') if a.voices else MALE_CANDIDATES):
             d = to_wav([synth(a.compare, v, a.model, a.style)], 0, outdir / f'{v}.wav')
             print(f'{v}: {d:.1f} с → {outdir / (v + ".wav")}')
         return 0
@@ -121,7 +166,7 @@ def main() -> int:
         chunks.append(synth(p, a.voice, a.model, a.style))
     out = Path(a.out)
     dur = to_wav(chunks, a.gap, out)
-    meta = {'durationMs': round(dur * 1000), 'voice': a.voice, 'model': a.model, 'paragraphs': len(paragraphs)}
+    meta = {'durationMs': round(dur * 1000), 'voice': a.voice, 'model': _model_override or a.model, 'paragraphs': len(paragraphs)}
     out.with_suffix('.json').write_text(json.dumps(meta, ensure_ascii=False, indent=1))
     print(f'Готово: {out} ({dur:.2f} с), метаданные → {out.with_suffix(".json")}')
     return 0
