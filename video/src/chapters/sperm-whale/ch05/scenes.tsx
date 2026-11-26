@@ -279,6 +279,13 @@ export const Scene11: React.FC<P> = ({tz}) => {
 		<SvgScene
 			dir={`${DIR}/scene-11_ambergris-forming`}
 			layers={['00_background', '10_intestine', '20_beak', '30_wax-layers', '40_sea-surface', '50_lump', '90_labels']}
+			// Сцена растянута озвучкой: наезд на кишечник со слоями воска, затем отъезд к панели с морем.
+			camera={() => {
+				const inZ = p(t, 103, 111.6, ease.inOutSine);
+				const outZ = p(t, 112.4, 113.6, ease.inOutSine);
+				const k = inZ * (1 - outZ);
+				return {scale: mix(1, 1.22, k), focus: [mix(960, 720, k), 540]};
+			}}
 			animate={() => styles}
 		/>
 	);
@@ -293,6 +300,7 @@ export const Scene12: React.FC<P> = ({tz}) => {
 			<SvgScene
 				dir={`${DIR}/scene-12_ambergris-value`}
 				layers={['00_background', '10_foam', '20_lump-dark', '30_lump-light', '40_perfume', '50_car', '90_labels']}
+				camera={() => ({scale: mix(1, 1.14, p(t, 117.5, 135, ease.inOutSine)), origin: [820, 760]})}
 				animate={() => ({
 					foam: {transform: `translate(${wave(t, 3, 20)}px, ${wave(t, 3, 10, 0.25)}px)`},
 					'lump-light': {opacity: p(t, 118.6, 123, ease.inOutSine)},
