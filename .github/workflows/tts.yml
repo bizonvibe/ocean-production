@@ -22,13 +22,13 @@ on:
         default: Charon
       voices:
         description: 'compare: голоса через запятую'
-        default: 'Charon,Orus,Iapetus,Algenib,Gacrux,Sadaltager,Schedar'
+        default: 'Charon,Gacrux,Schedar,Orus,Iapetus'
       text:
         description: 'compare: фраза для проб'
         default: 'Потому что самый опасный хищник океанской бездны на самом деле не принадлежит бездне. Он дышит воздухом. Это кашалот.'
       model:
         description: 'Модель Gemini TTS (если её нет — скрипт сам выберет доступную)'
-        default: gemini-2.5-pro-preview-tts
+        default: gemini-2.5-flash-preview-tts
 
 permissions:
   contents: write

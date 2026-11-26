@@ -31,7 +31,7 @@ import urllib.request
 from pathlib import Path
 
 API = 'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent'
-DEFAULT_MODEL = 'gemini-2.5-pro-preview-tts'
+DEFAULT_MODEL = 'gemini-2.5-flash-preview-tts'  # у Pro на бесплатном тарифе лимит 0 запросов
 DEFAULT_VOICE = 'Charon'
 # Мужские голоса Gemini TTS, подходящие для спокойного документального диктора.
 MALE_CANDIDATES = ['Charon', 'Orus', 'Iapetus', 'Algenib', 'Gacrux', 'Sadaltager', 'Schedar']
@@ -94,6 +94,11 @@ def synth(text: str, voice: str, model: str, style: str) -> bytes:
                 ki += 1
                 print(f'  квота ключа {ki} исчерпана — переключаюсь на ключ {ki + 1}', flush=True)
                 continue
+            if e.code == 429 and 'limit: 0' in msg and 'flash' not in m:
+                _model_override = DEFAULT_MODEL
+                ki = 0
+                print(f'  у {m} нет бесплатной квоты — перехожу на {DEFAULT_MODEL}', flush=True)
+                continue
             if e.code == 404 and _model_override is None:
                 avail = tts_models(keys[ki])
                 print(f'  модель {m} не найдена; доступные TTS-модели: {avail}', flush=True)
@@ -142,7 +147,8 @@ def main() -> int:
     ap.add_argument('--text', help='текст прямо в аргументе вместо файла')
     ap.add_argument('--voice', default=DEFAULT_VOICE)
     ap.add_argument('--model', default=DEFAULT_MODEL)
-    ap.add_argument('--gap', type=float, default=0.6, help='пауза между абзацами, с')
+    ap.add_argument('--gap', type=float, default=0.6, help='пауза между кусками текста, с')
+    ap.add_argument('--max-chars', type=int, default=4000, help='макс. длина одного запроса, символов')
     ap.add_argument('--style', default=STYLE, help='инструкция для голоса перед текстом')
     ap.add_argument('--compare', metavar='TEXT', help='озвучить TEXT голосами из --voices (по умолчанию MALE_CANDIDATES)')
     ap.add_argument('--voices', help='список голосов через запятую для --compare')
@@ -161,9 +167,18 @@ def main() -> int:
     paragraphs = [p.strip() for p in text.split('\n\n') if p.strip()]
     if not paragraphs:
         sys.exit('Пустой текст')
+    # Экономим квоту и держим ровную интонацию: абзацы объединяются в куски до --max-chars,
+    # обычно вся глава уходит одним запросом (паузы между абзацами диктор делает сам).
+    chunks_txt: list[str] = []
+    for para in paragraphs:
+        if chunks_txt and len(chunks_txt[-1]) + len(para) + 2 <= a.max_chars:
+            chunks_txt[-1] += '\n\n' + para
+        else:
+            chunks_txt.append(para)
+    paragraphs = chunks_txt
     chunks = []
     for i, p in enumerate(paragraphs, 1):
-        print(f'Абзац {i}/{len(paragraphs)}…', flush=True)
+        print(f'Кусок {i}/{len(paragraphs)} ({len(p)} симв.)…', flush=True)
         chunks.append(synth(p, a.voice, a.model, a.style))
     out = Path(a.out)
     dur = to_wav(chunks, a.gap, out)

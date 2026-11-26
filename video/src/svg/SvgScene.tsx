@@ -17,11 +17,13 @@ export type ElStyle = {
 	filter?: string;
 	/** Точка трансформации в координатах холста 1920×1080. */
 	origin?: [number, number];
-	/** CSS clip-path относительно холста, например insetX(0.5) — см. helpers. */
+	/** CSS clip-path; для SVG-элементов рамка отсчёта — bbox элемента (revealX/revealY из motion.ts). */
 	clipPath?: string;
 	/** Доля прорисовки линий 0–1 (stroke draw-on): для всех path/line/polyline/circle/rect/ellipse внутри. */
 	draw?: number;
 	mixBlendMode?: React.CSSProperties['mixBlendMode'];
+	/** Межбуквенный интервал для текста внутри (px). */
+	letterSpacing?: number;
 };
 
 export type Camera = {
@@ -31,6 +33,8 @@ export type Camera = {
 	focus?: [number, number];
 	/** Поворот, градусы. */
 	rotate?: number;
+	/** Если задано — масштаб вокруг этой неподвижной точки холста (вместо focus). */
+	origin?: [number, number];
 };
 
 const textCache = new Map<string, string>();
@@ -91,7 +95,9 @@ export const SvgScene: React.FC<{
 		const styles = animate ? animate(t) : {};
 		const seen = new Set<Element>();
 		for (const [id, s] of Object.entries(styles)) {
-			const node = el.querySelector(`#${CSS.escape(id)}`) as SVGGraphicsElement | null;
+			// Ключ — id элемента или CSS-селектор (если есть пробел, >, . или #), например '#marker-sub-250 > g'.
+			const sel = /[\s>.#\[:]/.test(id) ? id : `#${CSS.escape(id)}`;
+			const node = el.querySelector(sel) as SVGGraphicsElement | null;
 			if (!node) {
 				console.warn(`[${dir}] нет элемента #${id}`);
 				continue;
@@ -108,7 +114,10 @@ export const SvgScene: React.FC<{
 	const cam = camera ? camera(t) : {};
 	const s = cam.scale ?? 1;
 	const [fx, fy] = cam.focus ?? [960, 540];
-	const camTransform = `translate(${960 - fx * s}px, ${540 - fy * s}px) scale(${s}) rotate(${cam.rotate ?? 0}deg)`;
+	const camTransform = cam.origin
+		? `scale(${s}) rotate(${cam.rotate ?? 0}deg)`
+		: `translate(${960 - fx * s}px, ${540 - fy * s}px) scale(${s}) rotate(${cam.rotate ?? 0}deg)`;
+	const camOrigin = cam.origin ? `${cam.origin[0]}px ${cam.origin[1]}px` : '0 0';
 	const ls = layerStyle ? layerStyle(t) : {};
 
 	const layerDiv = (name: string, i: number) => (
@@ -122,7 +131,7 @@ export const SvgScene: React.FC<{
 
 	return (
 		<AbsoluteFill ref={root} style={{overflow: 'hidden', backgroundColor: '#000'}}>
-			<AbsoluteFill style={{transformOrigin: '0 0', transform: camTransform}}>
+			<AbsoluteFill style={{transformOrigin: camOrigin, transform: camTransform}}>
 				{layers.map((l, i) => (cameraExclude.includes(l) ? null : layerDiv(l, i)))}
 				{children}
 			</AbsoluteFill>
@@ -152,6 +161,7 @@ function apply(node: SVGGraphicsElement, s: ElStyle) {
 	st.filter = s.filter ?? '';
 	st.clipPath = s.clipPath ?? '';
 	st.mixBlendMode = s.mixBlendMode ?? '';
+	st.letterSpacing = s.letterSpacing === undefined ? '' : `${s.letterSpacing}px`;
 	if (s.draw !== undefined) {
 		for (const p of Array.from(node.querySelectorAll(DRAWABLE)) as SVGGeometryElement[]) {
 			p.setAttribute('pathLength', '1');
@@ -179,5 +189,6 @@ function reset(node: SVGGraphicsElement) {
 	st.filter = '';
 	st.clipPath = '';
 	st.mixBlendMode = '';
+	st.letterSpacing = '';
 	clearDraw(node);
 }

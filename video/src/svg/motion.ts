@@ -53,7 +53,28 @@ export const rand = (seed: number) => {
 	return x - Math.floor(x);
 };
 
-/** clip-path: открыть слева направо долю pr (в координатах холста). */
+/** clip-path: открыть слева направо долю pr — от рамки самого элемента (bbox), не холста. */
 export const revealX = (pr: number) => `inset(0 ${(1 - pr) * 100}% 0 0)`;
-/** clip-path: открыть сверху вниз долю pr. */
+/** clip-path: открыть сверху вниз долю pr — от рамки самого элемента. */
 export const revealY = (pr: number) => `inset(0 0 ${(1 - pr) * 100}% 0)`;
+
+/**
+ * Пересчёт реального времени сцены во время ТЗ по якорям.
+ * points: пары [реальная секунда от начала сцены, секунда ТЗ] по возрастанию
+ * (начало сцены, якорные слова ⚓, конец сцены). Между точками — линейно, за краями — с наклоном 1.
+ */
+export const timeMap = (points: [number, number][]) => {
+	const pts = [...points].sort((a, b) => a[0] - b[0]);
+	return (t: number) => {
+		if (t <= pts[0][0]) return pts[0][1] + (t - pts[0][0]);
+		for (let i = 1; i < pts.length; i++) {
+			const [r0, z0] = pts[i - 1];
+			const [r1, z1] = pts[i];
+			if (t <= r1) return z0 + ((t - r0) / Math.max(1e-6, r1 - r0)) * (z1 - z0);
+		}
+		const [rl, zl] = pts[pts.length - 1];
+		return zl + (t - rl);
+	};
+};
+
+export type TimeMap = (t: number) => number;
