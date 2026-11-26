@@ -88,4 +88,9 @@ $F -f lavfi -i "sine=f=4200:d=1.6" -af "afade=t=in:d=0.05,afade=t=out:st=0.4:d=1
 $F -f lavfi -i "aevalsrc='if(lt(mod(2*t+4.75*t*t\,1)\,0.015)\,1\,0)*(0.6+0.4*random(0))':d=4:s=48000" -af \
  "highpass=f=1500,lowpass=f=8000,aecho=0.6:0.3:40:0.2,loudnorm=I=-22:TP=-3" $O public/sfx/buzz.wav
 
+# ── Звуки главы 7 ──
+# Свист косаток: быстрые высокие глиссандо, 1.6 с.
+$F -f lavfi -i "aevalsrc='0.5*sin(2*PI*(2200*t+1800*t*t-900*t*t*t))*(1-exp(-30*t))*exp(-1.2*t)':d=1.6:s=48000" -af \
+ "highpass=f=900,aecho=0.6:0.4:120:0.3,loudnorm=I=-24:TP=-4" $O public/sfx/whistle.wav
+
 ls -1 public/sfx

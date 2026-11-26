@@ -99,7 +99,7 @@ export const spermWhaleCh06 = buildChapter({
 		return [{src: `${BASE}/stock/${CODAS}`, atMs: Math.round(start * 1000), startFromSeconds: 0.5, durationSeconds: at('ученые', 2) - 0.35 - start, volume: 0.8}];
 	},
 	music: {src: `${BASE}/music/Atlantean Twilight.mp3`, volume: MUSIC, boostInPauses: false},
-	accents: [{text: '8 килограммов', match: '8', durationMs: 2000, position: 'upper'}],
+	accents: [], // «8 кг» уже крупно в кадре сцены 1 — отдельный акцент не нужен
 });
 
 export const CREDITS_CH06 = [
