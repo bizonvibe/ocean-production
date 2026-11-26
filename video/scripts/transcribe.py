@@ -25,6 +25,7 @@ def main() -> int:
     ap.add_argument('--model', default='small', help='tiny/base/small/medium/large-v3 (больше — точнее и медленнее)')
     ap.add_argument('--device', default='cpu')
     ap.add_argument('--out')
+    ap.add_argument('--text', help='исходный текст диктора: если число слов совпало, слова берутся из него (тайминги — из распознавания)')
     a = ap.parse_args()
     try:
         import whisperx  # noqa: WPS433
@@ -48,6 +49,14 @@ def main() -> int:
                 'text': ' ' + w['word'].strip(), 'startMs': s, 'endMs': e,
                 'timestampMs': (s + e) // 2, 'confidence': round(float(w.get('score', 0)), 3),
             })
+    if a.text:
+        script = Path(a.text).read_text(encoding='utf-8').split()
+        if len(script) == len(captions):
+            for c, word in zip(captions, script):
+                c['text'] = ' ' + word
+            print('Слова заменены текстом сценария (число слов совпало)')
+        else:
+            print(f'⚠️  Слов в сценарии {len(script)}, распознано {len(captions)} — оставляю распознанный текст')
     out = Path(a.out or Path(a.audio).with_suffix('.captions.json'))
     out.write_text(json.dumps(captions, ensure_ascii=False, indent=1))
     print(f'Слов: {len(captions)} → {out}')
