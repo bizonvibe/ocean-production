@@ -149,7 +149,7 @@ def main() -> int:
     ap.add_argument('--voice', default=DEFAULT_VOICE)
     ap.add_argument('--model', default=DEFAULT_MODEL)
     ap.add_argument('--gap', type=float, default=0.6, help='пауза между кусками текста, с')
-    ap.add_argument('--max-chars', type=int, default=4000, help='макс. длина одного запроса, символов')
+    ap.add_argument('--max-chars', type=int, default=5000, help='макс. длина одного запроса, символов')
     ap.add_argument('--style', default=STYLE, help='инструкция для голоса перед текстом')
     ap.add_argument('--compare', metavar='TEXT', help='озвучить TEXT голосами из --voices (по умолчанию MALE_CANDIDATES)')
     ap.add_argument('--voices', help='список голосов через запятую для --compare')
