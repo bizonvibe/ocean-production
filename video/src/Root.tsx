@@ -6,12 +6,13 @@ import {exampleCh01} from './chapters/_example/ch01.config';
 import {spermWhaleCh01} from './chapters/sperm-whale/ch01/ch01.config';
 import {spermWhaleCh02} from './chapters/sperm-whale/ch02/ch02.config';
 import {spermWhaleCh03} from './chapters/sperm-whale/ch03/ch03.config';
+import {spermWhaleCh04} from './chapters/sperm-whale/ch04/ch04.config';
 import {spermWhaleCh05} from './chapters/sperm-whale/ch05/ch05.config';
 
 // Все ролики: 1920×1080, 30 fps. Каждая глава регистрируется здесь (добавить конфиг в CHAPTERS).
 const VIDEO = {fps: 30, width: 1920, height: 1080} as const;
 
-const CHAPTERS: ChapterConfig[] = [exampleCh01, spermWhaleCh01, spermWhaleCh02, spermWhaleCh03, spermWhaleCh05];
+const CHAPTERS: ChapterConfig[] = [exampleCh01, spermWhaleCh01, spermWhaleCh02, spermWhaleCh03, spermWhaleCh04, spermWhaleCh05];
 
 export const RemotionRoot: React.FC = () => (
 	<>
