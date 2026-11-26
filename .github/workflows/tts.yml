@@ -33,8 +33,10 @@ on:
 permissions:
   contents: write
 
+# Своя группа на каждую главу: параллельные запуски разных глав не отменяют друг друга,
+# а отправка в ветку voice идёт с повтором через pull --rebase.
 concurrency:
-  group: voice-branch
+  group: voice-${{ inputs.project }}-${{ inputs.chapter }}-${{ inputs.mode }}
   cancel-in-progress: false
 
 jobs:
@@ -104,7 +106,10 @@ jobs:
           MSG="Озвучка: $PROJECT/$CHAPTER"
           if [[ "$MODE" == compare ]]; then MSG="Пробы голосов (запуск ${GITHUB_RUN_NUMBER})"; fi
           git commit -m "$MSG" || { echo "Нечего коммитить"; exit 0; }
-          git push origin voice
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin voice && git push origin voice && break
+            sleep $((i * 5))
+          done
 
       - name: Тайминги слов (WhisperX)
         if: inputs.mode != 'compare'
@@ -130,4 +135,7 @@ jobs:
           MSG="Тайминги слов: $PROJECT/$CHAPTER"
           if [[ "$MODE" == compare ]]; then MSG="Пробы голосов (запуск ${GITHUB_RUN_NUMBER})"; fi
           git commit -m "$MSG" || { echo "Нечего коммитить"; exit 0; }
-          git push origin voice
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin voice && git push origin voice && break
+            sleep $((i * 5))
+          done

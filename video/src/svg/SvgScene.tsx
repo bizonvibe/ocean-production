@@ -30,6 +30,9 @@ export type ElStyle = {
 	strokeWidth?: number;
 	/** Бегущий пунктир: шаблон и смещение (px), для потоков воды и звука. */
 	dash?: {array: string; offset: number};
+	/** Цвет заливки / обводки самого элемента (для групп — указывать селектор фигуры внутри). */
+	fill?: string;
+	stroke?: string;
 };
 
 export type Camera = {
@@ -176,6 +179,8 @@ function apply(node: SVGGraphicsElement, s: ElStyle) {
 		}
 	} else restoreText(node);
 	st.strokeWidth = s.strokeWidth === undefined ? '' : String(s.strokeWidth);
+	st.fill = s.fill ?? '';
+	st.stroke = s.stroke ?? '';
 	if (s.dash) {
 		st.strokeDasharray = s.dash.array;
 		st.strokeDashoffset = String(s.dash.offset);
@@ -219,6 +224,8 @@ function reset(node: SVGGraphicsElement) {
 	st.mixBlendMode = '';
 	st.letterSpacing = '';
 	st.strokeWidth = '';
+	st.fill = '';
+	st.stroke = '';
 	st.strokeDasharray = '';
 	st.strokeDashoffset = '';
 	restoreText(node);

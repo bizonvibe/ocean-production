@@ -19,6 +19,7 @@ export const ease = {
 	inOutCubic: (x: number) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2),
 	outQuart: (x: number) => 1 - Math.pow(1 - x, 4),
 	outExpo: (x: number) => (x >= 1 ? 1 : 1 - Math.pow(2, -10 * x)),
+	inExpo: (x: number) => (x <= 0 ? 0 : Math.pow(2, 10 * x - 10)),
 	/** Перелёт за цель и возврат; overshoot ≈ 1.70158 — стандарт, 1.1 — мягко. */
 	outBack:
 		(overshoot = 1.70158) =>
@@ -87,3 +88,10 @@ export const timeMap = (points: [number, number][]) => {
 };
 
 export type TimeMap = (t: number) => number;
+
+/** Смешение цветов #rrggbb. */
+export const mixColor = (a: string, b: string, pr: number) => {
+	const ca = [1, 3, 5].map((i) => parseInt(a.slice(i, i + 2), 16));
+	const cb = [1, 3, 5].map((i) => parseInt(b.slice(i, i + 2), 16));
+	return `rgb(${ca.map((v, i) => Math.round(v + (cb[i] - v) * Math.max(0, Math.min(1, pr)))).join(',')})`;
+};
