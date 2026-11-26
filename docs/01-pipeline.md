@@ -30,6 +30,11 @@ python3 scripts/transcribe.py public/projects/<проект>/chNN/voice.wav --la
 - музыка: трек из репозитория звука, звуки — на ключевые моменты.
 
 ## 5. Сборка
+Главы собираются общим сборщиком `src/chapter/build.tsx` (`buildChapter`): раскадровка — список планов
+со стартом по словам озвучки (`at('слово')`); сцена ТЗ получает якоря [секунда главы, секунда ТЗ], сток — файл
+и подпись автора. Сцены ТЗ — `src/chapters/<проект>/chNN/scenes.tsx` на `SvgScene` (слои SVG, элементы по id/селектору).
+Образец — `src/chapters/sperm-whale/ch05/ch05.config.tsx`.
+
 - Скопировать `src/chapters/_example/ch01.config.tsx` в `src/chapters/<проект>/chNN.config.tsx`.
 - Анимации по ТЗ — компоненты в `src/chapters/<проект>/chNN/` (базовые кирпичи: `AnimatedImage`, `components/ui.tsx`, сцены из `templates/scenes.tsx`).
 - Добавить конфиг в `CHAPTERS` в `src/Root.tsx`. При регистрации в лог пишутся предупреждения: доля стоков не 15–25 %, раскадровка сильно не совпадает с озвучкой, слишком много акцентов.
