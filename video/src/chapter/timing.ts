@@ -5,22 +5,63 @@ export const msToFrames = (ms: number) => Math.round((ms / 1000) * FPS);
 
 export const leadIn = (c: ChapterConfig) => c.leadInFrames ?? 15;
 export const xfade = (c: ChapterConfig) => c.crossfadeFrames ?? 10;
+/** Переход перед планом i+1 (кадры): индивидуальный или общий. */
+export const transitionAt = (c: ChapterConfig, i: number) => c.transitions?.[i] ?? xfade(c);
 
-/** Длина главы в кадрах: пауза + озвучка + хвост. */
-export const chapterDuration = (c: ChapterConfig) =>
-	leadIn(c) + msToFrames(c.voiceover.durationMs) + (c.tailFrames ?? 45);
+const gaps = (c: ChapterConfig) => [...(c.voiceover.gaps ?? [])].sort((a, b) => a.atMs - b.atMs);
+
+/** Время озвучки (мс от начала файла) → время от начала голоса в главе (мс), с учётом вставленных пауз. */
+export const voiceToChapterMs = (c: ChapterConfig, ms: number) =>
+	ms + gaps(c).reduce((s, g) => s + (g.atMs <= ms ? g.padMs : 0), 0);
+
+/** Длина голосовой дорожки в главе с паузами, мс. */
+export const voiceSpanMs = (c: ChapterConfig) => voiceToChapterMs(c, c.voiceover.durationMs);
+
+/** Куски озвучки для раздельного воспроизведения: [начало в файле, конец в файле, сдвиг в главе] (мс). */
+export const voicePieces = (c: ChapterConfig): [number, number, number][] => {
+	const cuts = gaps(c);
+	const out: [number, number, number][] = [];
+	let from = 0;
+	let shift = 0;
+	for (const g of cuts) {
+		out.push([from, g.atMs, from + shift]);
+		shift += g.padMs;
+		from = g.atMs;
+	}
+	out.push([from, c.voiceover.durationMs, from + shift]);
+	return out;
+};
+
+/** Слова в координатах главы (мс от начала голоса, с паузами). */
+export const chapterWords = (c: ChapterConfig): Word[] =>
+	(c.words ?? []).map((w) => ({...w, startMs: voiceToChapterMs(c, w.startMs), endMs: voiceToChapterMs(c, w.endMs)}));
+
+/** Длина главы в кадрах: пауза + озвучка (с паузами) + хвост. */
+export const chapterDuration = (c: ChapterConfig) => leadIn(c) + msToFrames(voiceSpanMs(c)) + (c.tailFrames ?? 45);
 
 /**
- * Длительности планов, подогнанные под длину главы (с учётом наплывов).
+ * Длительности планов, подогнанные под длину главы (с учётом переходов).
  * Последний план растягивается или укорачивается, чтобы ролик кончался вместе с хвостом.
  */
 export const fittedShotDurations = (c: ChapterConfig): number[] => {
-	const x = xfade(c);
 	const d = c.shots.map((s) => s.durationInFrames);
-	const used = d.reduce((a, b) => a + b, 0) - x * (d.length - 1);
+	const overlaps = d.slice(1).reduce((a, _, i) => a + transitionAt(c, i), 0);
+	const used = d.reduce((a, b) => a + b, 0) - overlaps;
 	const diff = chapterDuration(c) - used;
-	d[d.length - 1] = Math.max(x + 1, d[d.length - 1] + diff);
+	d[d.length - 1] = Math.max(transitionAt(c, d.length - 2) + 1, d[d.length - 1] + diff);
 	return d;
+};
+
+/** Кадр начала каждого плана на шкале главы. */
+export const shotStarts = (c: ChapterConfig) => {
+	const d = fittedShotDurations(c);
+	const s: number[] = [];
+	let acc = 0;
+	d.forEach((len, i) => {
+		s.push(acc);
+		acc += len - (i < d.length - 1 ? transitionAt(c, i) : 0);
+	});
+	return s;
 };
 
 /** Доля стоков (type 'footage') в длительности главы, 0–1. */
@@ -38,7 +79,7 @@ export const checkChapter = (c: ChapterConfig) => {
 		console.warn(`[${c.id}] стоки занимают ${(share * 100).toFixed(0)} % — цель 20 % (анимации 80 %).`);
 	}
 	const d = c.shots.map((s) => s.durationInFrames);
-	const planned = d.reduce((a, b) => a + b, 0) - xfade(c) * (d.length - 1);
+	const planned = d.reduce((a, b) => a + b, 0) - d.slice(1).reduce((a, _, i) => a + transitionAt(c, i), 0);
 	const delta = chapterDuration(c) - planned;
 	if (Math.abs(delta) > FPS * 2) {
 		console.warn(`[${c.id}] план короче/длиннее озвучки на ${(delta / FPS).toFixed(1)} с — последний план подогнан.`);
@@ -50,20 +91,19 @@ export const checkChapter = (c: ChapterConfig) => {
 
 const norm = (s: string) => s.toLowerCase().replace(/ё/g, 'е').replace(/[^\p{L}\p{N}-]+/gu, '');
 
-/** Время акцента от начала озвучки, мс. */
-export const accentTimeMs = (a: Accent, words: Word[] = []): number | null => {
-	if (a.match) {
-		const target = norm(a.match);
-		let n = 0;
-		for (const w of words) {
-			if (norm(w.text).startsWith(target) && ++n === (a.occurrence ?? 1)) return w.startMs;
-		}
-		return a.atMs ?? null;
-	}
-	return a.atMs ?? null;
+/** Найти слово озвучки (по началу слова, без регистра): время начала в мс озвучки или null. */
+export const findWordMs = (words: Word[], match: string, occurrence = 1): number | null => {
+	const target = norm(match);
+	let n = 0;
+	for (const w of words) if (norm(w.text).startsWith(target) && ++n === occurrence) return w.startMs;
+	return null;
 };
 
-/** Паузы диктора длиннее minPauseMs (мс от начала озвучки), включая тишину после последнего слова. */
+/** Время акцента от начала озвучки (мс в файле озвучки). */
+export const accentTimeMs = (a: Accent, words: Word[] = []): number | null =>
+	a.match ? (findWordMs(words, a.match, a.occurrence ?? 1) ?? a.atMs ?? null) : (a.atMs ?? null);
+
+/** Паузы диктора длиннее minPauseMs: [начало, конец] в мс от начала голоса в главе. */
 export const voicePauses = (words: Word[], minPauseMs: number, voiceEndMs: number) => {
 	const out: [number, number][] = [];
 	for (let i = 0; i < words.length; i++) {
@@ -76,7 +116,7 @@ export const voicePauses = (words: Word[], minPauseMs: number, voiceEndMs: numbe
 
 /**
  * Громкость музыки на кадре главы: всегда тише диктора, плавный вход и выход,
- * при boostInPauses — подъём в длинных паузах диктора.
+ * при boostInPauses — подъём в длинных паузах диктора (включая вставленные паузы).
  */
 export const musicVolume = (c: ChapterConfig, m: MusicSpec) => {
 	const base = m.volume ?? 0.14;
@@ -84,7 +124,7 @@ export const musicVolume = (c: ChapterConfig, m: MusicSpec) => {
 	const total = chapterDuration(c);
 	const offset = leadIn(c);
 	const pauses = m.boostInPauses
-		? voicePauses(c.words ?? [], m.minPauseMs ?? 5000, c.voiceover.durationMs).map(
+		? voicePauses(chapterWords(c), m.minPauseMs ?? 5000, voiceSpanMs(c)).map(
 				([s, e]) => [offset + msToFrames(s), offset + msToFrames(e)] as const,
 			)
 		: [];

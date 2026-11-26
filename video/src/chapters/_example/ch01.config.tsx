@@ -14,7 +14,7 @@ export const exampleCh01: ChapterConfig = {
 	voiceover: {src: 'example/voice.mp3', durationMs: 14040},
 	words,
 	music: {src: 'example/ambient.mp3', boostInPauses: true},
-	sfx: [{src: 'example/hit.wav', atMs: 11850, volume: 0.35}],
+	sfx: [{src: 'example/hit.wav', atMs: 12350, volume: 0.35}],
 	accents: [{text: '11 километров', match: 'одиннадцати'}],
 	shots: [
 		{type: 'custom', durationInFrames: 150, component: () => <AnimatedImage src={IMG} motion="push-in" />},

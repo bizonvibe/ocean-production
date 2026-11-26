@@ -8,7 +8,17 @@ import {BarsScene, EndCardScene, FootageScene, StatScene, StatsScene, TitleScene
 import type {SceneSpec} from '../templates/types';
 import {colors} from '../theme';
 import {AccentWord} from './AccentWord';
-import {accentTimeMs, chapterDuration, fittedShotDurations, leadIn, msToFrames, musicVolume, xfade} from './timing';
+import {
+	accentTimeMs,
+	chapterDuration,
+	fittedShotDurations,
+	leadIn,
+	msToFrames,
+	musicVolume,
+	transitionAt,
+	voicePieces,
+	voiceToChapterMs,
+} from './timing';
 import type {ChapterConfig} from './types';
 
 const Shot: React.FC<{spec: SceneSpec}> = ({spec}) => {
@@ -54,20 +64,22 @@ const EdgeFade: React.FC<{total: number}> = ({total}) => {
 export const ChapterVideo: React.FC<{config: ChapterConfig}> = ({config}) => {
 	const total = chapterDuration(config);
 	const durations = fittedShotDurations(config);
-	const x = xfade(config);
 	const offset = leadIn(config);
 
 	return (
 		<AbsoluteFill style={{backgroundColor: colors.bg}}>
-			<SceneFadeDisabled.Provider value={x > 0}>
+			<SceneFadeDisabled.Provider value>
 				<TransitionSeries>
 					{config.shots.map((spec, i) => (
 						<Fragment key={i}>
 							<TransitionSeries.Sequence durationInFrames={durations[i]}>
 								<Shot spec={{...spec, durationInFrames: durations[i]}} />
 							</TransitionSeries.Sequence>
-							{i < config.shots.length - 1 && x > 0 ? (
-								<TransitionSeries.Transition presentation={fade()} timing={linearTiming({durationInFrames: x})} />
+							{i < config.shots.length - 1 && transitionAt(config, i) > 0 ? (
+								<TransitionSeries.Transition
+									presentation={fade()}
+									timing={linearTiming({durationInFrames: transitionAt(config, i)})}
+								/>
 							) : null}
 						</Fragment>
 					))}
@@ -86,7 +98,7 @@ export const ChapterVideo: React.FC<{config: ChapterConfig}> = ({config}) => {
 				return (
 					<Sequence
 						key={`accent${k}`}
-						from={offset + msToFrames(ms) - 4}
+						from={offset + msToFrames(voiceToChapterMs(config, ms)) - 4}
 						durationInFrames={msToFrames(a.durationMs ?? 1800)}
 					>
 						<AccentWord text={a.text} position={a.position} />
@@ -96,9 +108,16 @@ export const ChapterVideo: React.FC<{config: ChapterConfig}> = ({config}) => {
 
 			{config.fadeEdges === false ? null : <EdgeFade total={total} />}
 
-			<Sequence from={offset}>
-				<Audio src={staticFile(config.voiceover.src)} volume={config.voiceover.volume ?? 1} />
-			</Sequence>
+			{voicePieces(config).map(([a, b, at]) => (
+				<Sequence key={`v${a}`} from={offset + msToFrames(at)} durationInFrames={Math.max(1, msToFrames(b - a))}>
+					<Audio
+						src={staticFile(config.voiceover.src)}
+						trimBefore={msToFrames(a)}
+						trimAfter={msToFrames(b)}
+						volume={config.voiceover.volume ?? 1}
+					/>
+				</Sequence>
+			))}
 			{config.music ? (
 				<Audio
 					src={staticFile(config.music.src)}
@@ -108,7 +127,7 @@ export const ChapterVideo: React.FC<{config: ChapterConfig}> = ({config}) => {
 				/>
 			) : null}
 			{(config.sfx ?? []).map((s, k) => (
-				<Sequence key={`sfx${k}`} from={offset + msToFrames(s.atMs)}>
+				<Sequence key={`sfx${k}`} from={msToFrames(s.atMs)}>
 					<Audio src={staticFile(s.src)} volume={s.volume ?? 0.5} />
 				</Sequence>
 			))}

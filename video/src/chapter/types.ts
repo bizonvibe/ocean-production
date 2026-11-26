@@ -39,7 +39,7 @@ export type MusicSpec = {
 
 export type SfxSpec = {
 	src: string;
-	/** Время от начала озвучки, мс. */
+	/** Время от начала главы, мс. */
 	atMs: number;
 	volume?: number;
 };
@@ -59,6 +59,11 @@ export type ChapterConfig = {
 		/** Длина озвучки, мс (пишет scripts/tts.py в voice.json). */
 		durationMs: number;
 		volume?: number;
+		/**
+		 * Драматические паузы: в момент atMs файла озвучки (между словами) вставить тишину padMs.
+		 * Всё после паузы (голос, слова, акценты) сдвигается.
+		 */
+		gaps?: {atMs: number; padMs: number}[];
 	};
 	/** Тайминги слов озвучки (voice.captions.json из scripts/transcribe.py). Нужны для акцентов и пауз. */
 	words?: Word[];
@@ -68,6 +73,8 @@ export type ChapterConfig = {
 	shots: SceneSpec[];
 	/** Наплыв между планами, кадры (0 — прямая склейка). По умолчанию 10. */
 	crossfadeFrames?: number;
+	/** Индивидуальные переходы: transitions[i] — кадры наплыва между планом i и i+1 (0 — склейка). */
+	transitions?: (number | undefined)[];
 	music?: MusicSpec;
 	sfx?: SfxSpec[];
 	accents?: Accent[];
