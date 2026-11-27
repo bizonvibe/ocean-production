@@ -34,7 +34,7 @@
 - «Echoes of Time v2» — Kevin MacLeod (incompetech.com), CC BY 4.0
 - «The Palace Gardens» — Asher Fulero
 - «Exploring The Crystal Caves» — Asher Fulero
-- «The Whole Other» — Ether Oar
+- «Ether Oar» — The Whole Other
 - «Impending Doom Film Trailer» — Doug Maxwell / Media Right Productions
 - «Auckland» — VYEN
 - «Dreams Become Real» — Kevin MacLeod (incompetech.com), CC BY 4.0
