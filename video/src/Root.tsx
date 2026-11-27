@@ -1,5 +1,6 @@
 import {Composition} from 'remotion';
 import {ChapterVideo} from './chapter/ChapterVideo';
+import {ChannelIntro} from './intro/ChannelIntro';
 import {chapterDuration, checkChapter} from './chapter/timing';
 import type {ChapterConfig} from './chapter/types';
 import {exampleCh01} from './chapters/_example/ch01.config';
@@ -30,5 +31,7 @@ export const RemotionRoot: React.FC = () => (
 				/>
 			);
 		})}
+		{/* Заставка канала Coco Crabs (3.2 с) */}
+		<Composition id="Intro-CocoCrabs" component={ChannelIntro} durationInFrames={96} {...VIDEO} />
 	</>
 );
