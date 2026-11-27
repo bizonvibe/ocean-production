@@ -11,7 +11,8 @@ import silences from './voice.silences.json';
  * 11 сцен ТЗ + 3 стока ≈ 8 % (остальные файлы папки — CC BY-SA «без переработки»).
  * После «…называют их кодами» — пауза с настоящей записью код кашалотов (NOAA).
  */
-const MUSIC = musicVolumeFor(-22.7); // «Atlantean Twilight»
+// Трек выбран пользователем (−12.7 LUFS, 142 с — длиннее главы, затухает в конце).
+const MUSIC = musicVolumeFor(-12.7);
 const CODAS = 'кашалот-коды-общения-щелчки-и-спектрограмма.mp4';
 
 export const spermWhaleCh06 = buildChapter({
@@ -98,7 +99,7 @@ export const spermWhaleCh06 = buildChapter({
 		const start = at('ученые', 2) - 0.35 - 2.9;
 		return [{src: `${BASE}/stock/${CODAS}`, atMs: Math.round(start * 1000), startFromSeconds: 0.5, durationSeconds: at('ученые', 2) - 0.35 - start, volume: 0.8}];
 	},
-	music: {src: `${BASE}/music/Atlantean Twilight.mp3`, volume: MUSIC, boostInPauses: false},
+	music: {src: `${BASE}/music/Auckland - VYEN.mp3`, volume: MUSIC, boostInPauses: false, once: true},
 	accents: [], // «8 кг» уже крупно в кадре сцены 1 — отдельный акцент не нужен
 });
 
@@ -106,6 +107,6 @@ export const CREDITS_CH06 = [
 	'Sperm whale group, drone footage — Melissa Cook / NOAA Fisheries SEFSC, Public domain',
 	'Sperm whales communicating at the surface — Will Falcon (Vitaly Sokol), Wikimedia Commons, CC BY 4.0',
 	'Sperm whale codas, clicks and spectrogram — M. Bowers, L. Dias, G. Rappucci, L. Hodge / NOAA Fisheries, Public domain (Permit #27867)',
-	'Music: «Atlantean Twilight» — Kevin MacLeod (incompetech.com), CC BY 4.0',
+	'Music: «Auckland» — VYEN',
 	'Voice: Google Gemini TTS (Orus)',
 ];
