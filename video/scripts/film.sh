@@ -24,7 +24,9 @@ deco() { # <composition> <id> <target LUFS>
 	ffmpeg -v error -y -i "$T/$2.mp4" -map 0:v -c copy "$T/$2.v.mp4"
 	ffmpeg -v error -y -i "$T/$2.mp4" -map 0:a -ar 48000 -ac 2 -c:a pcm_s16le "$T/$2.raw.wav"
 	local g; g=$(python3 -c "print(round($3-($(lufs "$T/$2.raw.wav")),2))")
-	ffmpeg -v error -y -i "$T/$2.raw.wav" -af "volume=${g}dB" -ar 48000 -ac 2 -c:a pcm_s16le "$T/$2.wav"
+	# Звук обрезается ровно по длине картинки — иначе на стыках копится рассинхрон.
+	local vd; vd=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$T/$2.v.mp4")
+	ffmpeg -v error -y -i "$T/$2.raw.wav" -af "volume=${g}dB,atrim=0:${vd},apad=whole_dur=${vd}" -ar 48000 -ac 2 -c:a pcm_s16le "$T/$2.wav"
 	echo "  $2: звук ${g} дБ → $3 LUFS"
 }
 
