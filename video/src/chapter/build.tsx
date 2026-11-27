@@ -56,8 +56,11 @@ export const buildChapter = (c: ChapterInput): ChapterConfig => {
 	};
 	const gaps = c.gaps.map(([word, padMs, occ]) => {
 		const s = hit(word, occ ?? 1).startMs;
-		const quiet = c.silences.find(([a]) => a >= s);
-		if (!quiet) throw new Error(`${c.label}: нет паузы после «${word}»`);
+		// Тишина должна начаться до следующего слова (+200 мс допуска на неточность WhisperX),
+		// иначе пауза уехала бы в середину следующей фразы.
+		const next = c.words.find((w) => w.startMs > s);
+		const quiet = c.silences.find(([a]) => a >= s && (!next || a < next.startMs + 200));
+		if (!quiet) throw new Error(`${c.label}: нет тишины сразу после «${word}» — уберите эту паузу`);
 		return {atMs: Math.round((quiet[0] + quiet[1]) / 2), padMs};
 	});
 	const voice = {src: `${c.base}/voice.wav`, durationMs: c.durationMs, gaps, silences: c.silences};
