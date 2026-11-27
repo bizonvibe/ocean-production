@@ -1,2928 +1,2893 @@
 [
  {
   "text": " Первое,",
-  "startMs": 331,
-  "endMs": 792,
-  "timestampMs": 561,
-  "confidence": 0.999
+  "startMs": 251,
+  "endMs": 751,
+  "timestampMs": 501,
+  "confidence": 0.986
  },
  {
   "text": " что",
-  "startMs": 852,
-  "endMs": 1032,
-  "timestampMs": 942,
-  "confidence": 0.914
+  "startMs": 791,
+  "endMs": 972,
+  "timestampMs": 881,
+  "confidence": 0.917
  },
  {
   "text": " бросается",
-  "startMs": 1072,
-  "endMs": 1692,
-  "timestampMs": 1382,
-  "confidence": 0.913
+  "startMs": 1012,
+  "endMs": 1592,
+  "timestampMs": 1302,
+  "confidence": 1.0
  },
  {
   "text": " в",
-  "startMs": 1712,
-  "endMs": 1752,
-  "timestampMs": 1732,
-  "confidence": 0.5
+  "startMs": 1632,
+  "endMs": 1672,
+  "timestampMs": 1652,
+  "confidence": 0.873
  },
  {
   "text": " глаза",
-  "startMs": 1792,
-  "endMs": 2273,
-  "timestampMs": 2032,
-  "confidence": 0.974
+  "startMs": 1712,
+  "endMs": 2112,
+  "timestampMs": 1912,
+  "confidence": 0.955
  },
  {
   "text": " при",
-  "startMs": 2333,
-  "endMs": 2433,
-  "timestampMs": 2383,
-  "confidence": 0.958
+  "startMs": 2152,
+  "endMs": 2292,
+  "timestampMs": 2222,
+  "confidence": 0.732
  },
  {
   "text": " взгляде",
-  "startMs": 2473,
-  "endMs": 2893,
-  "timestampMs": 2683,
-  "confidence": 0.952
+  "startMs": 2332,
+  "endMs": 2793,
+  "timestampMs": 2562,
+  "confidence": 0.913
  },
  {
   "text": " на",
-  "startMs": 2933,
-  "endMs": 3013,
-  "timestampMs": 2973,
-  "confidence": 0.833
+  "startMs": 2833,
+  "endMs": 2893,
+  "timestampMs": 2863,
+  "confidence": 0.996
  },
  {
   "text": " кашелота",
-  "startMs": 3053,
-  "endMs": 4074,
-  "timestampMs": 3563,
-  "confidence": 0.967
+  "startMs": 2933,
+  "endMs": 3793,
+  "timestampMs": 3363,
+  "confidence": 0.939
  },
  {
   "text": " —",
-  "startMs": 4094,
-  "endMs": 4114,
-  "timestampMs": 4104,
+  "startMs": 3853,
+  "endMs": 3873,
+  "timestampMs": 3863,
   "confidence": 1.0
  },
  {
   "text": " форма",
-  "startMs": 4174,
-  "endMs": 4535,
-  "timestampMs": 4354,
-  "confidence": 0.93
+  "startMs": 3953,
+  "endMs": 4354,
+  "timestampMs": 4153,
+  "confidence": 0.896
  },
  {
   "text": " его",
-  "startMs": 4595,
-  "endMs": 4755,
-  "timestampMs": 4675,
-  "confidence": 0.908
+  "startMs": 4474,
+  "endMs": 4674,
+  "timestampMs": 4574,
+  "confidence": 0.954
  },
  {
   "text": " головы.",
-  "startMs": 4815,
-  "endMs": 5956,
-  "timestampMs": 5385,
-  "confidence": 1.0
- },
- {
-  "text": " В",
-  "startMs": 5996,
-  "endMs": 6036,
-  "timestampMs": 6016,
-  "confidence": 0.5
- },
- {
-  "text": " отличие",
-  "startMs": 6056,
-  "endMs": 6536,
-  "timestampMs": 6296,
+  "startMs": 4714,
+  "endMs": 5915,
+  "timestampMs": 5314,
   "confidence": 0.996
  },
  {
-  "text": " от",
-  "startMs": 6596,
-  "endMs": 6676,
-  "timestampMs": 6636,
-  "confidence": 0.988
- },
- {
-  "text": " дельфинов",
-  "startMs": 6737,
-  "endMs": 7317,
-  "timestampMs": 7027,
-  "confidence": 0.885
- },
- {
-  "text": " или",
-  "startMs": 7357,
-  "endMs": 7557,
-  "timestampMs": 7457,
-  "confidence": 0.942
- },
- {
-  "text": " акул,",
-  "startMs": 7577,
-  "endMs": 8378,
-  "timestampMs": 7977,
-  "confidence": 0.987
- },
- {
-  "text": " его",
-  "startMs": 8458,
-  "endMs": 8638,
-  "timestampMs": 8548,
-  "confidence": 0.905
- },
- {
-  "text": " морда",
-  "startMs": 8698,
-  "endMs": 8998,
-  "timestampMs": 8848,
+  "text": " В",
+  "startMs": 5935,
+  "endMs": 5975,
+  "timestampMs": 5955,
   "confidence": 1.0
  },
  {
+  "text": " отличие",
+  "startMs": 6015,
+  "endMs": 6595,
+  "timestampMs": 6305,
+  "confidence": 0.817
+ },
+ {
+  "text": " от",
+  "startMs": 6615,
+  "endMs": 6735,
+  "timestampMs": 6675,
+  "confidence": 1.0
+ },
+ {
+  "text": " дельфинов",
+  "startMs": 6775,
+  "endMs": 7455,
+  "timestampMs": 7115,
+  "confidence": 0.887
+ },
+ {
+  "text": " или",
+  "startMs": 7495,
+  "endMs": 7676,
+  "timestampMs": 7585,
+  "confidence": 0.831
+ },
+ {
+  "text": " акул,",
+  "startMs": 7716,
+  "endMs": 8416,
+  "timestampMs": 8066,
+  "confidence": 0.968
+ },
+ {
+  "text": " его",
+  "startMs": 8536,
+  "endMs": 8736,
+  "timestampMs": 8636,
+  "confidence": 0.985
+ },
+ {
+  "text": " морда",
+  "startMs": 8796,
+  "endMs": 9136,
+  "timestampMs": 8966,
+  "confidence": 0.975
+ },
+ {
   "text": " не",
-  "startMs": 9038,
-  "endMs": 9139,
-  "timestampMs": 9088,
-  "confidence": 0.836
+  "startMs": 9176,
+  "endMs": 9277,
+  "timestampMs": 9226,
+  "confidence": 0.988
  },
  {
   "text": " сужается",
-  "startMs": 9199,
-  "endMs": 9759,
-  "timestampMs": 9479,
-  "confidence": 0.952
+  "startMs": 9337,
+  "endMs": 9937,
+  "timestampMs": 9637,
+  "confidence": 0.958
  },
  {
   "text": " в",
-  "startMs": 9799,
-  "endMs": 9839,
-  "timestampMs": 9819,
+  "startMs": 9977,
+  "endMs": 10017,
+  "timestampMs": 9997,
   "confidence": 0.5
  },
  {
   "text": " гидродинамический",
-  "startMs": 9879,
-  "endMs": 10760,
-  "timestampMs": 10319,
-  "confidence": 0.967
+  "startMs": 10057,
+  "endMs": 10958,
+  "timestampMs": 10507,
+  "confidence": 0.954
  },
  {
   "text": " конус,",
-  "startMs": 10820,
-  "endMs": 11681,
-  "timestampMs": 11250,
-  "confidence": 0.993
+  "startMs": 10998,
+  "endMs": 11658,
+  "timestampMs": 11328,
+  "confidence": 1.0
  },
  {
   "text": " а",
-  "startMs": 11701,
-  "endMs": 11781,
-  "timestampMs": 11741,
-  "confidence": 0.748
+  "startMs": 11698,
+  "endMs": 11758,
+  "timestampMs": 11728,
+  "confidence": 1.0
  },
  {
   "text": " обрывается",
-  "startMs": 11821,
-  "endMs": 12561,
-  "timestampMs": 12191,
-  "confidence": 0.957
+  "startMs": 11818,
+  "endMs": 12559,
+  "timestampMs": 12188,
+  "confidence": 0.979
  },
  {
   "text": " прямоугольным",
-  "startMs": 12601,
-  "endMs": 13382,
-  "timestampMs": 12991,
-  "confidence": 0.973
+  "startMs": 12619,
+  "endMs": 13379,
+  "timestampMs": 12999,
+  "confidence": 0.976
  },
  {
   "text": " блоком.",
-  "startMs": 13442,
-  "endMs": 14623,
-  "timestampMs": 14032,
-  "confidence": 0.996
+  "startMs": 13419,
+  "endMs": 14520,
+  "timestampMs": 13969,
+  "confidence": 0.98
  },
  {
   "text": " Это",
-  "startMs": 14643,
-  "endMs": 14843,
-  "timestampMs": 14743,
-  "confidence": 0.841
+  "startMs": 14560,
+  "endMs": 14820,
+  "timestampMs": 14690,
+  "confidence": 0.856
  },
  {
   "text": " почти",
-  "startMs": 14883,
-  "endMs": 15284,
-  "timestampMs": 15083,
-  "confidence": 0.953
+  "startMs": 14860,
+  "endMs": 15260,
+  "timestampMs": 15060,
+  "confidence": 0.971
  },
  {
   "text": " треть",
-  "startMs": 15364,
-  "endMs": 15704,
-  "timestampMs": 15534,
-  "confidence": 0.855
+  "startMs": 15320,
+  "endMs": 15640,
+  "timestampMs": 15480,
+  "confidence": 0.986
  },
  {
   "text": " всей",
-  "startMs": 15744,
-  "endMs": 16044,
-  "timestampMs": 15894,
-  "confidence": 0.913
+  "startMs": 15680,
+  "endMs": 15961,
+  "timestampMs": 15820,
+  "confidence": 0.995
  },
  {
-  "text": " длины",
-  "startMs": 16104,
-  "endMs": 16425,
-  "timestampMs": 16264,
-  "confidence": 0.951
+  "text": " длини",
+  "startMs": 16021,
+  "endMs": 16341,
+  "timestampMs": 16181,
+  "confidence": 0.956
  },
  {
   "text": " тела,",
-  "startMs": 16465,
-  "endMs": 17245,
-  "timestampMs": 16855,
-  "confidence": 0.991
+  "startMs": 16401,
+  "endMs": 17061,
+  "timestampMs": 16731,
+  "confidence": 0.836
  },
  {
   "text": " похожая",
-  "startMs": 17265,
-  "endMs": 17746,
-  "timestampMs": 17505,
-  "confidence": 0.833
+  "startMs": 17101,
+  "endMs": 17642,
+  "timestampMs": 17371,
+  "confidence": 0.879
  },
  {
   "text": " на",
-  "startMs": 17806,
-  "endMs": 17886,
-  "timestampMs": 17846,
+  "startMs": 17682,
+  "endMs": 17762,
+  "timestampMs": 17722,
   "confidence": 1.0
  },
  {
   "text": " затонувший",
-  "startMs": 17946,
-  "endMs": 18546,
-  "timestampMs": 18246,
-  "confidence": 0.989
+  "startMs": 17802,
+  "endMs": 18382,
+  "timestampMs": 18092,
+  "confidence": 0.984
  },
  {
   "text": " грузовой",
-  "startMs": 18586,
-  "endMs": 19027,
-  "timestampMs": 18806,
-  "confidence": 0.994
+  "startMs": 18422,
+  "endMs": 18862,
+  "timestampMs": 18642,
+  "confidence": 0.999
  },
  {
   "text": " контейнер.",
-  "startMs": 19067,
-  "endMs": 20628,
-  "timestampMs": 19847,
-  "confidence": 0.993
+  "startMs": 18902,
+  "endMs": 20303,
+  "timestampMs": 19602,
+  "confidence": 0.998
  },
  {
   "text": " С",
-  "startMs": 20668,
-  "endMs": 20708,
-  "timestampMs": 20688,
-  "confidence": 0.585
+  "startMs": 20343,
+  "endMs": 20383,
+  "timestampMs": 20363,
+  "confidence": 0.561
  },
  {
   "text": " точки",
-  "startMs": 20728,
-  "endMs": 21048,
-  "timestampMs": 20888,
-  "confidence": 0.992
+  "startMs": 20403,
+  "endMs": 20723,
+  "timestampMs": 20563,
+  "confidence": 0.963
  },
  {
   "text": " зрения",
-  "startMs": 21108,
-  "endMs": 21469,
-  "timestampMs": 21288,
-  "confidence": 0.955
+  "startMs": 20783,
+  "endMs": 21164,
+  "timestampMs": 20973,
+  "confidence": 0.961
  },
  {
-  "text": " гидродинамики",
-  "startMs": 21509,
-  "endMs": 22730,
-  "timestampMs": 22119,
-  "confidence": 0.991
+  "text": " гидродинамики,",
+  "startMs": 21224,
+  "endMs": 22404,
+  "timestampMs": 21814,
+  "confidence": 0.947
  },
  {
   "text": " такой",
-  "startMs": 22750,
-  "endMs": 23030,
-  "timestampMs": 22890,
+  "startMs": 22424,
+  "endMs": 22745,
+  "timestampMs": 22584,
   "confidence": 0.927
  },
  {
   "text": " массивный",
-  "startMs": 23070,
-  "endMs": 23610,
-  "timestampMs": 23340,
-  "confidence": 0.909
+  "startMs": 22785,
+  "endMs": 23325,
+  "timestampMs": 23055,
+  "confidence": 0.89
  },
  {
   "text": " лоб",
-  "startMs": 23650,
-  "endMs": 23891,
-  "timestampMs": 23770,
-  "confidence": 0.886
+  "startMs": 23365,
+  "endMs": 23585,
+  "timestampMs": 23475,
+  "confidence": 0.887
  },
  {
   "text": " создает",
-  "startMs": 23951,
-  "endMs": 24531,
-  "timestampMs": 24241,
-  "confidence": 0.982
+  "startMs": 23625,
+  "endMs": 24165,
+  "timestampMs": 23895,
+  "confidence": 0.892
  },
  {
   "text": " огромнейшее",
-  "startMs": 24591,
-  "endMs": 25392,
-  "timestampMs": 24991,
-  "confidence": 0.91
+  "startMs": 24205,
+  "endMs": 24966,
+  "timestampMs": 24585,
+  "confidence": 0.998
  },
  {
   "text": " сопротивление",
-  "startMs": 25432,
-  "endMs": 26113,
-  "timestampMs": 25772,
-  "confidence": 0.945
+  "startMs": 25006,
+  "endMs": 25726,
+  "timestampMs": 25366,
+  "confidence": 0.979
  },
  {
   "text": " в",
-  "startMs": 26133,
-  "endMs": 26153,
-  "timestampMs": 26143,
+  "startMs": 25746,
+  "endMs": 25766,
+  "timestampMs": 25756,
   "confidence": 0.0
  },
  {
   "text": " воде.",
-  "startMs": 26173,
-  "endMs": 26693,
-  "timestampMs": 26433,
+  "startMs": 25786,
+  "endMs": 26727,
+  "timestampMs": 26256,
   "confidence": 1.0
  },
  {
   "text": " Ранние",
-  "startMs": 27654,
-  "endMs": 27994,
-  "timestampMs": 27824,
-  "confidence": 0.622
- },
- {
-  "text": " кетабои",
-  "startMs": 28034,
-  "endMs": 28575,
-  "timestampMs": 28304,
-  "confidence": 0.938
- },
- {
-  "text": " полагали,",
-  "startMs": 28635,
-  "endMs": 29115,
-  "timestampMs": 28875,
-  "confidence": 0.99
- },
- {
-  "text": " что",
-  "startMs": 29155,
-  "endMs": 29315,
-  "timestampMs": 29235,
-  "confidence": 0.882
- },
- {
-  "text": " внутри",
-  "startMs": 29355,
-  "endMs": 29796,
-  "timestampMs": 29575,
-  "confidence": 0.946
- },
- {
-  "text": " этого",
-  "startMs": 29836,
-  "endMs": 30116,
-  "timestampMs": 29976,
-  "confidence": 0.911
- },
- {
-  "text": " гигантского",
-  "startMs": 30176,
-  "endMs": 30777,
-  "timestampMs": 30476,
-  "confidence": 0.939
- },
- {
-  "text": " черепа",
-  "startMs": 30857,
-  "endMs": 31657,
-  "timestampMs": 31257,
-  "confidence": 0.992
- },
- {
-  "text": " находится",
-  "startMs": 31697,
-  "endMs": 32298,
-  "timestampMs": 31997,
-  "confidence": 0.972
- },
- {
-  "text": " огромный",
-  "startMs": 32357,
-  "endMs": 32818,
-  "timestampMs": 32587,
-  "confidence": 0.937
- },
- {
-  "text": " мозг.",
-  "startMs": 32838,
-  "endMs": 33799,
-  "timestampMs": 33318,
-  "confidence": 0.902
- },
- {
-  "text": " Однако",
-  "startMs": 33839,
-  "endMs": 34199,
-  "timestampMs": 34019,
-  "confidence": 0.9
- },
- {
-  "text": " при",
-  "startMs": 34239,
-  "endMs": 34340,
-  "timestampMs": 34289,
-  "confidence": 1.0
- },
- {
-  "text": " вскрытии",
-  "startMs": 34380,
-  "endMs": 34920,
-  "timestampMs": 34650,
-  "confidence": 0.906
- },
- {
-  "text": " выяснилось,",
-  "startMs": 34960,
-  "endMs": 35881,
-  "timestampMs": 35420,
-  "confidence": 0.964
- },
- {
-  "text": " что",
-  "startMs": 35921,
-  "endMs": 36061,
-  "timestampMs": 35991,
-  "confidence": 0.889
- },
- {
-  "text": " верхняя",
-  "startMs": 36101,
-  "endMs": 36521,
-  "timestampMs": 36311,
-  "confidence": 0.917
- },
- {
-  "text": " часть",
-  "startMs": 36581,
-  "endMs": 36842,
-  "timestampMs": 36711,
-  "confidence": 0.894
- },
- {
-  "text": " головы",
-  "startMs": 36882,
-  "endMs": 37262,
-  "timestampMs": 37072,
-  "confidence": 0.958
- },
- {
-  "text": " представляет",
-  "startMs": 37302,
-  "endMs": 37922,
-  "timestampMs": 37612,
-  "confidence": 0.935
- },
- {
-  "text": " собой",
-  "startMs": 37962,
-  "endMs": 38363,
-  "timestampMs": 38162,
-  "confidence": 0.938
- },
- {
-  "text": " резервуар,",
-  "startMs": 38443,
-  "endMs": 39444,
-  "timestampMs": 38943,
-  "confidence": 0.997
- },
- {
-  "text": " заполненный",
-  "startMs": 39504,
-  "endMs": 40044,
-  "timestampMs": 39774,
-  "confidence": 0.971
- },
- {
-  "text": " сотними",
-  "startMs": 40144,
-  "endMs": 40605,
-  "timestampMs": 40374,
-  "confidence": 0.924
- },
- {
-  "text": " литров",
-  "startMs": 40665,
-  "endMs": 41005,
-  "timestampMs": 40835,
-  "confidence": 0.988
- },
- {
-  "text": " в",
-  "startMs": 41025,
-  "endMs": 41045,
-  "timestampMs": 41035,
-  "confidence": 0.011
- },
- {
-  "text": " масляниской",
-  "startMs": 41085,
-  "endMs": 41706,
-  "timestampMs": 41395,
-  "confidence": 0.96
- },
- {
-  "text": " жидкости",
-  "startMs": 41766,
-  "endMs": 42666,
-  "timestampMs": 42216,
-  "confidence": 0.966
- },
- {
-  "text": " с",
-  "startMs": 42706,
-  "endMs": 42726,
-  "timestampMs": 42716,
-  "confidence": 0.998
- },
- {
-  "text": " пермоцетом.",
-  "startMs": 42766,
-  "endMs": 44468,
-  "timestampMs": 43617,
-  "confidence": 0.992
- },
- {
-  "text": " На",
-  "startMs": 44508,
-  "endMs": 44568,
-  "timestampMs": 44538,
-  "confidence": 0.998
- },
- {
-  "text": " холодном",
-  "startMs": 44628,
-  "endMs": 45048,
-  "timestampMs": 44838,
-  "confidence": 0.966
- },
- {
-  "text": " воздухе",
-  "startMs": 45088,
-  "endMs": 45589,
-  "timestampMs": 45338,
-  "confidence": 0.933
- },
- {
-  "text": " эта",
-  "startMs": 45649,
-  "endMs": 45789,
-  "timestampMs": 45719,
-  "confidence": 0.939
- },
- {
-  "text": " жидкость",
-  "startMs": 45849,
-  "endMs": 46249,
-  "timestampMs": 46049,
-  "confidence": 0.907
- },
- {
-  "text": " мгновенно",
-  "startMs": 46309,
-  "endMs": 46890,
-  "timestampMs": 46599,
-  "confidence": 0.975
- },
- {
-  "text": " застывала",
-  "startMs": 46930,
-  "endMs": 47470,
-  "timestampMs": 47200,
-  "confidence": 0.926
- },
- {
-  "text": " в",
-  "startMs": 47490,
-  "endMs": 47550,
-  "timestampMs": 47520,
-  "confidence": 0.665
- },
- {
-  "text": " белый",
-  "startMs": 47590,
-  "endMs": 47851,
-  "timestampMs": 47720,
-  "confidence": 0.905
- },
- {
-  "text": " воск.",
-  "startMs": 47871,
-  "endMs": 48771,
-  "timestampMs": 48321,
-  "confidence": 0.998
- },
- {
-  "text": " Кетабои",
-  "startMs": 48791,
-  "endMs": 49252,
-  "timestampMs": 49021,
-  "confidence": 0.832
- },
- {
-  "text": " ошибочно",
-  "startMs": 49312,
-  "endMs": 49832,
-  "timestampMs": 49572,
-  "confidence": 0.951
- },
- {
-  "text": " приняли",
-  "startMs": 49872,
-  "endMs": 50232,
-  "timestampMs": 50052,
-  "confidence": 0.952
- },
- {
-  "text": " ее",
-  "startMs": 50313,
-  "endMs": 50473,
-  "timestampMs": 50393,
-  "confidence": 0.853
- },
- {
-  "text": " за",
-  "startMs": 50513,
-  "endMs": 50593,
-  "timestampMs": 50553,
-  "confidence": 0.974
- },
- {
-  "text": " семенную",
-  "startMs": 50653,
-  "endMs": 51113,
-  "timestampMs": 50883,
-  "confidence": 0.958
- },
- {
-  "text": " жидкость,",
-  "startMs": 51173,
-  "endMs": 52014,
-  "timestampMs": 51593,
-  "confidence": 0.999
- },
- {
-  "text": " что",
-  "startMs": 52054,
-  "endMs": 52194,
-  "timestampMs": 52124,
-  "confidence": 0.725
- },
- {
-  "text": " и",
-  "startMs": 52214,
-  "endMs": 52274,
-  "timestampMs": 52244,
-  "confidence": 0.667
- },
- {
-  "text": " дало",
-  "startMs": 52294,
-  "endMs": 52534,
-  "timestampMs": 52414,
-  "confidence": 0.939
- },
- {
-  "text": " животному",
-  "startMs": 52594,
-  "endMs": 53115,
-  "timestampMs": 52854,
-  "confidence": 0.951
- },
- {
-  "text": " его",
-  "startMs": 53175,
-  "endMs": 53375,
-  "timestampMs": 53275,
-  "confidence": 0.978
- },
- {
-  "text": " английское",
-  "startMs": 53415,
-  "endMs": 53955,
-  "timestampMs": 53685,
-  "confidence": 0.948
- },
- {
-  "text": " название",
-  "startMs": 53996,
-  "endMs": 54776,
-  "timestampMs": 54386,
-  "confidence": 1.0
- },
- {
-  "text": " –",
-  "startMs": 54796,
-  "endMs": 54896,
-  "timestampMs": 54846,
-  "confidence": 0.627
- },
- {
-  "text": " sperm",
-  "startMs": 54936,
-  "endMs": 55277,
-  "timestampMs": 55106,
-  "confidence": 0.997
- },
- {
-  "text": " whale.",
-  "startMs": 55297,
-  "endMs": 55837,
-  "timestampMs": 55567,
-  "confidence": 0.864
- },
- {
-  "text": " На",
-  "startMs": 56808,
-  "endMs": 56908,
-  "timestampMs": 56858,
-  "confidence": 0.829
- },
- {
-  "text": " самом",
-  "startMs": 56968,
-  "endMs": 57228,
-  "timestampMs": 57098,
-  "confidence": 0.999
- },
- {
-  "text": " деле",
-  "startMs": 57268,
-  "endMs": 57589,
-  "timestampMs": 57428,
+  "startMs": 26967,
+  "endMs": 27348,
+  "timestampMs": 27157,
   "confidence": 0.899
  },
  {
+  "text": " китобои",
+  "startMs": 27388,
+  "endMs": 27929,
+  "timestampMs": 27658,
+  "confidence": 0.935
+ },
+ {
+  "text": " полагали,",
+  "startMs": 27969,
+  "endMs": 28429,
+  "timestampMs": 28199,
+  "confidence": 0.996
+ },
+ {
+  "text": " что",
+  "startMs": 28469,
+  "endMs": 28610,
+  "timestampMs": 28539,
+  "confidence": 0.88
+ },
+ {
+  "text": " внутри",
+  "startMs": 28650,
+  "endMs": 29050,
+  "timestampMs": 28850,
+  "confidence": 0.833
+ },
+ {
+  "text": " этого",
+  "startMs": 29090,
+  "endMs": 29331,
+  "timestampMs": 29210,
+  "confidence": 0.998
+ },
+ {
+  "text": " гигантского",
+  "startMs": 29391,
+  "endMs": 29931,
+  "timestampMs": 29661,
+  "confidence": 0.914
+ },
+ {
+  "text": " черепа",
+  "startMs": 29991,
+  "endMs": 30352,
+  "timestampMs": 30171,
+  "confidence": 0.944
+ },
+ {
+  "text": " находится",
+  "startMs": 30372,
+  "endMs": 30973,
+  "timestampMs": 30672,
+  "confidence": 0.978
+ },
+ {
+  "text": " огромный",
+  "startMs": 31033,
+  "endMs": 31473,
+  "timestampMs": 31253,
+  "confidence": 1.0
+ },
+ {
+  "text": " мозг.",
+  "startMs": 31514,
+  "endMs": 32455,
+  "timestampMs": 31984,
+  "confidence": 0.943
+ },
+ {
+  "text": " Однако",
+  "startMs": 32494,
+  "endMs": 32895,
+  "timestampMs": 32694,
+  "confidence": 0.927
+ },
+ {
+  "text": " при",
+  "startMs": 32935,
+  "endMs": 33056,
+  "timestampMs": 32995,
+  "confidence": 0.667
+ },
+ {
+  "text": " вскрытии",
+  "startMs": 33096,
+  "endMs": 33636,
+  "timestampMs": 33366,
+  "confidence": 0.925
+ },
+ {
+  "text": " выяснилось,",
+  "startMs": 33676,
+  "endMs": 34277,
+  "timestampMs": 33976,
+  "confidence": 0.963
+ },
+ {
+  "text": " что",
+  "startMs": 34337,
+  "endMs": 34498,
+  "timestampMs": 34417,
+  "confidence": 0.858
+ },
+ {
+  "text": " верхняя",
+  "startMs": 34558,
+  "endMs": 34998,
+  "timestampMs": 34778,
+  "confidence": 0.843
+ },
+ {
+  "text": " часть",
+  "startMs": 35058,
+  "endMs": 35319,
+  "timestampMs": 35188,
+  "confidence": 0.903
+ },
+ {
+  "text": " головы",
+  "startMs": 35359,
+  "endMs": 35719,
+  "timestampMs": 35539,
+  "confidence": 0.948
+ },
+ {
+  "text": " представляет",
+  "startMs": 35759,
+  "endMs": 36380,
+  "timestampMs": 36069,
+  "confidence": 0.928
+ },
+ {
+  "text": " собой",
+  "startMs": 36420,
+  "endMs": 36701,
+  "timestampMs": 36560,
+  "confidence": 0.918
+ },
+ {
+  "text": " резервуар,",
+  "startMs": 36741,
+  "endMs": 37662,
+  "timestampMs": 37201,
+  "confidence": 0.999
+ },
+ {
+  "text": " заполненный",
+  "startMs": 37722,
+  "endMs": 38303,
+  "timestampMs": 38012,
+  "confidence": 0.924
+ },
+ {
+  "text": " сотними",
+  "startMs": 38363,
+  "endMs": 38783,
+  "timestampMs": 38573,
+  "confidence": 0.891
+ },
+ {
+  "text": " литров",
+  "startMs": 38843,
+  "endMs": 39204,
+  "timestampMs": 39023,
+  "confidence": 0.927
+ },
+ {
+  "text": " маслянистой",
+  "startMs": 39244,
+  "endMs": 39925,
+  "timestampMs": 39584,
+  "confidence": 0.91
+ },
+ {
+  "text": " жидкости,",
+  "startMs": 39965,
+  "endMs": 40786,
+  "timestampMs": 40375,
+  "confidence": 0.996
+ },
+ {
+  "text": " спермацета.",
+  "startMs": 40826,
+  "endMs": 42168,
+  "timestampMs": 41497,
+  "confidence": 0.951
+ },
+ {
+  "text": " На",
+  "startMs": 42308,
+  "endMs": 42408,
+  "timestampMs": 42358,
+  "confidence": 0.834
+ },
+ {
+  "text": " холодном",
+  "startMs": 42448,
+  "endMs": 42888,
+  "timestampMs": 42668,
+  "confidence": 0.94
+ },
+ {
+  "text": " воздухе",
+  "startMs": 42928,
+  "endMs": 43409,
+  "timestampMs": 43168,
+  "confidence": 0.971
+ },
+ {
+  "text": " эта",
+  "startMs": 43449,
+  "endMs": 43609,
+  "timestampMs": 43529,
+  "confidence": 0.78
+ },
+ {
+  "text": " жидкость",
+  "startMs": 43649,
+  "endMs": 44069,
+  "timestampMs": 43859,
+  "confidence": 0.893
+ },
+ {
+  "text": " мгновенно",
+  "startMs": 44109,
+  "endMs": 44670,
+  "timestampMs": 44389,
+  "confidence": 0.924
+ },
+ {
+  "text": " застывала",
+  "startMs": 44710,
+  "endMs": 45230,
+  "timestampMs": 44970,
+  "confidence": 0.892
+ },
+ {
+  "text": " в",
+  "startMs": 45250,
+  "endMs": 45310,
+  "timestampMs": 45280,
+  "confidence": 0.439
+ },
+ {
+  "text": " белый",
+  "startMs": 45350,
+  "endMs": 45610,
+  "timestampMs": 45480,
+  "confidence": 0.899
+ },
+ {
+  "text": " воск.",
+  "startMs": 45630,
+  "endMs": 46631,
+  "timestampMs": 46130,
+  "confidence": 0.991
+ },
+ {
+  "text": " Китобои",
+  "startMs": 46671,
+  "endMs": 47231,
+  "timestampMs": 46951,
+  "confidence": 0.981
+ },
+ {
+  "text": " ошибочно",
+  "startMs": 47291,
+  "endMs": 47832,
+  "timestampMs": 47561,
+  "confidence": 0.959
+ },
+ {
+  "text": " приняли",
+  "startMs": 47872,
+  "endMs": 48252,
+  "timestampMs": 48062,
+  "confidence": 0.999
+ },
+ {
+  "text": " её",
+  "startMs": 48352,
+  "endMs": 48532,
+  "timestampMs": 48442,
+  "confidence": 0.875
+ },
+ {
+  "text": " засеменную",
+  "startMs": 48572,
+  "endMs": 49132,
+  "timestampMs": 48852,
+  "confidence": 0.926
+ },
+ {
+  "text": " жидкость,",
+  "startMs": 49192,
+  "endMs": 49933,
+  "timestampMs": 49562,
+  "confidence": 0.996
+ },
+ {
+  "text": " что",
+  "startMs": 49953,
+  "endMs": 50113,
+  "timestampMs": 50033,
+  "confidence": 0.91
+ },
+ {
+  "text": " и",
+  "startMs": 50153,
+  "endMs": 50193,
+  "timestampMs": 50173,
+  "confidence": 0.514
+ },
+ {
+  "text": " доложи",
+  "startMs": 50233,
+  "endMs": 50613,
+  "timestampMs": 50423,
+  "confidence": 0.993
+ },
+ {
+  "text": " водному",
+  "startMs": 50633,
+  "endMs": 51014,
+  "timestampMs": 50823,
+  "confidence": 0.805
+ },
+ {
+  "text": " его",
+  "startMs": 51094,
+  "endMs": 51294,
+  "timestampMs": 51194,
+  "confidence": 0.998
+ },
+ {
+  "text": " английское",
+  "startMs": 51334,
+  "endMs": 51894,
+  "timestampMs": 51614,
+  "confidence": 0.917
+ },
+ {
+  "text": " название",
+  "startMs": 51914,
+  "endMs": 52575,
+  "timestampMs": 52244,
+  "confidence": 0.992
+ },
+ {
+  "text": " –",
+  "startMs": 52655,
+  "endMs": 52675,
+  "timestampMs": 52665,
+  "confidence": 0.998
+ },
+ {
+  "text": " sperm",
+  "startMs": 52695,
+  "endMs": 53015,
+  "timestampMs": 52855,
+  "confidence": 0.87
+ },
+ {
+  "text": " whale.",
+  "startMs": 53115,
+  "endMs": 54356,
+  "timestampMs": 53735,
+  "confidence": 0.986
+ },
+ {
+  "text": " На",
+  "startMs": 54396,
+  "endMs": 54496,
+  "timestampMs": 54446,
+  "confidence": 0.875
+ },
+ {
+  "text": " самом",
+  "startMs": 54536,
+  "endMs": 54836,
+  "timestampMs": 54686,
+  "confidence": 0.9
+ },
+ {
+  "text": " деле",
+  "startMs": 54876,
+  "endMs": 55436,
+  "timestampMs": 55156,
+  "confidence": 0.962
+ },
+ {
   "text": " это",
-  "startMs": 57609,
-  "endMs": 57789,
-  "timestampMs": 57699,
-  "confidence": 0.637
+  "startMs": 55456,
+  "endMs": 55656,
+  "timestampMs": 55556,
+  "confidence": 0.772
  },
  {
   "text": " сложнейшая",
-  "startMs": 57849,
-  "endMs": 58630,
-  "timestampMs": 58239,
-  "confidence": 0.979
+  "startMs": 55696,
+  "endMs": 56437,
+  "timestampMs": 56066,
+  "confidence": 0.984
  },
  {
   "text": " акустическая",
-  "startMs": 58670,
-  "endMs": 59390,
-  "timestampMs": 59030,
-  "confidence": 0.947
+  "startMs": 56477,
+  "endMs": 57217,
+  "timestampMs": 56847,
+  "confidence": 0.954
  },
  {
   "text": " система.",
-  "startMs": 59430,
-  "endMs": 60551,
-  "timestampMs": 59990,
+  "startMs": 57257,
+  "endMs": 58098,
+  "timestampMs": 57677,
   "confidence": 1.0
  },
  {
   "text": " Голова",
-  "startMs": 60591,
-  "endMs": 60892,
-  "timestampMs": 60741,
-  "confidence": 0.944
+  "startMs": 58498,
+  "endMs": 58798,
+  "timestampMs": 58648,
+  "confidence": 0.95
  },
  {
   "text": " кошелота",
-  "startMs": 60912,
-  "endMs": 61412,
-  "timestampMs": 61162,
-  "confidence": 0.845
+  "startMs": 58838,
+  "endMs": 59319,
+  "timestampMs": 59078,
+  "confidence": 0.959
  },
  {
   "text": " разделена",
-  "startMs": 61432,
-  "endMs": 61933,
-  "timestampMs": 61682,
-  "confidence": 0.992
+  "startMs": 59359,
+  "endMs": 59859,
+  "timestampMs": 59609,
+  "confidence": 0.978
  },
  {
   "text": " на",
-  "startMs": 61973,
-  "endMs": 62053,
-  "timestampMs": 62013,
-  "confidence": 0.996
+  "startMs": 59899,
+  "endMs": 59999,
+  "timestampMs": 59949,
+  "confidence": 0.851
  },
  {
   "text": " два",
-  "startMs": 62093,
-  "endMs": 62313,
-  "timestampMs": 62203,
-  "confidence": 0.945
+  "startMs": 60039,
+  "endMs": 60259,
+  "timestampMs": 60149,
+  "confidence": 0.964
  },
  {
   "text": " уровня.",
-  "startMs": 62353,
-  "endMs": 63254,
-  "timestampMs": 62803,
-  "confidence": 1.0
+  "startMs": 60299,
+  "endMs": 61079,
+  "timestampMs": 60689,
+  "confidence": 0.967
  },
  {
   "text": " Первый",
-  "startMs": 63294,
-  "endMs": 63854,
-  "timestampMs": 63574,
-  "confidence": 1.0
+  "startMs": 61119,
+  "endMs": 61740,
+  "timestampMs": 61429,
+  "confidence": 0.939
  },
  {
-  "text": " —",
-  "startMs": 63874,
-  "endMs": 63894,
-  "timestampMs": 63884,
-  "confidence": 0.999
+  "text": " –",
+  "startMs": 61760,
+  "endMs": 61780,
+  "timestampMs": 61770,
+  "confidence": 1.0
  },
  {
   "text": " спермоцетовый",
-  "startMs": 63934,
-  "endMs": 64635,
-  "timestampMs": 64284,
-  "confidence": 0.933
+  "startMs": 61800,
+  "endMs": 62540,
+  "timestampMs": 62170,
+  "confidence": 0.922
  },
  {
-  "text": " орган,",
-  "startMs": 64694,
-  "endMs": 65436,
-  "timestampMs": 65065,
-  "confidence": 0.992
+  "text": " орган.",
+  "startMs": 62600,
+  "endMs": 63260,
+  "timestampMs": 62930,
+  "confidence": 0.988
  },
  {
-  "text": " верхний",
-  "startMs": 65476,
-  "endMs": 65836,
-  "timestampMs": 65656,
-  "confidence": 0.997
- },
- {
-  "text": " —",
-  "startMs": 65856,
-  "endMs": 65876,
-  "timestampMs": 65866,
-  "confidence": 1.0
+  "text": " Верхний",
+  "startMs": 63320,
+  "endMs": 63681,
+  "timestampMs": 63500,
+  "confidence": 0.921
  },
  {
   "text": " резервуар",
-  "startMs": 65896,
-  "endMs": 66617,
-  "timestampMs": 66256,
-  "confidence": 0.958
+  "startMs": 63721,
+  "endMs": 64241,
+  "timestampMs": 63981,
+  "confidence": 0.994
  },
  {
   "text": " с",
-  "startMs": 66657,
-  "endMs": 66697,
-  "timestampMs": 66677,
-  "confidence": 0.947
+  "startMs": 64301,
+  "endMs": 64361,
+  "timestampMs": 64331,
+  "confidence": 0.667
  },
  {
   "text": " жидким",
-  "startMs": 66737,
-  "endMs": 67097,
-  "timestampMs": 66917,
-  "confidence": 0.936
+  "startMs": 64421,
+  "endMs": 64760,
+  "timestampMs": 64590,
+  "confidence": 0.844
  },
  {
   "text": " жиром.",
-  "startMs": 67137,
-  "endMs": 67898,
-  "timestampMs": 67517,
-  "confidence": 1.0
+  "startMs": 64801,
+  "endMs": 65400,
+  "timestampMs": 65100,
+  "confidence": 0.896
  },
  {
   "text": " Второй",
-  "startMs": 67918,
-  "endMs": 68578,
-  "timestampMs": 68248,
-  "confidence": 0.983
+  "startMs": 65441,
+  "endMs": 66102,
+  "timestampMs": 65771,
+  "confidence": 0.985
  },
  {
-  "text": " —",
-  "startMs": 68598,
-  "endMs": 68618,
-  "timestampMs": 68608,
+  "text": " –",
+  "startMs": 66122,
+  "endMs": 66142,
+  "timestampMs": 66132,
   "confidence": 1.0
  },
  {
   "text": " джанг.",
-  "startMs": 68638,
-  "endMs": 69459,
-  "timestampMs": 69048,
-  "confidence": 0.91
+  "startMs": 66162,
+  "endMs": 66882,
+  "timestampMs": 66522,
+  "confidence": 0.946
  },
  {
   "text": " Нижняя",
-  "startMs": 69519,
-  "endMs": 69880,
-  "timestampMs": 69699,
-  "confidence": 0.997
+  "startMs": 66942,
+  "endMs": 67302,
+  "timestampMs": 67122,
+  "confidence": 0.916
  },
  {
   "text": " структура",
-  "startMs": 69940,
-  "endMs": 70480,
-  "timestampMs": 70210,
-  "confidence": 0.928
+  "startMs": 67342,
+  "endMs": 67822,
+  "timestampMs": 67582,
+  "confidence": 0.876
  },
  {
   "text": " из",
-  "startMs": 70540,
-  "endMs": 70640,
-  "timestampMs": 70590,
-  "confidence": 0.17
+  "startMs": 67862,
+  "endMs": 67943,
+  "timestampMs": 67902,
+  "confidence": 0.742
  },
  {
   "text": " жировых",
-  "startMs": 70680,
-  "endMs": 71041,
-  "timestampMs": 70860,
-  "confidence": 0.928
+  "startMs": 67963,
+  "endMs": 68323,
+  "timestampMs": 68143,
+  "confidence": 0.999
  },
  {
   "text": " камер,",
-  "startMs": 71081,
-  "endMs": 71721,
-  "timestampMs": 71401,
-  "confidence": 0.96
+  "startMs": 68383,
+  "endMs": 68923,
+  "timestampMs": 68653,
+  "confidence": 1.0
  },
  {
   "text": " разделенных",
-  "startMs": 71781,
-  "endMs": 72362,
-  "timestampMs": 72071,
-  "confidence": 0.948
+  "startMs": 68963,
+  "endMs": 69543,
+  "timestampMs": 69253,
+  "confidence": 0.993
  },
  {
   "text": " прочными",
-  "startMs": 72402,
-  "endMs": 72882,
-  "timestampMs": 72642,
+  "startMs": 69603,
+  "endMs": 70063,
+  "timestampMs": 69833,
   "confidence": 0.94
  },
  {
   "text": " тканевыми",
-  "startMs": 72922,
-  "endMs": 73443,
-  "timestampMs": 73182,
-  "confidence": 0.997
+  "startMs": 70083,
+  "endMs": 70584,
+  "timestampMs": 70333,
+  "confidence": 0.914
  },
  {
   "text": " перегородками,",
-  "startMs": 73483,
-  "endMs": 74564,
-  "timestampMs": 74023,
-  "confidence": 0.995
- },
- {
-  "text": " расположенными",
-  "startMs": 74584,
-  "endMs": 75264,
-  "timestampMs": 74924,
-  "confidence": 0.954
- },
- {
-  "text": " подобно",
-  "startMs": 75304,
-  "endMs": 75665,
-  "timestampMs": 75484,
-  "confidence": 0.929
- },
- {
-  "text": " линзом.",
-  "startMs": 75705,
-  "endMs": 77206,
-  "timestampMs": 76455,
-  "confidence": 0.966
- },
- {
-  "text": " Зачем",
-  "startMs": 77246,
-  "endMs": 77626,
-  "timestampMs": 77436,
-  "confidence": 0.909
- },
- {
-  "text": " хищнику",
-  "startMs": 77686,
-  "endMs": 78147,
-  "timestampMs": 77916,
-  "confidence": 0.901
- },
- {
-  "text": " нести",
-  "startMs": 78207,
-  "endMs": 78527,
-  "timestampMs": 78367,
-  "confidence": 0.999
- },
- {
-  "text": " на",
-  "startMs": 78567,
-  "endMs": 78647,
-  "timestampMs": 78607,
-  "confidence": 0.741
- },
- {
-  "text": " себе",
-  "startMs": 78687,
-  "endMs": 78988,
-  "timestampMs": 78837,
-  "confidence": 0.939
- },
- {
-  "text": " этот",
-  "startMs": 79028,
-  "endMs": 79228,
-  "timestampMs": 79128,
-  "confidence": 0.881
- },
- {
-  "text": " огромный",
-  "startMs": 79268,
-  "endMs": 79668,
-  "timestampMs": 79468,
-  "confidence": 0.929
- },
- {
-  "text": " груз?",
-  "startMs": 79688,
-  "endMs": 80609,
-  "timestampMs": 80148,
-  "confidence": 0.9
- },
- {
-  "text": " В",
-  "startMs": 80790,
-  "endMs": 80810,
-  "timestampMs": 80800,
+  "startMs": 70624,
+  "endMs": 71584,
+  "timestampMs": 71104,
   "confidence": 1.0
  },
  {
-  "text": " обесальной",
-  "startMs": 80830,
-  "endMs": 81430,
-  "timestampMs": 81130,
-  "confidence": 0.931
+  "text": " расположенными",
+  "startMs": 71624,
+  "endMs": 72305,
+  "timestampMs": 71964,
+  "confidence": 0.928
  },
  {
-  "text": " зоне,",
-  "startMs": 81490,
-  "endMs": 82131,
-  "timestampMs": 81810,
+  "text": " подобно",
+  "startMs": 72345,
+  "endMs": 72725,
+  "timestampMs": 72535,
+  "confidence": 0.917
+ },
+ {
+  "text": " линзом.",
+  "startMs": 72765,
+  "endMs": 74005,
+  "timestampMs": 73385,
+  "confidence": 0.95
+ },
+ {
+  "text": " Зачем",
+  "startMs": 74045,
+  "endMs": 74425,
+  "timestampMs": 74235,
+  "confidence": 0.8
+ },
+ {
+  "text": " хищник",
+  "startMs": 74486,
+  "endMs": 74866,
+  "timestampMs": 74676,
+  "confidence": 0.993
+ },
+ {
+  "text": " унести",
+  "startMs": 74906,
+  "endMs": 75266,
+  "timestampMs": 75086,
+  "confidence": 0.947
+ },
+ {
+  "text": " на",
+  "startMs": 75306,
+  "endMs": 75366,
+  "timestampMs": 75336,
+  "confidence": 1.0
+ },
+ {
+  "text": " себе",
+  "startMs": 75426,
+  "endMs": 75706,
+  "timestampMs": 75566,
+  "confidence": 0.983
+ },
+ {
+  "text": " этот",
+  "startMs": 75766,
+  "endMs": 76006,
+  "timestampMs": 75886,
+  "confidence": 0.919
+ },
+ {
+  "text": " огромный",
+  "startMs": 76046,
+  "endMs": 76486,
+  "timestampMs": 76266,
   "confidence": 0.999
  },
  {
-  "text": " куда",
-  "startMs": 82171,
-  "endMs": 82351,
-  "timestampMs": 82261,
-  "confidence": 0.924
+  "text": " груз?",
+  "startMs": 76526,
+  "endMs": 77647,
+  "timestampMs": 77086,
+  "confidence": 0.996
  },
  {
-  "text": " не",
-  "startMs": 82391,
-  "endMs": 82471,
-  "timestampMs": 82431,
+  "text": " В",
+  "startMs": 77667,
+  "endMs": 77707,
+  "timestampMs": 77687,
   "confidence": 0.998
  },
  {
+  "text": " обесальной",
+  "startMs": 77727,
+  "endMs": 78307,
+  "timestampMs": 78017,
+  "confidence": 0.97
+ },
+ {
+  "text": " зоне,",
+  "startMs": 78367,
+  "endMs": 78888,
+  "timestampMs": 78627,
+  "confidence": 0.975
+ },
+ {
+  "text": " куда",
+  "startMs": 78908,
+  "endMs": 79108,
+  "timestampMs": 79008,
+  "confidence": 0.847
+ },
+ {
+  "text": " не",
+  "startMs": 79148,
+  "endMs": 79228,
+  "timestampMs": 79188,
+  "confidence": 0.981
+ },
+ {
   "text": " проникает",
-  "startMs": 82511,
-  "endMs": 83071,
-  "timestampMs": 82791,
-  "confidence": 0.876
+  "startMs": 79268,
+  "endMs": 79788,
+  "timestampMs": 79528,
+  "confidence": 0.958
  },
  {
   "text": " ни",
-  "startMs": 83131,
-  "endMs": 83251,
-  "timestampMs": 83191,
-  "confidence": 0.9
+  "startMs": 79828,
+  "endMs": 79928,
+  "timestampMs": 79878,
+  "confidence": 0.999
  },
  {
   "text": " один",
-  "startMs": 83291,
-  "endMs": 83571,
-  "timestampMs": 83431,
+  "startMs": 79968,
+  "endMs": 80208,
+  "timestampMs": 80088,
   "confidence": 0.917
  },
  {
   "text": " луч",
-  "startMs": 83631,
-  "endMs": 83851,
-  "timestampMs": 83741,
-  "confidence": 0.933
- },
- {
-  "text": " солнца,",
-  "startMs": 83891,
-  "endMs": 84692,
-  "timestampMs": 84291,
-  "confidence": 0.893
- },
- {
-  "text": " глаза",
-  "startMs": 84752,
-  "endMs": 85072,
-  "timestampMs": 84912,
-  "confidence": 0.92
- },
- {
-  "text": " бесполезны.",
-  "startMs": 85112,
-  "endMs": 86273,
-  "timestampMs": 85692,
+  "startMs": 80248,
+  "endMs": 80448,
+  "timestampMs": 80348,
   "confidence": 0.912
  },
  {
-  "text": " Кошелот",
-  "startMs": 86313,
-  "endMs": 86773,
-  "timestampMs": 86543,
-  "confidence": 0.998
+  "text": " солнца,",
+  "startMs": 80488,
+  "endMs": 81089,
+  "timestampMs": 80788,
+  "confidence": 0.973
  },
  {
-  "text": " ориентируется",
-  "startMs": 86813,
-  "endMs": 87633,
-  "timestampMs": 87223,
-  "confidence": 0.971
- },
- {
-  "text": " и",
-  "startMs": 87673,
-  "endMs": 87713,
-  "timestampMs": 87693,
-  "confidence": 1.0
- },
- {
-  "text": " охотится",
-  "startMs": 87773,
-  "endMs": 88254,
-  "timestampMs": 88013,
-  "confidence": 0.957
- },
- {
-  "text": " с",
-  "startMs": 88294,
-  "endMs": 88334,
-  "timestampMs": 88314,
-  "confidence": 0.923
- },
- {
-  "text": " помощью",
-  "startMs": 88374,
-  "endMs": 88814,
-  "timestampMs": 88594,
-  "confidence": 0.887
- },
- {
-  "text": " эхолокации.",
-  "startMs": 88854,
-  "endMs": 90635,
-  "timestampMs": 89744,
-  "confidence": 0.994
- },
- {
-  "text": " В",
-  "startMs": 90675,
-  "endMs": 90715,
-  "timestampMs": 90695,
-  "confidence": 0.966
- },
- {
-  "text": " районе",
-  "startMs": 90735,
-  "endMs": 91075,
-  "timestampMs": 90905,
-  "confidence": 0.93
- },
- {
-  "text": " Дыхала",
-  "startMs": 91115,
-  "endMs": 91615,
-  "timestampMs": 91365,
-  "confidence": 0.961
- },
- {
-  "text": " у",
-  "startMs": 91655,
-  "endMs": 91715,
-  "timestampMs": 91685,
-  "confidence": 0.665
- },
- {
-  "text": " Китая",
-  "startMs": 91755,
-  "endMs": 92075,
-  "timestampMs": 91915,
-  "confidence": 0.867
- },
- {
-  "text": " есть",
-  "startMs": 92135,
-  "endMs": 92355,
-  "timestampMs": 92245,
-  "confidence": 0.865
- },
- {
-  "text": " специальные",
-  "startMs": 92395,
-  "endMs": 93076,
-  "timestampMs": 92735,
-  "confidence": 0.887
- },
- {
-  "text": " звуковые",
-  "startMs": 93116,
-  "endMs": 93616,
-  "timestampMs": 93366,
-  "confidence": 0.994
- },
- {
-  "text": " губы.",
-  "startMs": 93676,
-  "endMs": 94456,
-  "timestampMs": 94066,
-  "confidence": 0.888
- },
- {
-  "text": " При",
-  "startMs": 94496,
-  "endMs": 94636,
-  "timestampMs": 94566,
-  "confidence": 0.778
- },
- {
-  "text": " их",
-  "startMs": 94677,
-  "endMs": 94777,
-  "timestampMs": 94727,
-  "confidence": 1.0
- },
- {
-  "text": " смыкании",
-  "startMs": 94817,
-  "endMs": 95377,
-  "timestampMs": 95097,
-  "confidence": 0.966
- },
- {
-  "text": " возникают",
-  "startMs": 95397,
-  "endMs": 95937,
-  "timestampMs": 95667,
-  "confidence": 0.938
- },
- {
-  "text": " мощнейшие",
-  "startMs": 95977,
-  "endMs": 96617,
-  "timestampMs": 96297,
-  "confidence": 0.989
- },
- {
-  "text": " щелчки.",
-  "startMs": 96677,
-  "endMs": 97818,
-  "timestampMs": 97247,
-  "confidence": 0.929
- },
- {
-  "text": " Звуковая",
-  "startMs": 97878,
-  "endMs": 98298,
-  "timestampMs": 98088,
+  "text": " глаза",
+  "startMs": 81129,
+  "endMs": 81429,
+  "timestampMs": 81279,
   "confidence": 0.997
  },
  {
-  "text": " волна",
-  "startMs": 98338,
-  "endMs": 98638,
-  "timestampMs": 98488,
-  "confidence": 0.986
+  "text": " бесполежны.",
+  "startMs": 81489,
+  "endMs": 82729,
+  "timestampMs": 82109,
+  "confidence": 0.968
  },
  {
-  "text": " направляется",
-  "startMs": 98678,
-  "endMs": 99259,
-  "timestampMs": 98968,
-  "confidence": 0.906
+  "text": " Кошелот",
+  "startMs": 82749,
+  "endMs": 83230,
+  "timestampMs": 82989,
+  "confidence": 0.888
  },
  {
-  "text": " назад,",
-  "startMs": 99299,
-  "endMs": 100059,
-  "timestampMs": 99679,
-  "confidence": 1.0
- },
- {
-  "text": " отражается",
-  "startMs": 100099,
-  "endMs": 100659,
-  "timestampMs": 100379,
-  "confidence": 0.943
- },
- {
-  "text": " от",
-  "startMs": 100699,
-  "endMs": 100779,
-  "timestampMs": 100739,
-  "confidence": 0.801
- },
- {
-  "text": " плотной",
-  "startMs": 100819,
-  "endMs": 101220,
-  "timestampMs": 101019,
-  "confidence": 0.868
- },
- {
-  "text": " чашообразной",
-  "startMs": 101260,
-  "endMs": 101960,
-  "timestampMs": 101610,
-  "confidence": 0.902
- },
- {
-  "text": " кости",
-  "startMs": 102000,
-  "endMs": 102300,
-  "timestampMs": 102150,
-  "confidence": 1.0
- },
- {
-  "text": " черепа",
-  "startMs": 102340,
-  "endMs": 103120,
-  "timestampMs": 102730,
-  "confidence": 0.988
+  "text": " ориентируется",
+  "startMs": 83250,
+  "endMs": 84050,
+  "timestampMs": 83650,
+  "confidence": 0.967
  },
  {
   "text": " и",
-  "startMs": 103180,
-  "endMs": 103220,
-  "timestampMs": 103200,
-  "confidence": 0.502
+  "startMs": 84090,
+  "endMs": 84130,
+  "timestampMs": 84110,
+  "confidence": 0.537
  },
  {
-  "text": " устремляется",
-  "startMs": 103261,
-  "endMs": 103901,
-  "timestampMs": 103581,
-  "confidence": 0.89
- },
- {
-  "text": " вперед",
-  "startMs": 103941,
-  "endMs": 104361,
-  "timestampMs": 104151,
-  "confidence": 0.954
+  "text": " охотится",
+  "startMs": 84170,
+  "endMs": 84650,
+  "timestampMs": 84410,
+  "confidence": 0.958
  },
  {
   "text": " с",
-  "startMs": 104401,
-  "endMs": 104421,
-  "timestampMs": 104411,
+  "startMs": 84690,
+  "endMs": 84730,
+  "timestampMs": 84710,
+  "confidence": 0.787
+ },
+ {
+  "text": " помощью",
+  "startMs": 84750,
+  "endMs": 85210,
+  "timestampMs": 84980,
+  "confidence": 0.864
+ },
+ {
+  "text": " эхолокации.",
+  "startMs": 85270,
+  "endMs": 86431,
+  "timestampMs": 85850,
+  "confidence": 0.99
+ },
+ {
+  "text": " В",
+  "startMs": 86751,
+  "endMs": 86811,
+  "timestampMs": 86781,
+  "confidence": 0.594
+ },
+ {
+  "text": " районе",
+  "startMs": 86831,
+  "endMs": 87152,
+  "timestampMs": 86991,
+  "confidence": 0.918
+ },
+ {
+  "text": " Дыхала",
+  "startMs": 87192,
+  "endMs": 87632,
+  "timestampMs": 87412,
+  "confidence": 0.958
+ },
+ {
+  "text": " у",
+  "startMs": 87672,
+  "endMs": 87712,
+  "timestampMs": 87692,
+  "confidence": 0.99
+ },
+ {
+  "text": " Кита",
+  "startMs": 87772,
+  "endMs": 88052,
+  "timestampMs": 87912,
+  "confidence": 0.956
+ },
+ {
+  "text": " есть",
+  "startMs": 88112,
+  "endMs": 88333,
+  "timestampMs": 88222,
+  "confidence": 0.916
+ },
+ {
+  "text": " специальные",
+  "startMs": 88373,
+  "endMs": 88953,
+  "timestampMs": 88663,
+  "confidence": 0.857
+ },
+ {
+  "text": " звуковые",
+  "startMs": 88993,
+  "endMs": 89454,
+  "timestampMs": 89223,
+  "confidence": 0.957
+ },
+ {
+  "text": " губы.",
+  "startMs": 89494,
+  "endMs": 90435,
+  "timestampMs": 89964,
+  "confidence": 0.876
+ },
+ {
+  "text": " При",
+  "startMs": 90475,
+  "endMs": 90615,
+  "timestampMs": 90545,
+  "confidence": 0.859
+ },
+ {
+  "text": " их",
+  "startMs": 90655,
+  "endMs": 90755,
+  "timestampMs": 90705,
+  "confidence": 0.875
+ },
+ {
+  "text": " смыкании",
+  "startMs": 90795,
+  "endMs": 91315,
+  "timestampMs": 91055,
+  "confidence": 0.983
+ },
+ {
+  "text": " возникают",
+  "startMs": 91355,
+  "endMs": 91896,
+  "timestampMs": 91625,
+  "confidence": 0.92
+ },
+ {
+  "text": " мощнейшие",
+  "startMs": 91936,
+  "endMs": 92536,
+  "timestampMs": 92236,
+  "confidence": 0.946
+ },
+ {
+  "text": " щелчки.",
+  "startMs": 92576,
+  "endMs": 93758,
+  "timestampMs": 93167,
+  "confidence": 0.937
+ },
+ {
+  "text": " Звуковая",
+  "startMs": 93818,
+  "endMs": 94258,
+  "timestampMs": 94038,
   "confidence": 1.0
  },
  {
-  "text": " крусть",
-  "startMs": 104461,
-  "endMs": 104681,
-  "timestampMs": 104571,
-  "confidence": 0.584
+  "text": " волна",
+  "startMs": 94298,
+  "endMs": 94598,
+  "timestampMs": 94448,
+  "confidence": 0.961
  },
  {
-  "text": " спермацетовый",
-  "startMs": 104701,
-  "endMs": 105381,
-  "timestampMs": 105041,
-  "confidence": 0.914
+  "text": " направляется",
+  "startMs": 94618,
+  "endMs": 95199,
+  "timestampMs": 94908,
+  "confidence": 0.968
+ },
+ {
+  "text": " назад,",
+  "startMs": 95239,
+  "endMs": 95839,
+  "timestampMs": 95539,
+  "confidence": 0.976
+ },
+ {
+  "text": " отражается",
+  "startMs": 95879,
+  "endMs": 96460,
+  "timestampMs": 96169,
+  "confidence": 0.98
+ },
+ {
+  "text": " от",
+  "startMs": 96500,
+  "endMs": 96600,
+  "timestampMs": 96550,
+  "confidence": 0.99
+ },
+ {
+  "text": " плотной",
+  "startMs": 96640,
+  "endMs": 97000,
+  "timestampMs": 96820,
+  "confidence": 0.86
+ },
+ {
+  "text": " чашеобразной",
+  "startMs": 97040,
+  "endMs": 97721,
+  "timestampMs": 97380,
+  "confidence": 0.876
+ },
+ {
+  "text": " кости",
+  "startMs": 97761,
+  "endMs": 98021,
+  "timestampMs": 97891,
+  "confidence": 0.991
+ },
+ {
+  "text": " черепа",
+  "startMs": 98081,
+  "endMs": 98722,
+  "timestampMs": 98401,
+  "confidence": 0.987
+ },
+ {
+  "text": " и",
+  "startMs": 98782,
+  "endMs": 98822,
+  "timestampMs": 98802,
+  "confidence": 0.998
+ },
+ {
+  "text": " устремляется",
+  "startMs": 98862,
+  "endMs": 99523,
+  "timestampMs": 99192,
+  "confidence": 0.941
+ },
+ {
+  "text": " вперед",
+  "startMs": 99563,
+  "endMs": 100023,
+  "timestampMs": 99793,
+  "confidence": 0.961
+ },
+ {
+  "text": " сквозь",
+  "startMs": 100063,
+  "endMs": 100343,
+  "timestampMs": 100203,
+  "confidence": 0.909
+ },
+ {
+  "text": " спермоцетовый",
+  "startMs": 100383,
+  "endMs": 101104,
+  "timestampMs": 100743,
+  "confidence": 0.931
  },
  {
   "text": " орган.",
-  "startMs": 105422,
-  "endMs": 106462,
-  "timestampMs": 105942,
+  "startMs": 101144,
+  "endMs": 102125,
+  "timestampMs": 101634,
   "confidence": 1.0
  },
  {
   "text": " С",
-  "startMs": 106682,
-  "endMs": 106702,
-  "timestampMs": 106692,
+  "startMs": 102532,
+  "endMs": 102552,
+  "timestampMs": 102542,
   "confidence": 0.998
  },
  {
   "text": " пермоцет",
-  "startMs": 106742,
-  "endMs": 107243,
-  "timestampMs": 106992,
-  "confidence": 0.951
+  "startMs": 102592,
+  "endMs": 103533,
+  "timestampMs": 103062,
+  "confidence": 0.972
  },
  {
   "text": " работает",
-  "startMs": 107283,
-  "endMs": 107703,
-  "timestampMs": 107493,
-  "confidence": 1.0
+  "startMs": 103613,
+  "endMs": 104113,
+  "timestampMs": 103863,
+  "confidence": 0.998
  },
  {
   "text": " как",
-  "startMs": 107743,
-  "endMs": 107963,
-  "timestampMs": 107853,
-  "confidence": 0.932
+  "startMs": 104153,
+  "endMs": 104394,
+  "timestampMs": 104273,
+  "confidence": 0.916
  },
  {
   "text": " акустическая",
-  "startMs": 108003,
-  "endMs": 108684,
-  "timestampMs": 108343,
-  "confidence": 0.992
+  "startMs": 104454,
+  "endMs": 105314,
+  "timestampMs": 104884,
+  "confidence": 0.998
  },
  {
   "text": " линза.",
-  "startMs": 108724,
-  "endMs": 109624,
-  "timestampMs": 109174,
+  "startMs": 105374,
+  "endMs": 106295,
+  "timestampMs": 105834,
   "confidence": 1.0
  },
  {
   "text": " Подобно",
-  "startMs": 109664,
-  "endMs": 110005,
-  "timestampMs": 109834,
-  "confidence": 0.941
- },
- {
-  "text": " тому,",
-  "startMs": 110045,
-  "endMs": 110265,
-  "timestampMs": 110155,
-  "confidence": 0.996
- },
- {
-  "text": " как",
-  "startMs": 110305,
-  "endMs": 110485,
-  "timestampMs": 110395,
-  "confidence": 0.875
- },
- {
-  "text": " лупа",
-  "startMs": 110545,
-  "endMs": 110825,
-  "timestampMs": 110685,
-  "confidence": 0.918
- },
- {
-  "text": " фокусирует",
-  "startMs": 110885,
-  "endMs": 111426,
-  "timestampMs": 111155,
-  "confidence": 0.988
- },
- {
-  "text": " солнечный",
-  "startMs": 111486,
-  "endMs": 111946,
-  "timestampMs": 111716,
-  "confidence": 0.948
- },
- {
-  "text": " свет",
-  "startMs": 111986,
-  "endMs": 112206,
-  "timestampMs": 112096,
-  "confidence": 0.936
- },
- {
-  "text": " в",
-  "startMs": 112226,
-  "endMs": 112266,
-  "timestampMs": 112246,
-  "confidence": 0.501
- },
- {
-  "text": " одну",
-  "startMs": 112286,
-  "endMs": 112486,
-  "timestampMs": 112386,
+  "startMs": 106335,
+  "endMs": 106675,
+  "timestampMs": 106505,
   "confidence": 1.0
  },
  {
-  "text": " точку,",
-  "startMs": 112526,
-  "endMs": 113287,
-  "timestampMs": 112906,
-  "confidence": 0.996
+  "text": " тому,",
+  "startMs": 106715,
+  "endMs": 106936,
+  "timestampMs": 106825,
+  "confidence": 0.977
  },
  {
-  "text": " жировой",
-  "startMs": 113327,
-  "endMs": 113747,
-  "timestampMs": 113537,
-  "confidence": 0.97
+  "text": " как",
+  "startMs": 106976,
+  "endMs": 107176,
+  "timestampMs": 107076,
+  "confidence": 0.858
  },
  {
-  "text": " орган",
-  "startMs": 113787,
-  "endMs": 114088,
-  "timestampMs": 113937,
-  "confidence": 0.906
- },
- {
-  "text": " фокусирует",
-  "startMs": 114128,
-  "endMs": 114788,
-  "timestampMs": 114458,
-  "confidence": 0.949
- },
- {
-  "text": " и",
-  "startMs": 114848,
-  "endMs": 114888,
-  "timestampMs": 114868,
+  "text": " лупо",
+  "startMs": 107256,
+  "endMs": 107556,
+  "timestampMs": 107406,
   "confidence": 0.999
  },
  {
+  "text": " фокусирует",
+  "startMs": 107616,
+  "endMs": 108257,
+  "timestampMs": 107936,
+  "confidence": 0.917
+ },
+ {
+  "text": " солнечный",
+  "startMs": 108297,
+  "endMs": 108837,
+  "timestampMs": 108567,
+  "confidence": 0.931
+ },
+ {
+  "text": " свет",
+  "startMs": 108877,
+  "endMs": 109137,
+  "timestampMs": 109007,
+  "confidence": 1.0
+ },
+ {
+  "text": " в",
+  "startMs": 109177,
+  "endMs": 109217,
+  "timestampMs": 109197,
+  "confidence": 0.5
+ },
+ {
+  "text": " одну",
+  "startMs": 109237,
+  "endMs": 109478,
+  "timestampMs": 109357,
+  "confidence": 0.936
+ },
+ {
+  "text": " точку,",
+  "startMs": 109518,
+  "endMs": 110338,
+  "timestampMs": 109928,
+  "confidence": 0.993
+ },
+ {
+  "text": " жировой",
+  "startMs": 110398,
+  "endMs": 110859,
+  "timestampMs": 110628,
+  "confidence": 0.965
+ },
+ {
+  "text": " орган",
+  "startMs": 110899,
+  "endMs": 111219,
+  "timestampMs": 111059,
+  "confidence": 0.933
+ },
+ {
+  "text": " фокусирует",
+  "startMs": 111279,
+  "endMs": 112100,
+  "timestampMs": 111689,
+  "confidence": 0.985
+ },
+ {
+  "text": " и",
+  "startMs": 112160,
+  "endMs": 112220,
+  "timestampMs": 112190,
+  "confidence": 0.667
+ },
+ {
   "text": " усиливает",
-  "startMs": 114948,
-  "endMs": 115469,
-  "timestampMs": 115208,
-  "confidence": 0.964
+  "startMs": 112260,
+  "endMs": 112860,
+  "timestampMs": 112560,
+  "confidence": 0.917
  },
  {
   "text": " звук,",
-  "startMs": 115529,
-  "endMs": 116169,
-  "timestampMs": 115849,
+  "startMs": 112920,
+  "endMs": 113581,
+  "timestampMs": 113250,
   "confidence": 1.0
  },
  {
   "text": " превращая",
-  "startMs": 116189,
-  "endMs": 116769,
-  "timestampMs": 116479,
-  "confidence": 0.959
+  "startMs": 113601,
+  "endMs": 114281,
+  "timestampMs": 113941,
+  "confidence": 0.965
  },
  {
   "text": " его",
-  "startMs": 116850,
-  "endMs": 117010,
-  "timestampMs": 116930,
-  "confidence": 1.0
+  "startMs": 114341,
+  "endMs": 114682,
+  "timestampMs": 114511,
+  "confidence": 0.972
  },
  {
   "text": " в",
-  "startMs": 117070,
-  "endMs": 117090,
-  "timestampMs": 117080,
-  "confidence": 1.0
+  "startMs": 114762,
+  "endMs": 114802,
+  "timestampMs": 114782,
+  "confidence": 0.999
  },
  {
   "text": " узконаправленный",
-  "startMs": 117130,
-  "endMs": 117950,
-  "timestampMs": 117540,
-  "confidence": 0.853
+  "startMs": 114822,
+  "endMs": 115823,
+  "timestampMs": 115322,
+  "confidence": 0.958
  },
  {
   "text": " акустический",
-  "startMs": 117990,
-  "endMs": 118631,
-  "timestampMs": 118310,
-  "confidence": 0.886
+  "startMs": 115863,
+  "endMs": 116623,
+  "timestampMs": 116243,
+  "confidence": 0.97
  },
  {
   "text": " луч.",
-  "startMs": 118671,
-  "endMs": 119892,
-  "timestampMs": 119281,
-  "confidence": 0.998
+  "startMs": 116663,
+  "endMs": 117684,
+  "timestampMs": 117173,
+  "confidence": 0.995
  },
  {
   "text": " Мощность",
-  "startMs": 119972,
-  "endMs": 120472,
-  "timestampMs": 120222,
-  "confidence": 0.957
+  "startMs": 117764,
+  "endMs": 118245,
+  "timestampMs": 118004,
+  "confidence": 0.884
  },
  {
   "text": " щелчка",
-  "startMs": 120532,
-  "endMs": 120892,
-  "timestampMs": 120712,
-  "confidence": 0.902
+  "startMs": 118305,
+  "endMs": 118705,
+  "timestampMs": 118505,
+  "confidence": 0.811
  },
  {
   "text": " кошелота",
-  "startMs": 120933,
-  "endMs": 121433,
-  "timestampMs": 121183,
-  "confidence": 0.904
- },
- {
-  "text": " достигает",
-  "startMs": 121473,
-  "endMs": 121993,
-  "timestampMs": 121733,
-  "confidence": 0.988
- },
- {
-  "text": " 230",
-  "startMs": 122093,
-  "endMs": 122494,
-  "timestampMs": 122293,
-  "confidence": 0.787
- },
- {
-  "text": " децибел.",
-  "startMs": 122954,
-  "endMs": 124475,
-  "timestampMs": 123714,
-  "confidence": 0.957
- },
- {
-  "text": " Децибелы",
-  "startMs": 124515,
-  "endMs": 125096,
-  "timestampMs": 124805,
-  "confidence": 0.938
- },
- {
-  "text": " измеряются",
-  "startMs": 125136,
-  "endMs": 125716,
-  "timestampMs": 125426,
-  "confidence": 0.943
- },
- {
-  "text": " по",
-  "startMs": 125756,
-  "endMs": 125816,
-  "timestampMs": 125786,
-  "confidence": 0.75
- },
- {
-  "text": " логорифмической",
-  "startMs": 125856,
-  "endMs": 126617,
-  "timestampMs": 126236,
-  "confidence": 0.907
- },
- {
-  "text": " шкале.",
-  "startMs": 126657,
-  "endMs": 127457,
-  "timestampMs": 127057,
-  "confidence": 0.925
- },
- {
-  "text": " Каждые",
-  "startMs": 127477,
-  "endMs": 127878,
-  "timestampMs": 127677,
-  "confidence": 0.883
- },
- {
-  "text": " 10",
-  "startMs": 127918,
-  "endMs": 128238,
-  "timestampMs": 128078,
-  "confidence": 0.832
- },
- {
-  "text": " децибел",
-  "startMs": 128258,
-  "endMs": 129098,
-  "timestampMs": 128678,
-  "confidence": 0.952
- },
- {
-  "text": " означают",
-  "startMs": 129118,
-  "endMs": 129619,
-  "timestampMs": 129368,
-  "confidence": 0.895
- },
- {
-  "text": " увеличение",
-  "startMs": 129658,
-  "endMs": 130279,
-  "timestampMs": 129968,
+  "startMs": 118765,
+  "endMs": 119506,
+  "timestampMs": 119135,
   "confidence": 0.979
  },
  {
-  "text": " интенсивности",
-  "startMs": 130318,
-  "endMs": 131000,
-  "timestampMs": 130659,
-  "confidence": 0.953
+  "text": " достигает",
+  "startMs": 119566,
+  "endMs": 120206,
+  "timestampMs": 119886,
+  "confidence": 0.998
  },
  {
-  "text": " звука",
-  "startMs": 131039,
-  "endMs": 131320,
-  "timestampMs": 131179,
-  "confidence": 0.996
+  "text": " 230",
+  "startMs": 120226,
+  "endMs": 120286,
+  "timestampMs": 120256,
+  "confidence": 1.0
  },
  {
-  "text": " в",
-  "startMs": 131340,
-  "endMs": 131360,
-  "timestampMs": 131350,
-  "confidence": 0.002
+  "text": " дБ.",
+  "startMs": 120306,
+  "endMs": 120406,
+  "timestampMs": 120356,
+  "confidence": 0.667
+ },
+ {
+  "text": " Децибелы",
+  "startMs": 122768,
+  "endMs": 123349,
+  "timestampMs": 123058,
+  "confidence": 0.916
+ },
+ {
+  "text": " измеряются",
+  "startMs": 123389,
+  "endMs": 123990,
+  "timestampMs": 123689,
+  "confidence": 0.926
+ },
+ {
+  "text": " по",
+  "startMs": 124030,
+  "endMs": 124070,
+  "timestampMs": 124050,
+  "confidence": 1.0
+ },
+ {
+  "text": " логорифмической",
+  "startMs": 124130,
+  "endMs": 124931,
+  "timestampMs": 124530,
+  "confidence": 0.946
+ },
+ {
+  "text": " шкале.",
+  "startMs": 124971,
+  "endMs": 125731,
+  "timestampMs": 125351,
+  "confidence": 0.967
+ },
+ {
+  "text": " Каждые",
+  "startMs": 125772,
+  "endMs": 126172,
+  "timestampMs": 125972,
+  "confidence": 0.918
  },
  {
   "text": " 10",
-  "startMs": 131380,
-  "endMs": 131420,
-  "timestampMs": 131400,
-  "confidence": 0.997
+  "startMs": 126232,
+  "endMs": 126552,
+  "timestampMs": 126392,
+  "confidence": 0.808
+ },
+ {
+  "text": " децибел",
+  "startMs": 126592,
+  "endMs": 127213,
+  "timestampMs": 126902,
+  "confidence": 0.892
+ },
+ {
+  "text": " означают",
+  "startMs": 127253,
+  "endMs": 127814,
+  "timestampMs": 127533,
+  "confidence": 0.958
+ },
+ {
+  "text": " увеличение",
+  "startMs": 127874,
+  "endMs": 128555,
+  "timestampMs": 128214,
+  "confidence": 0.947
+ },
+ {
+  "text": " интенсивности",
+  "startMs": 128595,
+  "endMs": 129356,
+  "timestampMs": 128975,
+  "confidence": 0.947
+ },
+ {
+  "text": " звука",
+  "startMs": 129395,
+  "endMs": 129716,
+  "timestampMs": 129555,
+  "confidence": 0.95
+ },
+ {
+  "text": " в",
+  "startMs": 129735,
+  "endMs": 129776,
+  "timestampMs": 129755,
+  "confidence": 0.692
+ },
+ {
+  "text": " 10",
+  "startMs": 129816,
+  "endMs": 130175,
+  "timestampMs": 129995,
+  "confidence": 0.832
  },
  {
   "text": " раз.",
-  "startMs": 131440,
-  "endMs": 131640,
-  "timestampMs": 131540,
-  "confidence": 0.728
+  "startMs": 130217,
+  "endMs": 130997,
+  "timestampMs": 130607,
+  "confidence": 1.0
  },
  {
   "text": " Разговор",
-  "startMs": 132741,
-  "endMs": 133162,
-  "timestampMs": 132951,
+  "startMs": 131037,
+  "endMs": 131478,
+  "timestampMs": 131257,
   "confidence": 0.958
  },
  {
   "text": " людей",
-  "startMs": 133182,
-  "endMs": 133762,
-  "timestampMs": 133472,
-  "confidence": 0.988
- },
- {
-  "text": " —",
-  "startMs": 133822,
-  "endMs": 133982,
-  "timestampMs": 133902,
-  "confidence": 0.253
- },
- {
-  "text": " 60",
-  "startMs": 134002,
-  "endMs": 134243,
-  "timestampMs": 134122,
-  "confidence": 0.898
- },
- {
-  "text": " децибел,",
-  "startMs": 134283,
-  "endMs": 135123,
-  "timestampMs": 134703,
-  "confidence": 0.901
- },
- {
-  "text": " газонакосилка",
-  "startMs": 135163,
-  "endMs": 136184,
-  "timestampMs": 135673,
-  "confidence": 0.901
- },
- {
-  "text": " —",
-  "startMs": 136204,
-  "endMs": 136224,
-  "timestampMs": 136214,
-  "confidence": 1.0
- },
- {
-  "text": " 90,",
-  "startMs": 136244,
-  "endMs": 137145,
-  "timestampMs": 136694,
-  "confidence": 0.938
- },
- {
-  "text": " взлетающий",
-  "startMs": 137185,
-  "endMs": 137726,
-  "timestampMs": 137455,
-  "confidence": 0.917
- },
- {
-  "text": " реактивный",
-  "startMs": 137746,
-  "endMs": 138206,
-  "timestampMs": 137976,
-  "confidence": 0.913
- },
- {
-  "text": " самолет",
-  "startMs": 138246,
-  "endMs": 138927,
-  "timestampMs": 138586,
-  "confidence": 0.986
- },
- {
-  "text": " —",
-  "startMs": 139027,
-  "endMs": 139107,
-  "timestampMs": 139067,
-  "confidence": 0.75
- },
- {
-  "text": " 140.",
-  "startMs": 139147,
-  "endMs": 139968,
-  "timestampMs": 139557,
-  "confidence": 0.985
- },
- {
-  "text": " Брабанная",
-  "startMs": 140028,
-  "endMs": 140508,
-  "timestampMs": 140268,
-  "confidence": 0.914
- },
- {
-  "text": " перепонка",
-  "startMs": 140528,
-  "endMs": 140949,
-  "timestampMs": 140738,
-  "confidence": 0.941
- },
- {
-  "text": " человека",
-  "startMs": 140989,
-  "endMs": 141409,
-  "timestampMs": 141199,
-  "confidence": 0.896
- },
- {
-  "text": " разрывается",
-  "startMs": 141429,
-  "endMs": 142010,
-  "timestampMs": 141719,
-  "confidence": 0.933
- },
- {
-  "text": " при",
-  "startMs": 142050,
-  "endMs": 142350,
-  "timestampMs": 142200,
-  "confidence": 0.915
- },
- {
-  "text": " 150",
-  "startMs": 142630,
-  "endMs": 142931,
-  "timestampMs": 142780,
-  "confidence": 0.9
- },
- {
-  "text": " децибелах.",
-  "startMs": 142971,
-  "endMs": 143972,
-  "timestampMs": 143471,
-  "confidence": 0.929
- },
- {
-  "text": " Щелчок",
-  "startMs": 144032,
-  "endMs": 144472,
-  "timestampMs": 144252,
-  "confidence": 0.673
- },
- {
-  "text": " в",
-  "startMs": 144552,
-  "endMs": 144812,
-  "timestampMs": 144682,
-  "confidence": 0.605
- },
- {
-  "text": " 230",
-  "startMs": 144892,
-  "endMs": 145153,
-  "timestampMs": 145022,
-  "confidence": 0.613
- },
- {
-  "text": " децибел",
-  "startMs": 145193,
-  "endMs": 145593,
-  "timestampMs": 145393,
-  "confidence": 0.937
- },
- {
-  "text": " в",
-  "startMs": 145633,
-  "endMs": 145673,
-  "timestampMs": 145653,
-  "confidence": 0.991
- },
- {
-  "text": " плотной",
-  "startMs": 145713,
-  "endMs": 146033,
-  "timestampMs": 145873,
-  "confidence": 0.848
- },
- {
-  "text": " водной",
-  "startMs": 146094,
-  "endMs": 146354,
-  "timestampMs": 146224,
-  "confidence": 0.882
- },
- {
-  "text": " среде",
-  "startMs": 146394,
-  "endMs": 147034,
-  "timestampMs": 146714,
-  "confidence": 0.99
- },
- {
-  "text": " невероятно",
-  "startMs": 147094,
-  "endMs": 147695,
-  "timestampMs": 147394,
-  "confidence": 0.97
- },
- {
-  "text": " силен.",
-  "startMs": 147755,
-  "endMs": 148576,
-  "timestampMs": 148165,
-  "confidence": 0.986
- },
- {
-  "text": " Водолажи,",
-  "startMs": 148596,
-  "endMs": 149136,
-  "timestampMs": 148866,
-  "confidence": 0.919
- },
- {
-  "text": " оказывавшиеся",
-  "startMs": 149156,
-  "endMs": 149837,
-  "timestampMs": 149496,
-  "confidence": 0.957
- },
- {
-  "text": " рядом",
-  "startMs": 149857,
-  "endMs": 150077,
-  "timestampMs": 149967,
-  "confidence": 1.0
- },
- {
-  "text": " с",
-  "startMs": 150117,
-  "endMs": 150137,
-  "timestampMs": 150127,
-  "confidence": 0.999
- },
- {
-  "text": " кошелотом,",
-  "startMs": 150177,
-  "endMs": 151018,
-  "timestampMs": 150597,
-  "confidence": 0.964
- },
- {
-  "text": " рассказывали,",
-  "startMs": 151058,
-  "endMs": 151599,
-  "timestampMs": 151328,
-  "confidence": 0.937
- },
- {
-  "text": " что",
-  "startMs": 151639,
-  "endMs": 151759,
-  "timestampMs": 151699,
-  "confidence": 0.932
- },
- {
-  "text": " физически",
-  "startMs": 151819,
-  "endMs": 152379,
-  "timestampMs": 152099,
-  "confidence": 0.953
- },
- {
-  "text": " ощущали,",
-  "startMs": 152419,
-  "endMs": 152980,
-  "timestampMs": 152699,
-  "confidence": 0.997
- },
- {
-  "text": " как",
-  "startMs": 153000,
-  "endMs": 153140,
-  "timestampMs": 153070,
-  "confidence": 0.831
- },
- {
-  "text": " звуковые",
-  "startMs": 153160,
-  "endMs": 153540,
-  "timestampMs": 153350,
-  "confidence": 0.994
- },
- {
-  "text": " волны",
-  "startMs": 153581,
-  "endMs": 153861,
-  "timestampMs": 153721,
-  "confidence": 0.988
- },
- {
-  "text": " вибрации",
-  "startMs": 153901,
-  "endMs": 154381,
-  "timestampMs": 154141,
-  "confidence": 0.999
- },
- {
-  "text": " нагревают",
-  "startMs": 154421,
-  "endMs": 154902,
-  "timestampMs": 154661,
-  "confidence": 0.962
- },
- {
-  "text": " внутренние",
-  "startMs": 154942,
-  "endMs": 155442,
-  "timestampMs": 155192,
-  "confidence": 0.975
- },
- {
-  "text": " органы.",
-  "startMs": 155482,
-  "endMs": 155803,
-  "timestampMs": 155642,
-  "confidence": 0.998
- },
- {
-  "text": " Долгое",
-  "startMs": 156963,
-  "endMs": 157324,
-  "timestampMs": 157143,
-  "confidence": 0.913
- },
- {
-  "text": " время",
-  "startMs": 157344,
-  "endMs": 157604,
-  "timestampMs": 157474,
-  "confidence": 0.933
- },
- {
-  "text": " считалось,",
-  "startMs": 157644,
-  "endMs": 158044,
-  "timestampMs": 157844,
+  "startMs": 131518,
+  "endMs": 132039,
+  "timestampMs": 131778,
   "confidence": 0.996
  },
  {
+  "text": " —",
+  "startMs": 132079,
+  "endMs": 132099,
+  "timestampMs": 132089,
+  "confidence": 1.0
+ },
+ {
+  "text": " 60",
+  "startMs": 132139,
+  "endMs": 132219,
+  "timestampMs": 132179,
+  "confidence": 0.964
+ },
+ {
+  "text": " децибел.",
+  "startMs": 132339,
+  "endMs": 133540,
+  "timestampMs": 132939,
+  "confidence": 0.925
+ },
+ {
+  "text": " Газонакосилка",
+  "startMs": 133600,
+  "endMs": 134641,
+  "timestampMs": 134120,
+  "confidence": 0.883
+ },
+ {
+  "text": " —",
+  "startMs": 134661,
+  "endMs": 134682,
+  "timestampMs": 134671,
+  "confidence": 1.0
+ },
+ {
+  "text": " 90.",
+  "startMs": 134722,
+  "endMs": 135683,
+  "timestampMs": 135202,
+  "confidence": 0.946
+ },
+ {
+  "text": " Взлетающий",
+  "startMs": 135723,
+  "endMs": 136383,
+  "timestampMs": 136053,
+  "confidence": 0.97
+ },
+ {
+  "text": " реактивный",
+  "startMs": 136403,
+  "endMs": 136904,
+  "timestampMs": 136653,
+  "confidence": 0.932
+ },
+ {
+  "text": " самолет",
+  "startMs": 136944,
+  "endMs": 137545,
+  "timestampMs": 137244,
+  "confidence": 0.991
+ },
+ {
+  "text": " —",
+  "startMs": 137685,
+  "endMs": 137765,
+  "timestampMs": 137725,
+  "confidence": 0.855
+ },
+ {
+  "text": " 140.",
+  "startMs": 137825,
+  "endMs": 138646,
+  "timestampMs": 138235,
+  "confidence": 0.983
+ },
+ {
+  "text": " Барабанная",
+  "startMs": 138686,
+  "endMs": 139227,
+  "timestampMs": 138956,
+  "confidence": 0.998
+ },
+ {
+  "text": " перепонка",
+  "startMs": 139267,
+  "endMs": 139727,
+  "timestampMs": 139497,
+  "confidence": 0.968
+ },
+ {
+  "text": " человека",
+  "startMs": 139767,
+  "endMs": 140388,
+  "timestampMs": 140077,
+  "confidence": 0.943
+ },
+ {
+  "text": " разрывается",
+  "startMs": 140468,
+  "endMs": 141069,
+  "timestampMs": 140768,
+  "confidence": 0.96
+ },
+ {
+  "text": " при",
+  "startMs": 141129,
+  "endMs": 141249,
+  "timestampMs": 141189,
+  "confidence": 1.0
+ },
+ {
+  "text": " 150",
+  "startMs": 141309,
+  "endMs": 141489,
+  "timestampMs": 141399,
+  "confidence": 1.0
+ },
+ {
+  "text": " децибелах.",
+  "startMs": 141529,
+  "endMs": 142030,
+  "timestampMs": 141779,
+  "confidence": 0.64
+ },
+ {
+  "text": " щелчок",
+  "startMs": 143291,
+  "endMs": 143871,
+  "timestampMs": 143581,
+  "confidence": 0.921
+ },
+ {
+  "text": " в",
+  "startMs": 143971,
+  "endMs": 144291,
+  "timestampMs": 144131,
+  "confidence": 0.695
+ },
+ {
+  "text": " 230",
+  "startMs": 144331,
+  "endMs": 144712,
+  "timestampMs": 144521,
+  "confidence": 0.522
+ },
+ {
+  "text": " дБ",
+  "startMs": 144732,
+  "endMs": 145352,
+  "timestampMs": 145042,
+  "confidence": 0.748
+ },
+ {
+  "text": " в",
+  "startMs": 145392,
+  "endMs": 145432,
+  "timestampMs": 145412,
+  "confidence": 1.0
+ },
+ {
+  "text": " плотной",
+  "startMs": 145472,
+  "endMs": 145892,
+  "timestampMs": 145682,
+  "confidence": 0.802
+ },
+ {
+  "text": " водной",
+  "startMs": 145932,
+  "endMs": 146232,
+  "timestampMs": 146082,
+  "confidence": 0.916
+ },
+ {
+  "text": " среде",
+  "startMs": 146252,
+  "endMs": 146873,
+  "timestampMs": 146562,
+  "confidence": 0.989
+ },
+ {
+  "text": " невероятно",
+  "startMs": 146913,
+  "endMs": 147553,
+  "timestampMs": 147233,
+  "confidence": 0.93
+ },
+ {
+  "text": " силен.",
+  "startMs": 147613,
+  "endMs": 148473,
+  "timestampMs": 148043,
+  "confidence": 0.996
+ },
+ {
+  "text": " Водолазы,",
+  "startMs": 148493,
+  "endMs": 149093,
+  "timestampMs": 148793,
+  "confidence": 0.98
+ },
+ {
+  "text": " оказывавшиеся",
+  "startMs": 149133,
+  "endMs": 149874,
+  "timestampMs": 149503,
+  "confidence": 0.967
+ },
+ {
+  "text": " рядом",
+  "startMs": 149914,
+  "endMs": 150134,
+  "timestampMs": 150024,
+  "confidence": 0.99
+ },
+ {
+  "text": " с",
+  "startMs": 150174,
+  "endMs": 150194,
+  "timestampMs": 150184,
+  "confidence": 1.0
+ },
+ {
+  "text": " кошелотом,",
+  "startMs": 150234,
+  "endMs": 151074,
+  "timestampMs": 150654,
+  "confidence": 0.983
+ },
+ {
+  "text": " рассказывали,",
+  "startMs": 151114,
+  "endMs": 151655,
+  "timestampMs": 151384,
+  "confidence": 0.943
+ },
+ {
   "text": " что",
-  "startMs": 158084,
-  "endMs": 158204,
-  "timestampMs": 158144,
+  "startMs": 151695,
+  "endMs": 151815,
+  "timestampMs": 151755,
+  "confidence": 1.0
+ },
+ {
+  "text": " физически",
+  "startMs": 151895,
+  "endMs": 152475,
+  "timestampMs": 152185,
+  "confidence": 0.959
+ },
+ {
+  "text": " ощущали,",
+  "startMs": 152515,
+  "endMs": 153355,
+  "timestampMs": 152935,
+  "confidence": 0.994
+ },
+ {
+  "text": " как",
+  "startMs": 153375,
+  "endMs": 153495,
+  "timestampMs": 153435,
+  "confidence": 0.932
+ },
+ {
+  "text": " звуковые",
+  "startMs": 153535,
+  "endMs": 153995,
+  "timestampMs": 153765,
+  "confidence": 0.956
+ },
+ {
+  "text": " волны",
+  "startMs": 154036,
+  "endMs": 154336,
+  "timestampMs": 154186,
+  "confidence": 1.0
+ },
+ {
+  "text": " вибрации",
+  "startMs": 154376,
+  "endMs": 154956,
+  "timestampMs": 154666,
+  "confidence": 0.998
+ },
+ {
+  "text": " нагревают",
+  "startMs": 155016,
+  "endMs": 155536,
+  "timestampMs": 155276,
+  "confidence": 0.951
+ },
+ {
+  "text": " внутренние",
+  "startMs": 155576,
+  "endMs": 156076,
+  "timestampMs": 155826,
   "confidence": 0.999
  },
  {
+  "text": " органы.",
+  "startMs": 156136,
+  "endMs": 157297,
+  "timestampMs": 156716,
+  "confidence": 0.997
+ },
+ {
+  "text": " Долгое",
+  "startMs": 157337,
+  "endMs": 157697,
+  "timestampMs": 157517,
+  "confidence": 1.0
+ },
+ {
+  "text": " время",
+  "startMs": 157717,
+  "endMs": 157997,
+  "timestampMs": 157857,
+  "confidence": 0.867
+ },
+ {
+  "text": " считалось,",
+  "startMs": 158037,
+  "endMs": 158477,
+  "timestampMs": 158257,
+  "confidence": 0.966
+ },
+ {
+  "text": " что",
+  "startMs": 158517,
+  "endMs": 158657,
+  "timestampMs": 158587,
+  "confidence": 0.741
+ },
+ {
   "text": " кошелот",
-  "startMs": 158244,
-  "endMs": 158664,
-  "timestampMs": 158454,
+  "startMs": 158697,
+  "endMs": 159138,
+  "timestampMs": 158917,
   "confidence": 0.971
  },
  {
   "text": " использует",
-  "startMs": 158724,
-  "endMs": 159225,
-  "timestampMs": 158974,
-  "confidence": 0.798
+  "startMs": 159198,
+  "endMs": 159738,
+  "timestampMs": 159468,
+  "confidence": 0.941
  },
  {
   "text": " этот",
-  "startMs": 159265,
-  "endMs": 159445,
-  "timestampMs": 159355,
-  "confidence": 0.916
+  "startMs": 159778,
+  "endMs": 159978,
+  "timestampMs": 159878,
+  "confidence": 0.864
  },
  {
   "text": " звук",
-  "startMs": 159485,
-  "endMs": 159705,
-  "timestampMs": 159595,
-  "confidence": 0.924
+  "startMs": 160018,
+  "endMs": 160258,
+  "timestampMs": 160138,
+  "confidence": 0.995
  },
  {
   "text": " как",
-  "startMs": 159725,
-  "endMs": 159945,
-  "timestampMs": 159835,
-  "confidence": 0.928
+  "startMs": 160298,
+  "endMs": 160538,
+  "timestampMs": 160418,
+  "confidence": 0.89
  },
  {
-  "text": " акустически",
-  "startMs": 159985,
-  "endMs": 160686,
-  "timestampMs": 160335,
+  "text": " акустический",
+  "startMs": 160578,
+  "endMs": 161419,
+  "timestampMs": 160998,
   "confidence": 0.968
  },
  {
   "text": " оглушающий",
-  "startMs": 160706,
-  "endMs": 161326,
-  "timestampMs": 161016,
-  "confidence": 0.988
+  "startMs": 161459,
+  "endMs": 162179,
+  "timestampMs": 161819,
+  "confidence": 0.95
  },
  {
-  "text": " пулемет,",
-  "startMs": 161366,
-  "endMs": 162086,
-  "timestampMs": 161726,
-  "confidence": 0.923
+  "text": " пулемёт,",
+  "startMs": 162219,
+  "endMs": 162979,
+  "timestampMs": 162599,
+  "confidence": 0.917
  },
  {
   "text": " чтобы",
-  "startMs": 162126,
-  "endMs": 162326,
-  "timestampMs": 162226,
-  "confidence": 0.9
+  "startMs": 162999,
+  "endMs": 163239,
+  "timestampMs": 163119,
+  "confidence": 0.933
  },
  {
   "text": " парализовать",
-  "startMs": 162366,
-  "endMs": 162867,
-  "timestampMs": 162616,
-  "confidence": 0.93
+  "startMs": 163279,
+  "endMs": 163860,
+  "timestampMs": 163569,
+  "confidence": 0.928
  },
  {
   "text": " кальмаров.",
-  "startMs": 162907,
-  "endMs": 163887,
-  "timestampMs": 163397,
-  "confidence": 0.888
+  "startMs": 163900,
+  "endMs": 164900,
+  "timestampMs": 164400,
+  "confidence": 0.971
  },
  {
   "text": " Но",
-  "startMs": 163927,
-  "endMs": 164007,
-  "timestampMs": 163967,
-  "confidence": 0.836
+  "startMs": 164980,
+  "endMs": 165080,
+  "timestampMs": 165030,
+  "confidence": 0.833
  },
  {
   "text": " исследования",
-  "startMs": 164047,
-  "endMs": 164608,
-  "timestampMs": 164327,
-  "confidence": 0.918
+  "startMs": 165120,
+  "endMs": 165720,
+  "timestampMs": 165420,
+  "confidence": 0.947
  },
  {
   "text": " показали,",
-  "startMs": 164648,
-  "endMs": 165468,
-  "timestampMs": 165058,
-  "confidence": 0.957
+  "startMs": 165760,
+  "endMs": 166661,
+  "timestampMs": 166210,
+  "confidence": 0.971
  },
  {
   "text": " у",
-  "startMs": 165488,
-  "endMs": 165528,
-  "timestampMs": 165508,
+  "startMs": 166701,
+  "endMs": 166741,
+  "timestampMs": 166721,
   "confidence": 1.0
  },
  {
   "text": " мягкотелых",
-  "startMs": 165568,
-  "endMs": 166149,
-  "timestampMs": 165858,
-  "confidence": 0.887
+  "startMs": 166781,
+  "endMs": 167421,
+  "timestampMs": 167101,
+  "confidence": 0.793
  },
  {
   "text": " кальмаров",
-  "startMs": 166189,
-  "endMs": 166629,
-  "timestampMs": 166409,
-  "confidence": 0.901
+  "startMs": 167461,
+  "endMs": 168061,
+  "timestampMs": 167761,
+  "confidence": 0.957
  },
  {
   "text": " нет",
-  "startMs": 166689,
-  "endMs": 166869,
-  "timestampMs": 166779,
-  "confidence": 0.886
+  "startMs": 168121,
+  "endMs": 168321,
+  "timestampMs": 168221,
+  "confidence": 0.722
  },
  {
   "text": " воздушных",
-  "startMs": 166889,
-  "endMs": 167329,
-  "timestampMs": 167109,
+  "startMs": 168361,
+  "endMs": 168821,
+  "timestampMs": 168591,
   "confidence": 0.944
  },
  {
-  "text": " пузерей",
-  "startMs": 167369,
-  "endMs": 167770,
-  "timestampMs": 167569,
-  "confidence": 0.956
+  "text": " пузырей",
+  "startMs": 168861,
+  "endMs": 169321,
+  "timestampMs": 169091,
+  "confidence": 0.953
  },
  {
   "text": " или",
-  "startMs": 167810,
-  "endMs": 167950,
-  "timestampMs": 167880,
-  "confidence": 0.83
+  "startMs": 169381,
+  "endMs": 169521,
+  "timestampMs": 169451,
+  "confidence": 0.888
  },
  {
   "text": " плотных",
-  "startMs": 167970,
-  "endMs": 168310,
-  "timestampMs": 168140,
-  "confidence": 0.927
+  "startMs": 169561,
+  "endMs": 169922,
+  "timestampMs": 169741,
+  "confidence": 0.857
  },
  {
   "text": " костей,",
-  "startMs": 168350,
-  "endMs": 169090,
-  "timestampMs": 168720,
-  "confidence": 0.999
+  "startMs": 169962,
+  "endMs": 170682,
+  "timestampMs": 170322,
+  "confidence": 0.993
  },
  {
-  "text": " а",
-  "startMs": 169110,
-  "endMs": 169150,
-  "timestampMs": 169130,
-  "confidence": 0.003
+  "text": " о",
+  "startMs": 170702,
+  "endMs": 170742,
+  "timestampMs": 170722,
+  "confidence": 0.5
  },
  {
-  "text": " которые",
-  "startMs": 169170,
-  "endMs": 169450,
-  "timestampMs": 169310,
-  "confidence": 0.925
- },
- {
-  "text": " звуковая",
-  "startMs": 169511,
-  "endMs": 169891,
-  "timestampMs": 169701,
-  "confidence": 0.959
- },
- {
-  "text": " волна",
-  "startMs": 169931,
-  "endMs": 170191,
-  "timestampMs": 170061,
-  "confidence": 0.906
- },
- {
-  "text": " могла",
-  "startMs": 170231,
-  "endMs": 170451,
-  "timestampMs": 170341,
-  "confidence": 0.959
- },
- {
-  "text": " бы",
-  "startMs": 170471,
-  "endMs": 170571,
-  "timestampMs": 170521,
+  "text": " которой",
+  "startMs": 170762,
+  "endMs": 171082,
+  "timestampMs": 170922,
   "confidence": 0.833
  },
  {
+  "text": " звуковая",
+  "startMs": 171122,
+  "endMs": 171522,
+  "timestampMs": 171322,
+  "confidence": 0.989
+ },
+ {
+  "text": " волна",
+  "startMs": 171562,
+  "endMs": 171862,
+  "timestampMs": 171712,
+  "confidence": 0.994
+ },
+ {
+  "text": " могла",
+  "startMs": 171902,
+  "endMs": 172162,
+  "timestampMs": 172032,
+  "confidence": 0.772
+ },
+ {
+  "text": " бы",
+  "startMs": 172182,
+  "endMs": 172262,
+  "timestampMs": 172222,
+  "confidence": 0.988
+ },
+ {
   "text": " создать",
-  "startMs": 170611,
-  "endMs": 170951,
-  "timestampMs": 170781,
-  "confidence": 0.874
+  "startMs": 172302,
+  "endMs": 172662,
+  "timestampMs": 172482,
+  "confidence": 0.925
  },
  {
   "text": " разрушительный",
-  "startMs": 170991,
-  "endMs": 171612,
-  "timestampMs": 171301,
-  "confidence": 0.955
+  "startMs": 172702,
+  "endMs": 173363,
+  "timestampMs": 173032,
+  "confidence": 0.97
  },
  {
   "text": " ударный",
-  "startMs": 171672,
-  "endMs": 172012,
-  "timestampMs": 171842,
-  "confidence": 0.999
+  "startMs": 173403,
+  "endMs": 173763,
+  "timestampMs": 173583,
+  "confidence": 0.988
  },
  {
   "text": " эффект.",
-  "startMs": 172052,
-  "endMs": 172872,
-  "timestampMs": 172462,
-  "confidence": 0.943
+  "startMs": 173803,
+  "endMs": 174663,
+  "timestampMs": 174233,
+  "confidence": 0.998
  },
  {
   "text": " Звук",
-  "startMs": 172932,
-  "endMs": 173153,
-  "timestampMs": 173042,
-  "confidence": 0.894
+  "startMs": 174723,
+  "endMs": 174983,
+  "timestampMs": 174853,
+  "confidence": 0.928
  },
  {
   "text": " проходит",
-  "startMs": 173193,
-  "endMs": 173593,
-  "timestampMs": 173393,
-  "confidence": 0.956
+  "startMs": 175023,
+  "endMs": 175463,
+  "timestampMs": 175243,
+  "confidence": 0.929
  },
  {
-  "text": " сквозь",
-  "startMs": 173613,
-  "endMs": 173833,
-  "timestampMs": 173723,
-  "confidence": 0.791
+  "text": " скрусь",
+  "startMs": 175503,
+  "endMs": 175743,
+  "timestampMs": 175623,
+  "confidence": 0.697
  },
  {
-  "text": " кальмара,",
-  "startMs": 173853,
-  "endMs": 174713,
-  "timestampMs": 174283,
-  "confidence": 0.967
+  "text": " кальмара.",
+  "startMs": 175783,
+  "endMs": 176664,
+  "timestampMs": 176223,
+  "confidence": 1.0
  },
  {
-  "text": " поэтому",
-  "startMs": 174733,
-  "endMs": 175094,
-  "timestampMs": 174913,
-  "confidence": 0.959
+  "text": " Поэтому",
+  "startMs": 176684,
+  "endMs": 177104,
+  "timestampMs": 176894,
+  "confidence": 0.973
  },
  {
   "text": " импульс",
-  "startMs": 175134,
-  "endMs": 175474,
-  "timestampMs": 175304,
-  "confidence": 0.919
+  "startMs": 177164,
+  "endMs": 177584,
+  "timestampMs": 177374,
+  "confidence": 0.971
  },
  {
   "text": " в",
-  "startMs": 175514,
-  "endMs": 175874,
-  "timestampMs": 175694,
-  "confidence": 0.459
+  "startMs": 177604,
+  "endMs": 178044,
+  "timestampMs": 177824,
+  "confidence": 0.538
  },
  {
   "text": " 230",
-  "startMs": 175934,
-  "endMs": 176194,
-  "timestampMs": 176064,
-  "confidence": 0.73
+  "startMs": 178124,
+  "endMs": 178404,
+  "timestampMs": 178264,
+  "confidence": 0.707
  },
  {
   "text": " дБ",
-  "startMs": 176234,
-  "endMs": 176995,
-  "timestampMs": 176614,
-  "confidence": 0.761
+  "startMs": 178424,
+  "endMs": 178724,
+  "timestampMs": 178574,
+  "confidence": 0.849
+ },
+ {
+  "text": " –",
+  "startMs": 178824,
+  "endMs": 179204,
+  "timestampMs": 179014,
+  "confidence": 0.821
  },
  {
   "text": " это",
-  "startMs": 177035,
-  "endMs": 177175,
-  "timestampMs": 177105,
-  "confidence": 0.867
+  "startMs": 179224,
+  "endMs": 179364,
+  "timestampMs": 179294,
+  "confidence": 0.69
  },
  {
   "text": " сверхточный",
-  "startMs": 177235,
-  "endMs": 177895,
-  "timestampMs": 177565,
-  "confidence": 0.936
+  "startMs": 179444,
+  "endMs": 180285,
+  "timestampMs": 179864,
+  "confidence": 0.898
  },
  {
   "text": " эхолокатор.",
-  "startMs": 177935,
-  "endMs": 179176,
-  "timestampMs": 178555,
-  "confidence": 0.99
+  "startMs": 180325,
+  "endMs": 181965,
+  "timestampMs": 181145,
+  "confidence": 0.988
  },
  {
   "text": " При",
-  "startMs": 179296,
-  "endMs": 179416,
-  "timestampMs": 179356,
-  "confidence": 0.889
+  "startMs": 182025,
+  "endMs": 182185,
+  "timestampMs": 182105,
+  "confidence": 0.999
  },
  {
   "text": " поиске",
-  "startMs": 179456,
-  "endMs": 179757,
-  "timestampMs": 179606,
-  "confidence": 0.948
+  "startMs": 182245,
+  "endMs": 182665,
+  "timestampMs": 182455,
+  "confidence": 0.956
  },
  {
-  "text": " добычи,",
-  "startMs": 179797,
-  "endMs": 180478,
-  "timestampMs": 180137,
-  "confidence": 0.991
+  "text": " добычи",
+  "startMs": 182705,
+  "endMs": 183526,
+  "timestampMs": 183115,
+  "confidence": 0.989
  },
  {
   "text": " кошелот",
-  "startMs": 180498,
-  "endMs": 180858,
-  "timestampMs": 180678,
-  "confidence": 0.992
+  "startMs": 183586,
+  "endMs": 184066,
+  "timestampMs": 183826,
+  "confidence": 0.978
  },
  {
   "text": " издаёт",
-  "startMs": 180898,
-  "endMs": 181239,
-  "timestampMs": 181068,
-  "confidence": 0.93
+  "startMs": 184126,
+  "endMs": 184606,
+  "timestampMs": 184366,
+  "confidence": 0.854
  },
  {
   "text": " редкие",
-  "startMs": 181279,
-  "endMs": 181619,
-  "timestampMs": 181449,
-  "confidence": 0.889
+  "startMs": 184686,
+  "endMs": 185126,
+  "timestampMs": 184906,
+  "confidence": 0.945
  },
  {
-  "text": " шелчки,",
-  "startMs": 181659,
-  "endMs": 182400,
-  "timestampMs": 182029,
-  "confidence": 0.893
+  "text": " щелчки,",
+  "startMs": 185226,
+  "endMs": 186166,
+  "timestampMs": 185696,
+  "confidence": 0.992
  },
  {
   "text": " примерно",
-  "startMs": 182441,
-  "endMs": 182881,
-  "timestampMs": 182661,
-  "confidence": 0.964
+  "startMs": 186206,
+  "endMs": 186747,
+  "timestampMs": 186476,
+  "confidence": 0.981
  },
  {
   "text": " один",
-  "startMs": 182921,
-  "endMs": 183142,
-  "timestampMs": 183031,
-  "confidence": 0.834
+  "startMs": 186787,
+  "endMs": 187107,
+  "timestampMs": 186947,
+  "confidence": 0.83
  },
  {
   "text": " в",
-  "startMs": 183162,
-  "endMs": 183182,
-  "timestampMs": 183172,
-  "confidence": 0.044
+  "startMs": 187127,
+  "endMs": 187167,
+  "timestampMs": 187147,
+  "confidence": 0.501
  },
  {
   "text": " секунду,",
-  "startMs": 183222,
-  "endMs": 183923,
-  "timestampMs": 183572,
-  "confidence": 0.997
+  "startMs": 187207,
+  "endMs": 188067,
+  "timestampMs": 187637,
+  "confidence": 0.938
  },
  {
-  "text": " сканировая",
-  "startMs": 183943,
-  "endMs": 184383,
-  "timestampMs": 184163,
-  "confidence": 0.629
+  "text": " сканируя",
+  "startMs": 188127,
+  "endMs": 188687,
+  "timestampMs": 188407,
+  "confidence": 0.947
  },
  {
   "text": " воду",
-  "startMs": 184423,
-  "endMs": 184624,
-  "timestampMs": 184523,
-  "confidence": 0.876
+  "startMs": 188747,
+  "endMs": 189227,
+  "timestampMs": 188987,
+  "confidence": 0.981
  },
  {
   "text": " на",
-  "startMs": 184664,
-  "endMs": 184744,
-  "timestampMs": 184704,
+  "startMs": 189307,
+  "endMs": 189407,
+  "timestampMs": 189357,
   "confidence": 1.0
  },
  {
   "text": " сотни",
-  "startMs": 184804,
-  "endMs": 185064,
-  "timestampMs": 184934,
-  "confidence": 0.998
+  "startMs": 189487,
+  "endMs": 189828,
+  "timestampMs": 189657,
+  "confidence": 0.899
  },
  {
   "text": " метров",
-  "startMs": 185104,
-  "endMs": 185405,
-  "timestampMs": 185254,
-  "confidence": 0.831
+  "startMs": 189868,
+  "endMs": 190228,
+  "timestampMs": 190048,
+  "confidence": 0.943
  },
  {
   "text": " вокруг.",
-  "startMs": 185425,
-  "endMs": 186386,
-  "timestampMs": 185905,
-  "confidence": 0.997
+  "startMs": 190268,
+  "endMs": 191208,
+  "timestampMs": 190738,
+  "confidence": 1.0
  },
  {
   "text": " Но",
-  "startMs": 186406,
-  "endMs": 186486,
-  "timestampMs": 186446,
-  "confidence": 0.833
+  "startMs": 191665,
+  "endMs": 191765,
+  "timestampMs": 191715,
+  "confidence": 0.963
  },
  {
   "text": " как",
-  "startMs": 186506,
-  "endMs": 186646,
-  "timestampMs": 186576,
-  "confidence": 0.746
+  "startMs": 191825,
+  "endMs": 191965,
+  "timestampMs": 191895,
+  "confidence": 1.0
  },
  {
   "text": " только",
-  "startMs": 186666,
-  "endMs": 186907,
-  "timestampMs": 186786,
-  "confidence": 0.787
- },
- {
-  "text": " цель",
-  "startMs": 186947,
-  "endMs": 187147,
-  "timestampMs": 187047,
+  "startMs": 192005,
+  "endMs": 192305,
+  "timestampMs": 192155,
   "confidence": 0.917
  },
  {
+  "text": " цель",
+  "startMs": 192385,
+  "endMs": 192706,
+  "timestampMs": 192545,
+  "confidence": 0.923
+ },
+ {
   "text": " обнаружена,",
-  "startMs": 187167,
-  "endMs": 187948,
-  "timestampMs": 187557,
-  "confidence": 0.999
+  "startMs": 192746,
+  "endMs": 193746,
+  "timestampMs": 193246,
+  "confidence": 0.995
  },
  {
   "text": " частота",
-  "startMs": 187988,
-  "endMs": 188369,
-  "timestampMs": 188178,
-  "confidence": 0.949
+  "startMs": 193826,
+  "endMs": 194407,
+  "timestampMs": 194116,
+  "confidence": 0.952
  },
  {
   "text": " импульсов",
-  "startMs": 188429,
-  "endMs": 188849,
-  "timestampMs": 188639,
-  "confidence": 0.945
+  "startMs": 194467,
+  "endMs": 195127,
+  "timestampMs": 194797,
+  "confidence": 0.924
  },
  {
   "text": " возрастает",
-  "startMs": 188890,
-  "endMs": 189410,
-  "timestampMs": 189150,
-  "confidence": 0.936
+  "startMs": 195187,
+  "endMs": 196028,
+  "timestampMs": 195607,
+  "confidence": 0.981
  },
  {
   "text": " до",
-  "startMs": 189450,
-  "endMs": 189550,
-  "timestampMs": 189500,
-  "confidence": 0.84
+  "startMs": 196068,
+  "endMs": 196168,
+  "timestampMs": 196118,
+  "confidence": 0.834
  },
  {
   "text": " десятков",
-  "startMs": 189570,
-  "endMs": 190011,
-  "timestampMs": 189790,
-  "confidence": 0.941
- },
- {
-  "text": " в",
-  "startMs": 190031,
-  "endMs": 190051,
-  "timestampMs": 190041,
-  "confidence": 0.868
+  "startMs": 196188,
+  "endMs": 196768,
+  "timestampMs": 196478,
+  "confidence": 0.934
  },
  {
   "text": " секунду,",
-  "startMs": 190111,
-  "endMs": 190832,
-  "timestampMs": 190471,
-  "confidence": 0.999
+  "startMs": 196828,
+  "endMs": 197668,
+  "timestampMs": 197248,
+  "confidence": 1.0
  },
  {
   "text": " сливаясь",
-  "startMs": 190852,
-  "endMs": 191233,
-  "timestampMs": 191042,
-  "confidence": 0.967
+  "startMs": 197708,
+  "endMs": 198329,
+  "timestampMs": 198018,
+  "confidence": 0.958
  },
  {
   "text": " в",
-  "startMs": 191253,
-  "endMs": 191293,
-  "timestampMs": 191273,
+  "startMs": 198369,
+  "endMs": 198409,
+  "timestampMs": 198389,
   "confidence": 0.5
  },
  {
   "text": " характерный",
-  "startMs": 191313,
-  "endMs": 191814,
-  "timestampMs": 191563,
-  "confidence": 0.905
+  "startMs": 198449,
+  "endMs": 199049,
+  "timestampMs": 198749,
+  "confidence": 0.996
  },
  {
   "text": " треск.",
-  "startMs": 191834,
-  "endMs": 192515,
-  "timestampMs": 192174,
-  "confidence": 0.976
+  "startMs": 199089,
+  "endMs": 200070,
+  "timestampMs": 199579,
+  "confidence": 1.0
  },
  {
   "text": " Учёные",
-  "startMs": 192575,
-  "endMs": 192915,
-  "timestampMs": 192745,
-  "confidence": 0.914
- },
- {
-  "text": " называют",
-  "startMs": 192955,
-  "endMs": 193336,
-  "timestampMs": 193145,
-  "confidence": 0.913
- },
- {
-  "text": " его",
-  "startMs": 193396,
-  "endMs": 193536,
-  "timestampMs": 193466,
-  "confidence": 0.889
- },
- {
-  "text": " бас",
-  "startMs": 193576,
-  "endMs": 194037,
-  "timestampMs": 193806,
-  "confidence": 0.957
- },
- {
-  "text": " «жужжание».",
-  "startMs": 194057,
-  "endMs": 195118,
-  "timestampMs": 194587,
-  "confidence": 0.894
- },
- {
-  "text": " Когда",
-  "startMs": 195138,
-  "endMs": 195379,
-  "timestampMs": 195258,
-  "confidence": 0.893
- },
- {
-  "text": " жужжание",
-  "startMs": 195419,
-  "endMs": 195839,
-  "timestampMs": 195629,
+  "startMs": 200110,
+  "endMs": 200570,
+  "timestampMs": 200340,
   "confidence": 0.904
  },
  {
+  "text": " называют",
+  "startMs": 200610,
+  "endMs": 201110,
+  "timestampMs": 200860,
+  "confidence": 0.958
+ },
+ {
+  "text": " его",
+  "startMs": 201190,
+  "endMs": 201511,
+  "timestampMs": 201350,
+  "confidence": 0.968
+ },
+ {
+  "text": " «бас»",
+  "startMs": 201531,
+  "endMs": 202391,
+  "timestampMs": 201961,
+  "confidence": 0.978
+ },
+ {
+  "text": " —",
+  "startMs": 202411,
+  "endMs": 202431,
+  "timestampMs": 202421,
+  "confidence": 1.0
+ },
+ {
+  "text": " жужжание.",
+  "startMs": 202491,
+  "endMs": 204732,
+  "timestampMs": 203611,
+  "confidence": 0.974
+ },
+ {
+  "text": " Когда",
+  "startMs": 204773,
+  "endMs": 205053,
+  "timestampMs": 204913,
+  "confidence": 0.98
+ },
+ {
+  "text": " жужжание",
+  "startMs": 205113,
+  "endMs": 205693,
+  "timestampMs": 205403,
+  "confidence": 0.934
+ },
+ {
   "text": " резко",
-  "startMs": 195859,
-  "endMs": 196120,
-  "timestampMs": 195989,
-  "confidence": 0.894
+  "startMs": 205753,
+  "endMs": 206093,
+  "timestampMs": 205923,
+  "confidence": 0.933
  },
  {
   "text": " обрывается,",
-  "startMs": 196160,
-  "endMs": 196981,
-  "timestampMs": 196570,
-  "confidence": 0.975
+  "startMs": 206133,
+  "endMs": 207194,
+  "timestampMs": 206663,
+  "confidence": 0.971
  },
  {
   "text": " это",
-  "startMs": 197021,
-  "endMs": 197141,
-  "timestampMs": 197081,
-  "confidence": 0.885
+  "startMs": 207234,
+  "endMs": 207434,
+  "timestampMs": 207334,
+  "confidence": 0.852
  },
  {
   "text": " значит,",
-  "startMs": 197181,
-  "endMs": 197461,
-  "timestampMs": 197321,
-  "confidence": 1.0
+  "startMs": 207494,
+  "endMs": 207874,
+  "timestampMs": 207684,
+  "confidence": 0.998
  },
  {
   "text": " что",
-  "startMs": 197482,
-  "endMs": 197602,
-  "timestampMs": 197542,
-  "confidence": 0.989
+  "startMs": 207894,
+  "endMs": 208054,
+  "timestampMs": 207974,
+  "confidence": 0.923
  },
  {
   "text": " добыча",
-  "startMs": 197622,
-  "endMs": 197942,
-  "timestampMs": 197782,
-  "confidence": 0.985
+  "startMs": 208094,
+  "endMs": 208535,
+  "timestampMs": 208314,
+  "confidence": 0.922
  },
  {
   "text": " поймана.",
-  "startMs": 197982,
-  "endMs": 198843,
-  "timestampMs": 198412,
-  "confidence": 0.873
- },
- {
-  "text": " При",
-  "startMs": 198863,
-  "endMs": 198984,
-  "timestampMs": 198923,
-  "confidence": 0.967
- },
- {
-  "text": " этом",
-  "startMs": 199004,
-  "endMs": 199164,
-  "timestampMs": 199084,
-  "confidence": 0.876
- },
- {
-  "text": " кошелоты",
-  "startMs": 199204,
-  "endMs": 199584,
-  "timestampMs": 199394,
-  "confidence": 0.925
- },
- {
-  "text": " с",
-  "startMs": 199645,
-  "endMs": 199665,
-  "timestampMs": 199655,
-  "confidence": 0.927
- },
- {
-  "text": " повреждённой",
-  "startMs": 199685,
-  "endMs": 200225,
-  "timestampMs": 199955,
-  "confidence": 0.832
- },
- {
-  "text": " нижней",
-  "startMs": 200265,
-  "endMs": 200506,
-  "timestampMs": 200385,
-  "confidence": 0.995
- },
- {
-  "text": " челюстью",
-  "startMs": 200546,
-  "endMs": 201227,
-  "timestampMs": 200886,
-  "confidence": 0.86
- },
- {
-  "text": " успешно",
-  "startMs": 201287,
-  "endMs": 201647,
-  "timestampMs": 201467,
-  "confidence": 0.913
- },
- {
-  "text": " питаются",
-  "startMs": 201667,
-  "endMs": 202068,
-  "timestampMs": 201867,
-  "confidence": 0.932
- },
- {
-  "text": " средними",
-  "startMs": 202128,
-  "endMs": 202509,
-  "timestampMs": 202318,
-  "confidence": 0.943
- },
- {
-  "text": " кальмарами,",
-  "startMs": 202549,
-  "endMs": 203290,
-  "timestampMs": 202919,
-  "confidence": 0.972
- },
- {
-  "text": " просто",
-  "startMs": 203310,
-  "endMs": 203610,
-  "timestampMs": 203460,
-  "confidence": 0.862
- },
- {
-  "text": " всасывая",
-  "startMs": 203630,
-  "endMs": 204151,
-  "timestampMs": 203890,
-  "confidence": 0.787
- },
- {
-  "text": " их.",
-  "startMs": 204191,
-  "endMs": 204812,
-  "timestampMs": 204501,
-  "confidence": 0.993
- },
- {
-  "text": " Зубы",
-  "startMs": 204872,
-  "endMs": 205092,
-  "timestampMs": 204982,
-  "confidence": 0.892
- },
- {
-  "text": " нужны",
-  "startMs": 205132,
-  "endMs": 205393,
-  "timestampMs": 205262,
-  "confidence": 0.989
- },
- {
-  "text": " для",
-  "startMs": 205433,
-  "endMs": 205513,
-  "timestampMs": 205473,
+  "startMs": 208595,
+  "endMs": 210476,
+  "timestampMs": 209535,
   "confidence": 1.0
  },
  {
+  "text": " При",
+  "startMs": 210516,
+  "endMs": 210656,
+  "timestampMs": 210586,
+  "confidence": 0.917
+ },
+ {
+  "text": " этом",
+  "startMs": 210696,
+  "endMs": 210876,
+  "timestampMs": 210786,
+  "confidence": 0.994
+ },
+ {
+  "text": " кошелоты,",
+  "startMs": 210936,
+  "endMs": 211496,
+  "timestampMs": 211216,
+  "confidence": 0.956
+ },
+ {
+  "text": " исповреждённые",
+  "startMs": 211516,
+  "endMs": 212357,
+  "timestampMs": 211936,
+  "confidence": 0.88
+ },
+ {
+  "text": " нижней",
+  "startMs": 212397,
+  "endMs": 212777,
+  "timestampMs": 212587,
+  "confidence": 0.917
+ },
+ {
+  "text": " челюстью,",
+  "startMs": 212837,
+  "endMs": 213618,
+  "timestampMs": 213227,
+  "confidence": 0.919
+ },
+ {
+  "text": " успешно",
+  "startMs": 213658,
+  "endMs": 214138,
+  "timestampMs": 213898,
+  "confidence": 0.977
+ },
+ {
+  "text": " питаются",
+  "startMs": 214198,
+  "endMs": 214678,
+  "timestampMs": 214438,
+  "confidence": 0.97
+ },
+ {
+  "text": " средними",
+  "startMs": 214738,
+  "endMs": 215178,
+  "timestampMs": 214958,
+  "confidence": 0.976
+ },
+ {
+  "text": " кальмарами,",
+  "startMs": 215218,
+  "endMs": 216099,
+  "timestampMs": 215658,
+  "confidence": 0.977
+ },
+ {
+  "text": " просто",
+  "startMs": 216119,
+  "endMs": 216459,
+  "timestampMs": 216289,
+  "confidence": 0.863
+ },
+ {
+  "text": " всасывая",
+  "startMs": 216479,
+  "endMs": 217120,
+  "timestampMs": 216799,
+  "confidence": 0.88
+ },
+ {
+  "text": " их.",
+  "startMs": 217180,
+  "endMs": 218460,
+  "timestampMs": 217820,
+  "confidence": 0.994
+ },
+ {
+  "text": " Зубы",
+  "startMs": 218580,
+  "endMs": 218820,
+  "timestampMs": 218700,
+  "confidence": 0.996
+ },
+ {
+  "text": " нужны",
+  "startMs": 218881,
+  "endMs": 219401,
+  "timestampMs": 219141,
+  "confidence": 0.889
+ },
+ {
+  "text": " для",
+  "startMs": 219461,
+  "endMs": 219621,
+  "timestampMs": 219541,
+  "confidence": 0.857
+ },
+ {
   "text": " действительно",
-  "startMs": 205553,
-  "endMs": 206033,
-  "timestampMs": 205793,
-  "confidence": 0.849
+  "startMs": 219661,
+  "endMs": 220301,
+  "timestampMs": 219981,
+  "confidence": 0.826
  },
  {
   "text": " крупного",
-  "startMs": 206073,
-  "endMs": 206414,
-  "timestampMs": 206243,
-  "confidence": 0.924
+  "startMs": 220341,
+  "endMs": 220762,
+  "timestampMs": 220551,
+  "confidence": 0.995
  },
  {
   "text": " соперника.",
-  "startMs": 206454,
-  "endMs": 207155,
-  "timestampMs": 206804,
-  "confidence": 0.957
+  "startMs": 220802,
+  "endMs": 221482,
+  "timestampMs": 221142,
+  "confidence": 0.999
  }
 ]

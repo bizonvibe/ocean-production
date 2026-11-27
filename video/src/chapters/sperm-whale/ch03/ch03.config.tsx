@@ -130,7 +130,7 @@ const PLANS: (Plan & {sceneAnchors?: () => [number, number][]; C?: React.FC<{tz:
 	{
 		start: b.s04,
 		C: S.Scene04,
-		sceneAnchors: () => [[b.s04, 25.4], [at('холодном'), 26.8], [at('белый'), 28.0], [at('кетабои', 2), 29.4], [at('sperm'), 31.2], [b.s05, 33.6]],
+		sceneAnchors: () => [[b.s04, 25.4], [at('холодном'), 26.8], [at('белый'), 28.0], [at('китобои', 2), 29.4], [at('sperm'), 31.2], [b.s05, 33.6]],
 		shot: () => null!,
 		xIn: 0,
 	},
@@ -146,7 +146,7 @@ const PLANS: (Plan & {sceneAnchors?: () => [number, number][]; C?: React.FC<{tz:
 		shot: stock(`${CH06}/группа-кашалотов-плывет-у-поверхности-съемка-с-дрона.mp4`, 'Melissa Cook / NOAA Fisheries', {startFromSeconds: 8, zoom: [1.04, 1.1], panX: 0}),
 		xIn: 10,
 	},
-	{start: b.s06, C: S.Scene06, sceneAnchors: () => [[b.s06, 46.4], [at('бесполезны'), 49.6], [at('эхолокации', 1), 51.2], [b.s07, 53.8]], shot: () => null!, xIn: 10},
+	{start: b.s06, C: S.Scene06, sceneAnchors: () => [[b.s06, 46.4], [at('бесполежны'), 49.6], [at('эхолокации', 1), 51.2], [b.s07, 53.8]], shot: () => null!, xIn: 10},
 	{
 		start: b.s07,
 		C: S.Scene07,
@@ -157,7 +157,7 @@ const PLANS: (Plan & {sceneAnchors?: () => [number, number][]; C?: React.FC<{tz:
 	{
 		start: b.s08,
 		C: S.Scene08,
-		sceneAnchors: () => [[b.s08, 64.0], [at('лупа'), 65.6], [at('одну'), 67.4], [at('усиливает'), 69.4], [at('луч', 2), 70.4], [b.s09, 72.5]],
+		sceneAnchors: () => [[b.s08, 64.0], [at('лупо'), 65.6], [at('одну'), 67.4], [at('усиливает'), 69.4], [at('луч', 2), 70.4], [b.s09, 72.5]],
 		shot: () => null!,
 		xIn: 10,
 	},
@@ -171,13 +171,13 @@ const PLANS: (Plan & {sceneAnchors?: () => [number, number][]; C?: React.FC<{tz:
 			[at('разговор'), 78.4],
 			[at('газонакосилка'), 79.6],
 			[at('взлетающий'), 80.8],
-			[at('брабанная'), 82.6],
+			[at('барабанная'), 82.6],
 			[b.s10, 85.6],
 		],
 		shot: () => null!,
 		xIn: 0,
 	},
-	{start: b.s10, C: S.Scene10, sceneAnchors: () => [[b.s10, 85.6], [at('водолажи'), 88.8], [b.s11, 93.8]], shot: () => null!, xIn: 0},
+	{start: b.s10, C: S.Scene10, sceneAnchors: () => [[b.s10, 85.6], [at('водолазы'), 88.8], [b.s11, 93.8]], shot: () => null!, xIn: 0},
 	{
 		start: b.s11,
 		C: S.Scene11,
@@ -200,7 +200,7 @@ const PLANS: (Plan & {sceneAnchors?: () => [number, number][]; C?: React.FC<{tz:
 	{
 		start: b.s13,
 		C: S.Scene13,
-		sceneAnchors: () => [[b.s13, 123.6], [at('повреждённой'), 124.2], [at('всасывая'), 125.6], [at('крупного'), 127.8], [END, 130]],
+		sceneAnchors: () => [[b.s13, 123.6], [at('исповреждённые'), 124.2], [at('всасывая'), 125.6], [at('крупного'), 127.8], [END, 130]],
 		shot: () => null!,
 		xIn: 0,
 	},

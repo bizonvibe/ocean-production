@@ -1,6 +1,8 @@
 {
- "durationMs": 207131,
+ "durationMs": 222313,
  "voice": "Orus",
  "model": "gemini-2.5-flash-preview-tts",
- "paragraphs": 1
+ "paragraphs": 3,
+ "centroidStartHz": 2228.563556503198,
+ "centroidEndHz": 3208.3351023454156
 }
