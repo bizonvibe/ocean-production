@@ -32,7 +32,7 @@
 
 ## Музыка
 - «Echoes of Time v2» — Kevin MacLeod (incompetech.com), CC BY 4.0
-- «Floating Cities» — Kevin MacLeod (incompetech.com), CC BY 4.0
+- «The Palace Gardens» — Asher Fulero
 - «Mesmerize» — Kevin MacLeod (incompetech.com), CC BY 4.0
 - «Spacial Harvest» — Kevin MacLeod (incompetech.com), CC BY 4.0
 - «Lightless Dawn» — Kevin MacLeod (incompetech.com), CC BY 4.0

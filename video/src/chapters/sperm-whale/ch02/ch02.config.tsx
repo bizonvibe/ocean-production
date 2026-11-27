@@ -1,4 +1,5 @@
 import type {ChapterConfig, SfxSpec, Word} from '../../../chapter/types';
+import {musicVolumeFor} from '../../../chapter/build';
 import {voiceToChapterMs} from '../../../chapter/timing';
 import {timeMap, type TimeMap} from '../../../svg/motion';
 import type {FootageSource, SceneSpec} from '../../../templates/types';
@@ -178,7 +179,8 @@ export const spermWhaleCh02: ChapterConfig = {
 	shots,
 	transitions,
 	// Трек −23.8 LUFS, голос −16 LUFS: 0.38 ≈ −16 дБ к голосу.
-	music: {src: `${BASE}/music/Floating Cities.mp3`, volume: 0.38, boostInPauses: true, boostVolume: 0.55},
+	// Трек выбран пользователем (−11.3 LUFS): громкость ≈ −16 дБ к голосу.
+	music: {src: `${BASE}/music/The Palace Gardens - Asher Fulero.mp3`, volume: musicVolumeFor(-11.3), boostInPauses: true, boostVolume: musicVolumeFor(-11.3) * 1.5},
 	sfx,
 	accents: [{text: 'Биологическое сито', match: 'биологическое', durationMs: 2000, position: 'lower'}],
 };
@@ -190,6 +192,6 @@ export const CREDITS_CH02 = [
 	'Baleen — NOAA Fisheries Service, Wikimedia Commons, Public domain',
 	'Humpback whale bubble net feeding — Christin Khan / NOAA / NEFSC, Wikimedia Commons, Public domain',
 	'Sperm whale lower jaw — Soupaloignon95, Wikimedia Commons, CC0',
-	'Music: «Floating Cities» — Kevin MacLeod (incompetech.com), CC BY 4.0',
+	'Music: «The Palace Gardens» — Asher Fulero',
 	'Voice: Google Gemini TTS (Orus)',
 ];
