@@ -2,6 +2,8 @@ import {Composition} from 'remotion';
 import {ChapterVideo} from './chapter/ChapterVideo';
 import {ChannelIntro} from './intro/ChannelIntro';
 import {OutroSubscribe} from './intro/OutroSubscribe';
+import {ChannelBanner} from './intro/ChannelBanner';
+import {Still} from 'remotion';
 import {CHAPTER_CARDS, ChapterCard} from './intro/ChapterCard';
 import {chapterDuration, checkChapter} from './chapter/timing';
 import type {ChapterConfig} from './chapter/types';
@@ -39,6 +41,9 @@ export const RemotionRoot: React.FC = () => (
 		{CHAPTER_CARDS.map((c) => (
 			<Composition key={c.n} id={`Card-ch0${c.n}`} component={() => <ChapterCard {...c} />} durationInFrames={90} {...VIDEO} />
 		))}
+		{/* Шапка YouTube-канала 2560×1440 (Still) и вариант с разметкой безопасной зоны */}
+		<Still id="Banner-KokoCrabs" component={ChannelBanner} width={2560} height={1440} />
+		<Still id="Banner-KokoCrabs-safe" component={() => <ChannelBanner showSafe />} width={2560} height={1440} />
 		{/* Концовка «Подпишись» (4 с) */}
 		<Composition id="Outro-Subscribe" component={OutroSubscribe} durationInFrames={120} {...VIDEO} />
 	</>
