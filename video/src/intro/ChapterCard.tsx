@@ -1,11 +1,11 @@
-import {AbsoluteFill, Audio, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {fonts} from '../theme';
 import {CYAN, DEEP, Particles} from './ChannelIntro';
 
 /**
  * Слайд перед главой (3 с) в стиле заставки KoKo Crabs: «ГЛАВА N», название, о чём глава.
  * 0–8 из чёрного · 6–20 текст собирается · 24–40 блик · 80–90 в чёрное.
- * Звук — scripts/card_sound.py → public/sfx/chapter-card.wav.
+ * Без звука (по решению пользователя) — тихая пауза перед главой.
  */
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const p = (f: number, a: number, b: number) => interpolate(f, [a, b], [0, 1], clamp);
@@ -90,7 +90,6 @@ export const ChapterCard: React.FC<CardProps> = ({n, title, subtitle}) => {
 			</AbsoluteFill>
 			<AbsoluteFill style={{background: 'radial-gradient(ellipse at center, rgba(0,0,0,0) 50%, rgba(0,0,0,0.75) 100%)'}} />
 			<AbsoluteFill style={{backgroundColor: '#000', opacity: fade}} />
-			<Audio src={staticFile('sfx/chapter-card.wav')} />
 			{/* width/height используются частицами */}
 			<div style={{display: 'none'}}>{width + height}</div>
 		</AbsoluteFill>

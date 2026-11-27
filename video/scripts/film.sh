@@ -11,7 +11,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 NAME="${1:?имя}"; FILE="${2:?prefix файлов}"; COMP="${3:?prefix композиций}"; N="${4:?число глав}"
-INTRO_LUFS=-17; CARD_LUFS=-21
+INTRO_LUFS=-17
 T=out/film-tmp; rm -rf "$T"; mkdir -p "$T"
 CLOUD_SHELL=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
 if [[ -z "${REMOTION_BROWSER:-}" && -x "$CLOUD_SHELL" ]]; then export REMOTION_BROWSER="$CLOUD_SHELL"; fi
@@ -35,7 +35,11 @@ deco Intro-KokoCrabs intro $INTRO_LUFS
 deco Outro-Subscribe outro $INTRO_LUFS
 SEG=(intro)
 for i in $(seq -f "%02g" 1 "$N"); do
-	deco "Card-ch$i" "card$i" $CARD_LUFS
+	# Слайд главы — без звука: тишина ровно по длине картинки.
+	npx remotion render src/index.ts "Card-ch$i" "$T/card$i.mp4" --log=error --muted
+	ffmpeg -v error -y -i "$T/card$i.mp4" -map 0:v -c copy "$T/card$i.v.mp4"
+	cd_=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$T/card$i.v.mp4")
+	ffmpeg -v error -y -f lavfi -i "anullsrc=r=48000:cl=stereo" -t "$cd_" -c:a pcm_s16le "$T/card$i.wav"
 	echo "Глава $i: звук без помастерного выравнивания…"
 	npx remotion render src/index.ts "$COMP-ch$i" "$T/ch$i.wav" --codec=wav --log=error
 	ffmpeg -v error -y -i "$T/ch$i.wav" -ar 48000 -ac 2 -c:a pcm_s16le "$T/ch$i.n.wav" && mv "$T/ch$i.n.wav" "$T/ch$i.wav"
