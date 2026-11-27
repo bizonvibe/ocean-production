@@ -1,6 +1,7 @@
 import {Composition} from 'remotion';
 import {ChapterVideo} from './chapter/ChapterVideo';
 import {ChannelIntro} from './intro/ChannelIntro';
+import {OutroSubscribe} from './intro/OutroSubscribe';
 import {chapterDuration, checkChapter} from './chapter/timing';
 import type {ChapterConfig} from './chapter/types';
 import {exampleCh01} from './chapters/_example/ch01.config';
@@ -33,5 +34,7 @@ export const RemotionRoot: React.FC = () => (
 		})}
 		{/* Заставка канала KoKo Crabs (3.2 с) */}
 		<Composition id="Intro-KokoCrabs" component={ChannelIntro} durationInFrames={96} {...VIDEO} />
+		{/* Концовка «Подпишись» (4 с) */}
+		<Composition id="Outro-Subscribe" component={OutroSubscribe} durationInFrames={120} {...VIDEO} />
 	</>
 );

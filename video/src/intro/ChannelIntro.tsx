@@ -11,8 +11,8 @@ import {fonts} from '../theme';
  * Звук — scripts/intro_jingle.py → public/sfx/intro-jingle.wav (тайминги совпадают).
  */
 
-const CYAN = '#7fe9ff';
-const DEEP = '#020a14';
+export const CYAN = '#7fe9ff';
+export const DEEP = '#020a14';
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const rnd = (i: number) => {
 	const x = Math.sin(i * 12.9898 + 78.233) * 43758.5453;
@@ -21,7 +21,7 @@ const rnd = (i: number) => {
 const p = (f: number, a: number, b: number) => interpolate(f, [a, b], [0, 1], clamp);
 
 /** Частицы «морского снега», летящие на камеру. speed — сила движения. */
-const Particles: React.FC<{f: number; count?: number; speed?: number; seed?: number}> = ({f, count = 70, speed = 1, seed = 0}) => {
+export const Particles: React.FC<{f: number; count?: number; speed?: number; seed?: number}> = ({f, count = 70, speed = 1, seed = 0}) => {
 	const {width, height} = useVideoConfig();
 	return (
 		<AbsoluteFill>
@@ -50,7 +50,7 @@ const Particles: React.FC<{f: number; count?: number; speed?: number; seed?: num
 };
 
 /** Эмблема: линейный краб в круге. draw 0…1 — прорисовка линий. */
-const Emblem: React.FC<{draw: number; glow: number}> = ({draw, glow}) => {
+export const Emblem: React.FC<{draw: number; glow: number}> = ({draw, glow}) => {
 	const L = (d: string, w = 7, delay = 0) => (
 		<path
 			d={d}
