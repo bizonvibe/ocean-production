@@ -62,6 +62,41 @@ const LivingCamera: React.FC<{children: React.ReactNode}> = ({children}) => {
 	return <AbsoluteFill style={{transform: `translate(${dx}px, ${dy}px) scale(${scale})`}}>{children}</AbsoluteFill>;
 };
 
+/**
+ * Музыка главы. Если известна длина трека (durationSeconds) и он короче главы — повторы
+ * накладываются с плавным переходом (crossfadeSeconds), без резкого обрыва; иначе обычный loop.
+ */
+const Music: React.FC<{config: ChapterConfig}> = ({config}) => {
+	const m = config.music!;
+	const vol = musicVolume(config, m);
+	const start = Math.round((m.startFromSeconds ?? 0) * 30);
+	if (!m.durationSeconds) {
+		return <Audio src={staticFile(m.src)} volume={vol} trimBefore={start} loop />;
+	}
+	const total = chapterDuration(config);
+	const len = Math.round(m.durationSeconds * 30) - start;
+	const xf = Math.round((m.crossfadeSeconds ?? 4) * 30);
+	const copies: number[] = [];
+	for (let at = 0; at < total; at += len - xf) copies.push(at);
+	return (
+		<>
+			{copies.map((at, i) => (
+				<Sequence key={`m${i}`} from={at} durationInFrames={Math.min(len, total - at)}>
+					<Audio
+						src={staticFile(m.src)}
+						trimBefore={start}
+						volume={(f) => {
+							const fin = i === 0 ? 1 : Math.min(1, f / xf);
+							const fout = i === copies.length - 1 ? 1 : Math.min(1, (len - f) / xf);
+							return vol(at + f) * Math.max(0, Math.min(fin, fout));
+						}}
+					/>
+				</Sequence>
+			))}
+		</>
+	);
+};
+
 /** Затемнение из чёрного в начале и в чёрное в конце главы. */
 const EdgeFade: React.FC<{total: number}> = ({total}) => {
 	const frame = useCurrentFrame();
@@ -138,14 +173,7 @@ export const ChapterVideo: React.FC<{config: ChapterConfig}> = ({config}) => {
 					/>
 				</Sequence>
 			))}
-			{config.music ? (
-				<Audio
-					src={staticFile(config.music.src)}
-					volume={musicVolume(config, config.music)}
-					trimBefore={Math.round((config.music.startFromSeconds ?? 0) * 30)}
-					loop
-				/>
-			) : null}
+			{config.music ? <Music config={config} /> : null}
 			{(config.sfx ?? []).map((s, k) => (
 				<Sequence
 					key={`sfx${k}`}

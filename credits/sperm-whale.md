@@ -33,7 +33,7 @@
 ## Музыка
 - «Echoes of Time v2» — Kevin MacLeod (incompetech.com), CC BY 4.0
 - «The Palace Gardens» — Asher Fulero
-- «Mesmerize» — Kevin MacLeod (incompetech.com), CC BY 4.0
+- «Exploring The Crystal Caves» — Asher Fulero
 - «Spacial Harvest» — Kevin MacLeod (incompetech.com), CC BY 4.0
 - «Lightless Dawn» — Kevin MacLeod (incompetech.com), CC BY 4.0
 - «Atlantean Twilight» — Kevin MacLeod (incompetech.com), CC BY 4.0

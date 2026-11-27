@@ -35,6 +35,10 @@ export type MusicSpec = {
 	minPauseMs?: number;
 	/** С какой секунды трека начинать. */
 	startFromSeconds?: number;
+	/** Длина трека, с — если трек короче главы, повторы склеиваются плавным переходом. */
+	durationSeconds?: number;
+	/** Длина перехода между повторами, с (по умолчанию 4). */
+	crossfadeSeconds?: number;
 };
 
 export type SfxSpec = {

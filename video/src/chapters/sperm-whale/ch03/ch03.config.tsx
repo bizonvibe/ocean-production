@@ -1,4 +1,5 @@
 import type {ChapterConfig, SfxSpec, Word} from '../../../chapter/types';
+import {musicVolumeFor} from '../../../chapter/build';
 import {voiceToChapterMs} from '../../../chapter/timing';
 import {timeMap, type TimeMap} from '../../../svg/motion';
 import type {FootageSource, SceneSpec} from '../../../templates/types';
@@ -17,7 +18,8 @@ import silences from './voice.silences.json';
  */
 const W: Word[] = words;
 const CH06 = 'projects/sperm-whale/ch06/stock'; // заимствованное видео (в главе 6 не повторять)
-const MUSIC_VOL = 0.45; // трек −25.1 LUFS, голос −16 LUFS → ≈ −16 дБ к голосу
+// Трек выбран пользователем (−13.2 LUFS, 122 с): громкость ≈ −16 дБ к голосу; повтор с плавным переходом.
+const MUSIC_VOL = musicVolumeFor(-13.2);
 const LEAD_S = 1.0; // проявление из чёрного до первого слова
 
 const norm = (s: string) => s.toLowerCase().replace(/ё/g, 'е').replace(/[^\p{L}\p{N}-]+/gu, '');
@@ -240,7 +242,14 @@ export const spermWhaleCh03: ChapterConfig = {
 	tailFrames: 45,
 	shots,
 	transitions,
-	music: {src: `${BASE}/music/Mesmerize.mp3`, volume: MUSIC_VOL, boostInPauses: true, boostVolume: MUSIC_VOL * 1.5},
+	music: {
+		src: `${BASE}/music/Exploring The Crystal Caves - Asher Fulero.mp3`,
+		volume: MUSIC_VOL,
+		boostInPauses: true,
+		boostVolume: MUSIC_VOL * 1.5,
+		durationSeconds: 122.1,
+		crossfadeSeconds: 5,
+	},
 	sfx,
 	accents: [{text: '230 децибел', match: '230', occurrence: 2, durationMs: 2000, position: 'upper'}],
 };
@@ -250,6 +259,6 @@ export const CREDITS_CH03 = [
 	'Sperm whale head profile — Cianc, Wikimedia Commons, CC BY 2.0',
 	'Sperm whale group, drone footage — Melissa Cook / NOAA Fisheries SEFSC, Public domain (Permit #27867)',
 	'Sperm whale clicks and buzz, spectrogram — M. Bowers, L. Dias, G. Rappucci, L. Hodge / NOAA Fisheries, Public domain (Permit #27867)',
-	'Music: «Mesmerize» — Kevin MacLeod (incompetech.com), CC BY 4.0',
+	'Music: «Exploring The Crystal Caves» — Asher Fulero',
 	'Voice: Google Gemini TTS (Orus)',
 ];
