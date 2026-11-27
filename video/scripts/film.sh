@@ -32,7 +32,7 @@ echo "Заставка, слайды, концовка…"
 deco Intro-KokoCrabs intro $INTRO_LUFS
 deco Outro-Subscribe outro $INTRO_LUFS
 SEG=(intro)
-for i in $(seq -w 1 "$N"); do
+for i in $(seq -f "%02g" 1 "$N"); do
 	deco "Card-ch$i" "card$i" $CARD_LUFS
 	echo "Глава $i: звук без помастерного выравнивания…"
 	npx remotion render src/index.ts "$COMP-ch$i" "$T/ch$i.wav" --codec=wav --log=error
