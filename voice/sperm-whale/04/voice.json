@@ -1,6 +1,8 @@
 {
- "durationMs": 135251,
+ "durationMs": 148610,
  "voice": "Orus",
  "model": "gemini-2.5-flash-preview-tts",
- "paragraphs": 1
+ "paragraphs": 1,
+ "tempo": 0.91,
+ "note": "замедлено ffmpeg atempo=0.91 из voice.orig.wav"
 }
