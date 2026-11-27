@@ -12,7 +12,8 @@ import silences from './voice.silences.json';
  * Слова — в том виде, как их распознал WhisperX. Озвучка замедлена на 9 % и с паузами после фраз:
  * в исходной (voice.orig.wav) модель читала почти без пауз, заметно быстрее остальных глав.
  */
-const MUSIC = musicVolumeFor(-23.3); // «Spacial Harvest»
+// Трек выбран пользователем (−14.1 LUFS, 159.6 с — на 3.6 с короче главы, играет один раз без повтора).
+const MUSIC = musicVolumeFor(-14.1);
 
 export const spermWhaleCh04 = buildChapter({
 	id: 'SpermWhale-ch04',
@@ -111,7 +112,7 @@ export const spermWhaleCh04 = buildChapter({
 	},
 	sceneSfx: S.SCENE_SFX,
 	extraSfx: ({at}) => [{src: 'sfx/blow.wav', atMs: Math.round((at('перед', 1) + 1.2) * 1000), volume: 0.35}],
-	music: {src: `${BASE}/music/Spacial Harvest.mp3`, volume: MUSIC, boostInPauses: true, boostVolume: MUSIC * 1.5},
+	music: {src: `${BASE}/music/Ether Oar - The Whole Other.mp3`, volume: MUSIC, boostInPauses: true, boostVolume: MUSIC * 1.5, once: true},
 	accents: [{text: 'Fluking up', match: 'флюкинг-ап', durationMs: 2000, position: 'lower'}],
 });
 
@@ -120,6 +121,6 @@ export const CREDITS_CH04 = [
 	'Sperm whale dive sequence — David Csepp, NOAA/NMFS/AKFSC/ABL, Wikimedia Commons, Public domain',
 	'Sperm whale fluke — Whale Watch Kaikoura / Destination Kaikōura, Wikimedia Commons, CC BY 4.0',
 	'The breathtaking dive of the sperm whale — Francesca Grossi, Wikimedia Commons, CC BY 4.0',
-	'Music: «Spacial Harvest» — Kevin MacLeod (incompetech.com), CC BY 4.0',
+	'Music: «The Whole Other» — Ether Oar',
 	'Voice: Google Gemini TTS (Orus)',
 ];

@@ -39,6 +39,8 @@ export type MusicSpec = {
 	durationSeconds?: number;
 	/** Длина перехода между повторами, с (по умолчанию 4). */
 	crossfadeSeconds?: number;
+	/** Не повторять трек: играет один раз (для треков чуть короче главы). */
+	once?: boolean;
 };
 
 export type SfxSpec = {

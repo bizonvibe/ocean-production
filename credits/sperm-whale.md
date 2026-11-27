@@ -34,7 +34,7 @@
 - «Echoes of Time v2» — Kevin MacLeod (incompetech.com), CC BY 4.0
 - «The Palace Gardens» — Asher Fulero
 - «Exploring The Crystal Caves» — Asher Fulero
-- «Spacial Harvest» — Kevin MacLeod (incompetech.com), CC BY 4.0
+- «The Whole Other» — Ether Oar
 - «Lightless Dawn» — Kevin MacLeod (incompetech.com), CC BY 4.0
 - «Atlantean Twilight» — Kevin MacLeod (incompetech.com), CC BY 4.0
 - «Dreams Become Real» — Kevin MacLeod (incompetech.com), CC BY 4.0

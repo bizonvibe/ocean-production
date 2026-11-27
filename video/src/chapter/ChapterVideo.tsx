@@ -70,6 +70,7 @@ const Music: React.FC<{config: ChapterConfig}> = ({config}) => {
 	const m = config.music!;
 	const vol = musicVolume(config, m);
 	const start = Math.round((m.startFromSeconds ?? 0) * 30);
+	if (m.once) return <Audio src={staticFile(m.src)} volume={vol} trimBefore={start} />;
 	if (!m.durationSeconds) {
 		return <Audio src={staticFile(m.src)} volume={vol} trimBefore={start} loop />;
 	}
