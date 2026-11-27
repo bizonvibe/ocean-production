@@ -141,6 +141,23 @@ def to_wav(pcm_chunks: list[bytes], gap_s: float, out: Path) -> float:
     return float(dur)
 
 
+def spectral_drift(path: Path):
+    """Средний центр спектра голоса в первых и последних 20 с — признак «уплывания» синтеза."""
+    def centroid(ss: float) -> float | None:
+        log = subprocess.run(
+            ['ffmpeg', '-hide_banner', '-ss', str(max(0, ss)), '-t', '20', '-i', str(path), '-af',
+             'aspectralstats=measure=centroid,ametadata=print:key=lavfi.aspectralstats.1.centroid', '-f', 'null', '-'],
+            capture_output=True, text=True).stderr
+        vals = [float(v) for v in __import__('re').findall(r'centroid=([0-9.]+)', log)]
+        return sum(vals) / len(vals) if vals else None
+    dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', str(path)],
+                               capture_output=True, text=True).stdout or 0)
+    if dur < 60:
+        return None
+    a, b = centroid(0), centroid(dur - 20)
+    return (a, b) if a and b else None
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument('input', nargs='?', help='файл с текстом диктора')
@@ -149,7 +166,8 @@ def main() -> int:
     ap.add_argument('--voice', default=DEFAULT_VOICE)
     ap.add_argument('--model', default=DEFAULT_MODEL)
     ap.add_argument('--gap', type=float, default=0.6, help='пауза между кусками текста, с')
-    ap.add_argument('--max-chars', type=int, default=5000, help='макс. длина одного запроса, символов')
+    ap.add_argument('--max-chars', type=int, default=1500,
+                    help='макс. длина одного запроса, символов (~1 мин речи: на длинных кусках голос модели «уплывает»)')
     ap.add_argument('--style', default=STYLE, help='инструкция для голоса перед текстом')
     ap.add_argument('--compare', metavar='TEXT', help='озвучить TEXT голосами из --voices (по умолчанию MALE_CANDIDATES)')
     ap.add_argument('--voices', help='список голосов через запятую для --compare')
@@ -184,6 +202,11 @@ def main() -> int:
     out = Path(a.out)
     dur = to_wav(chunks, a.gap, out)
     meta = {'durationMs': round(dur * 1000), 'voice': a.voice, 'model': _model_override or a.model, 'paragraphs': len(paragraphs)}
+    drift = spectral_drift(out)
+    if drift:
+        meta['centroidStartHz'], meta['centroidEndHz'] = drift
+        if drift[1] > drift[0] * 1.4:
+            print(f'⚠️  Голос «уплыл»: центр спектра {drift[0]:.0f} → {drift[1]:.0f} Гц — перегенерируйте с меньшим --max-chars')
     out.with_suffix('.json').write_text(json.dumps(meta, ensure_ascii=False, indent=1))
     print(f'Готово: {out} ({dur:.2f} с), метаданные → {out.with_suffix(".json")}')
     return 0
