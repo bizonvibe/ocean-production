@@ -35,7 +35,7 @@
 - «The Palace Gardens» — Asher Fulero
 - «Exploring The Crystal Caves» — Asher Fulero
 - «The Whole Other» — Ether Oar
-- «Lightless Dawn» — Kevin MacLeod (incompetech.com), CC BY 4.0
+- «Impending Doom Film Trailer» — Doug Maxwell / Media Right Productions
 - «Atlantean Twilight» — Kevin MacLeod (incompetech.com), CC BY 4.0
 - «Dreams Become Real» — Kevin MacLeod (incompetech.com), CC BY 4.0
 

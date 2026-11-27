@@ -11,7 +11,9 @@ import silences from './voice.silences.json';
  * 12 сцен ТЗ; стоки ≈ 7 %: пригодны только 3 файла (остальные — CC BY-SA «без переработки» или GIF 358×242).
  * Слова — в том виде, как их распознал WhisperX.
  */
-const MUSIC = musicVolumeFor(-22.0); // «Lightless Dawn»
+// Трек выбран пользователем: трейлерная музыка с перепадом громкости 21 LU — для подложки под голос
+// сделана копия со сжатым диапазоном (компрессор + loudnorm, 6.7 LU, −14.9 LUFS); 144 с — играет один раз.
+const MUSIC = musicVolumeFor(-14.9);
 
 export const spermWhaleCh05 = buildChapter({
 	id: 'SpermWhale-ch05',
@@ -97,7 +99,13 @@ export const spermWhaleCh05 = buildChapter({
 		];
 	},
 	sceneSfx: S.SCENE_SFX,
-	music: {src: `${BASE}/music/Lightless Dawn.mp3`, volume: MUSIC, boostInPauses: true, boostVolume: MUSIC * 1.5},
+	music: {
+		src: `${BASE}/music/Impending Doom Film Trailer - Doug Maxwell (сжатый диапазон).mp3`,
+		volume: MUSIC,
+		boostInPauses: true,
+		boostVolume: MUSIC * 1.5,
+		once: true,
+	},
 	accents: [{text: 'Жёсткие схватки', match: 'жесткие', durationMs: 2000, position: 'lower'}],
 });
 
@@ -105,6 +113,6 @@ export const CREDITS_CH05 = [
 	'Sperm whale and giant squid, illustration — A. Twidle (1912), Wikimedia Commons, Public domain',
 	'Ambergris — Peter Kaminski, Wikimedia Commons, CC BY 2.0',
 	'Ambergris, Skagway Museum — Wmpearl, Wikimedia Commons, CC0',
-	'Music: «Lightless Dawn» — Kevin MacLeod (incompetech.com), CC BY 4.0',
+	'Music: «Impending Doom Film Trailer» — Doug Maxwell / Media Right Productions',
 	'Voice: Google Gemini TTS (Orus)',
 ];
