@@ -2,254 +2,337 @@ import {AbsoluteFill, Audio, interpolate, spring, staticFile, useCurrentFrame, u
 import {fonts} from '../theme';
 
 /**
- * Заставка канала Coco Crabs — 3.2 с, мультяшная и энергичная.
- * 0–12  пузыри и волна · 6–22 краб выпрыгивает и приземляется · 24, 30 щелчки клешнями
- * 30–38 рывок камеры, краб отскакивает влево · 33–50 буквы COCO CRABS · 45–72 рыбки
- * 56–66 подпись · 78–90 краб машет · 84–96 «диафрагма» в чёрное.
+ * Заставка канала KoKo Crabs — 3.2 с, кинематографичная и энергичная.
+ * 0–6   импульс сонара из темноты
+ * 6–38  быстрый монтаж 4 кадров (клешня · кит · биолюминесценция · пузыри) со вспышками на склейках
+ * 38–44 белая вспышка, эмблема врезается с ударной волной, линии эмблемы прорисовываются
+ * 44–64 надпись KOKO CRABS: разрядка сжимается, по буквам проходит блик
+ * 58–72 подпись; 86–96 уход в чёрное.
  * Звук — scripts/intro_jingle.py → public/sfx/intro-jingle.wav (тайминги совпадают).
  */
 
-const C = {
-	coral: '#ff6b57',
-	yellow: '#ffd23f',
-	aqua: '#4dd8e6',
-	navy: '#0b2a4a',
-	white: '#ffffff',
-	shell: '#ff5a3c',
-	shellDark: '#d93a22',
-};
+const CYAN = '#7fe9ff';
+const DEEP = '#020a14';
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const rnd = (i: number) => {
 	const x = Math.sin(i * 12.9898 + 78.233) * 43758.5453;
 	return x - Math.floor(x);
 };
+const p = (f: number, a: number, b: number) => interpolate(f, [a, b], [0, 1], clamp);
 
-/** Краб-маскот (оригинальный рисунок). claw — угол «щелчка» клешней, wave — взмах правой клешнёй, blink 0…1. */
-const Crab: React.FC<{claw: number; wave: number; blink: number}> = ({claw, wave, blink}) => (
-	<svg width={520} height={420} viewBox="-260 -230 520 420" style={{overflow: 'visible'}}>
-		{/* Ноги */}
-		{[-1, 1].map((s) =>
-			[0, 1, 2].map((k) => (
-				<path
-					key={`${s}${k}`}
-					d={`M${s * (60 + k * 18)},${40 + k * 8} q${s * 60},${10 + k * 6} ${s * 80},${60 + k * 10}`}
-					stroke={C.shellDark}
-					strokeWidth={16}
-					strokeLinecap="round"
-					fill="none"
-				/>
-			)),
-		)}
-		{/* Левая клешня */}
-		<g transform={`translate(-150,-40) rotate(${-20 - claw})`}>
-			<path d="M0,40 Q-10,0 0,-10" stroke={C.shellDark} strokeWidth={18} fill="none" strokeLinecap="round" />
-			<ellipse cx={-10} cy={-50} rx={46} ry={40} fill={C.shell} stroke={C.navy} strokeWidth={8} />
-			<path d={`M-40,-70 L${-10},-55 L-40,${-40 + claw * 0.6}`} fill={C.navy} />
-		</g>
-		{/* Правая клешня (машет) */}
-		<g transform={`translate(150,-40) rotate(${20 + claw + wave})`}>
-			<path d="M0,40 Q10,0 0,-10" stroke={C.shellDark} strokeWidth={18} fill="none" strokeLinecap="round" />
-			<ellipse cx={10} cy={-50} rx={46} ry={40} fill={C.shell} stroke={C.navy} strokeWidth={8} />
-			<path d={`M40,-70 L10,-55 L40,${-40 + claw * 0.6}`} fill={C.navy} />
-		</g>
-		{/* Панцирь */}
-		<ellipse cx={0} cy={20} rx={150} ry={95} fill={C.shell} stroke={C.navy} strokeWidth={10} />
-		<ellipse cx={-50} cy={-15} rx={40} ry={18} fill="#ff9a85" opacity={0.7} />
-		{/* Глаза на стебельках */}
-		{[-1, 1].map((s) => (
-			<g key={s}>
-				<path d={`M${s * 40},-50 L${s * 50},-120`} stroke={C.shellDark} strokeWidth={14} strokeLinecap="round" />
-				<circle cx={s * 50} cy={-140} r={34} fill={C.white} stroke={C.navy} strokeWidth={8} />
-				<ellipse cx={s * 50 + 6} cy={-138} rx={14} ry={14 * (1 - blink) + 1} fill={C.navy} />
-				<circle cx={s * 50 + 12} cy={-146} r={5 * (1 - blink)} fill={C.white} />
+/** Частицы «морского снега», летящие на камеру. speed — сила движения. */
+const Particles: React.FC<{f: number; count?: number; speed?: number; seed?: number}> = ({f, count = 70, speed = 1, seed = 0}) => {
+	const {width, height} = useVideoConfig();
+	return (
+		<AbsoluteFill>
+			{Array.from({length: count}, (_, i) => {
+				const z = (rnd(i + seed) + f * 0.012 * speed) % 1; // 0 далеко → 1 близко
+				const x = width / 2 + (rnd(i + 31 + seed) - 0.5) * width * (0.3 + z * 1.6);
+				const y = height / 2 + (rnd(i + 57 + seed) - 0.5) * height * (0.3 + z * 1.6);
+				const r = 1 + z * 4;
+				return (
+					<div
+						key={i}
+						style={{
+							position: 'absolute',
+							left: x,
+							top: y,
+							width: r * 2,
+							height: r * 2 * (1 + speed * z * 2),
+							borderRadius: r,
+							background: `rgba(190,240,255,${0.25 + z * 0.6})`,
+						}}
+					/>
+				);
+			})}
+		</AbsoluteFill>
+	);
+};
+
+/** Эмблема: линейный краб в круге. draw 0…1 — прорисовка линий. */
+const Emblem: React.FC<{draw: number; glow: number}> = ({draw, glow}) => {
+	const L = (d: string, w = 7, delay = 0) => (
+		<path
+			d={d}
+			pathLength={1}
+			strokeDasharray="1 1"
+			strokeDashoffset={1 - Math.max(0, Math.min(1, (draw - delay) / (1 - delay)))}
+			stroke={CYAN}
+			strokeWidth={w}
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			fill="none"
+		/>
+	);
+	return (
+		<svg width={360} height={360} viewBox="-180 -180 360 360" style={{filter: `drop-shadow(0 0 ${8 + 22 * glow}px rgba(127,233,255,${0.5 + 0.5 * glow}))`}}>
+			{L('M0,-165 A165,165 0 1,1 -0.1,-165', 5)}
+			{L('M0,-150 A150,150 0 1,0 0.1,-150', 2)}
+			{/* Панцирь — шестиугольник со скруглением */}
+			{L('M-70,10 L-40,-30 L40,-30 L70,10 L40,50 L-40,50 Z', 8, 0.1)}
+			{/* Глаза */}
+			{L('M-18,-30 L-24,-58 M18,-30 L24,-58', 6, 0.25)}
+			{L('M-28,-64 a5,5 0 1,0 0.1,0 M20,-64 a5,5 0 1,0 0.1,0', 8, 0.3)}
+			{/* Клешни */}
+			{L('M-70,0 Q-100,-20 -100,-60 M-100,-60 L-120,-95 M-100,-60 L-78,-92', 8, 0.2)}
+			{L('M70,0 Q100,-20 100,-60 M100,-60 L120,-95 M100,-60 L78,-92', 8, 0.2)}
+			{/* Ноги */}
+			{L('M-55,35 L-100,60 L-112,95 M-45,45 L-80,80 L-86,112 M55,35 L100,60 L112,95 M45,45 L80,80 L86,112', 6, 0.35)}
+		</svg>
+	);
+};
+
+/** Короткие кадры монтажа (силуэты с контурным светом). */
+const ShotClaw: React.FC<{t: number}> = ({t}) => (
+	<AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
+		{/* Клешня краба крупно: ладонь и два «пальца», которые смыкаются */}
+		<svg
+			width={1400}
+			height={1000}
+			viewBox="-700 -500 1400 1000"
+			style={{
+				transform: `translate(${interpolate(t, [0, 1], [180, -180])}px, ${interpolate(t, [0, 1], [60, -40])}px) rotate(${interpolate(t, [0, 1], [-18, -6])}deg) scale(${interpolate(t, [0, 1], [1.15, 1.35])})`,
+				filter: 'drop-shadow(0 0 18px rgba(127,233,255,0.6))',
+			}}
+		>
+			{/* Сустав и «рука» */}
+			<path d="M-700,420 Q-420,300 -230,120" stroke="#0b1a28" strokeWidth={120} strokeLinecap="round" fill="none" />
+			<path d="M-700,420 Q-420,300 -230,120" stroke={CYAN} strokeWidth={4} fill="none" opacity={0.6} />
+			{/* Ладонь */}
+			<ellipse cx={-80} cy={0} rx={250} ry={170} fill="#0b1a28" stroke={CYAN} strokeWidth={5} />
+			{/* Неподвижный палец */}
+			<path d="M120,-60 Q380,-150 560,-60 Q420,-70 300,-10 Q220,20 130,30 Z" fill="#0b1a28" stroke={CYAN} strokeWidth={5} strokeLinejoin="round" />
+			{/* Подвижный палец — смыкается */}
+			<g transform={`rotate(${interpolate(t, [0, 0.6, 1], [26, 4, 8])} 120 60)`}>
+				<path d="M120,40 Q360,150 540,90 Q400,70 290,40 Q210,20 130,10 Z" fill="#0b1a28" stroke={CYAN} strokeWidth={5} strokeLinejoin="round" />
 			</g>
-		))}
-		{/* Улыбка и щёки */}
-		<path d="M-45,40 Q0,85 45,40" stroke={C.navy} strokeWidth={9} fill="none" strokeLinecap="round" />
-		<circle cx={-85} cy={35} r={16} fill="#ff9a85" />
-		<circle cx={85} cy={35} r={16} fill="#ff9a85" />
-	</svg>
+			{/* Бугорки панциря */}
+			{Array.from({length: 7}, (_, i) => (
+				<circle key={i} cx={-220 + i * 55} cy={-90 + Math.sin(i) * 25} r={9} fill="#16354d" />
+			))}
+		</svg>
+	</AbsoluteFill>
 );
-
-const Fish: React.FC<{color: string; flip?: boolean}> = ({color, flip}) => (
-	<svg width={160} height={90} viewBox="0 0 160 90" style={{transform: flip ? 'scaleX(-1)' : undefined}}>
-		<path d="M20,45 Q70,0 120,45 Q70,90 20,45 Z" fill={color} stroke={C.navy} strokeWidth={6} />
-		<path d="M120,45 L155,20 L150,45 L155,70 Z" fill={color} stroke={C.navy} strokeWidth={6} strokeLinejoin="round" />
-		<circle cx={45} cy={40} r={7} fill={C.navy} />
-	</svg>
+const ShotWhale: React.FC<{t: number}> = ({t}) => (
+	<AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
+		{/* Силуэт кашалота: прямоугольная голова, хвостовые лопасти */}
+		<svg
+			width={2600}
+			height={900}
+			viewBox="0 0 2600 900"
+			style={{transform: `translateX(${interpolate(t, [0, 1], [1000, -1000])}px) scale(1.15)`, filter: 'drop-shadow(0 -6px 14px rgba(127,233,255,0.55))'}}
+		>
+			<path
+				d="M200,330 Q200,250 300,245 L980,240 Q1120,245 1250,290 Q1600,380 1950,430 L2150,455 Q2280,360 2420,330 Q2340,440 2330,470 Q2350,520 2440,620 Q2280,580 2160,500 L1950,510 Q1600,560 1250,600 Q1000,630 700,620 L320,610 Q200,605 200,520 Z"
+				fill="#06121d"
+				stroke="rgba(127,233,255,0.75)"
+				strokeWidth={3}
+			/>
+			<path d="M330,560 L760,575" stroke="rgba(127,233,255,0.35)" strokeWidth={3} />
+			<path d="M1150,600 Q1180,700 1260,740 Q1250,660 1240,600" fill="#06121d" stroke="rgba(127,233,255,0.6)" strokeWidth={3} />
+		</svg>
+	</AbsoluteFill>
 );
+const ShotGlow: React.FC<{t: number; f: number}> = ({t, f}) => {
+	const {width, height} = useVideoConfig();
+	return (
+		<AbsoluteFill>
+			{Array.from({length: 40}, (_, i) => {
+				const a = rnd(i) * Math.PI * 2;
+				const d = interpolate(t, [0, 1], [40, 120 + rnd(i + 5) * 700]);
+				const r = 3 + rnd(i + 9) * 12;
+				return (
+					<div
+						key={i}
+						style={{
+							position: 'absolute',
+							left: width / 2 + Math.cos(a) * d - r,
+							top: height / 2 + Math.sin(a) * d * 0.6 - r,
+							width: r * 2,
+							height: r * 2,
+							borderRadius: '50%',
+							background: i % 3 ? CYAN : '#b98bff',
+							boxShadow: `0 0 ${r * 3}px ${i % 3 ? CYAN : '#b98bff'}`,
+							opacity: 0.5 + 0.5 * Math.sin(f * 0.9 + i),
+						}}
+					/>
+				);
+			})}
+		</AbsoluteFill>
+	);
+};
+const ShotBubbles: React.FC<{t: number}> = ({t}) => {
+	const {width, height} = useVideoConfig();
+	return (
+		<AbsoluteFill style={{transform: `scale(${interpolate(t, [0, 1], [1, 1.25])})`}}>
+			{Array.from({length: 60}, (_, i) => {
+				const r = 4 + rnd(i + 2) * 26;
+				const y = height + 50 - ((t * (1.4 + rnd(i) * 1.6) + rnd(i + 4)) % 1.6) * (height + 200);
+				return (
+					<div
+						key={i}
+						style={{
+							position: 'absolute',
+							left: rnd(i + 8) * width,
+							top: y,
+							width: r * 2,
+							height: r * 2,
+							borderRadius: '50%',
+							border: '2px solid rgba(200,245,255,0.8)',
+							background: 'radial-gradient(circle at 35% 35%, rgba(255,255,255,0.5), rgba(255,255,255,0) 50%)',
+						}}
+					/>
+				);
+			})}
+		</AbsoluteFill>
+	);
+};
 
-const LETTERS = 'COCO'.split('');
-const LETTERS2 = 'CRABS'.split('');
-const COLORS = [C.coral, C.yellow, C.aqua, C.white];
+const SHOTS: [number, number][] = [
+	[6, 14],
+	[14, 22],
+	[22, 30],
+	[30, 38],
+];
 
 export const ChannelIntro: React.FC = () => {
 	const f = useCurrentFrame();
 	const {fps, width, height} = useVideoConfig();
 
-	// Краб: прыжок, приземление со «сплющиванием», рывок влево.
-	const jump = spring({frame: f - 6, fps, config: {damping: 9, stiffness: 120, mass: 0.6}});
-	const land = f >= 20 ? Math.sin(Math.min(1, (f - 20) / 6) * Math.PI) : 0;
-	const whip = spring({frame: f - 30, fps, config: {damping: 14, stiffness: 160}});
-	const crabX = interpolate(whip, [0, 1], [0, -560]);
-	const crabY = interpolate(jump, [0, 1], [700, 40]) + interpolate(whip, [0, 1], [0, 150]);
-	const crabS = interpolate(whip, [0, 1], [1.15, 0.72]);
-	const claw = (f >= 24 && f < 28 ? 25 : 0) + (f >= 30 && f < 34 ? 25 : 0);
-	const waveClaw = f >= 76 ? 25 * Math.sin((f - 76) * 0.8) : 0;
-	const blink = f >= 44 && f <= 48 ? Math.sin(((f - 44) / 4) * Math.PI) : 0;
-	const whipBlur = f >= 30 && f <= 38 ? 14 * Math.sin(((f - 30) / 8) * Math.PI) : 0;
+	const shotIndex = SHOTS.findIndex(([a, b]) => f >= a && f < b);
+	const shotT = shotIndex >= 0 ? p(f, SHOTS[shotIndex][0], SHOTS[shotIndex][1]) : 0;
+	// Вспышки на склейках и большая белая вспышка перед логотипом.
+	const cutFlash = SHOTS.reduce((m, [a]) => Math.max(m, f >= a && f < a + 2 ? 0.55 * (1 - (f - a) / 2) : 0), 0);
+	const bigFlash = f >= 38 ? Math.max(0, 1 - (f - 38) / 6) : 0;
+	const logoPhase = f >= 38;
 
-	// Встряска кадра при приземлении.
-	const shake = f >= 20 && f < 26 ? (rnd(f) - 0.5) * 30 * (1 - (f - 20) / 6) : 0;
-	// Фон: бирюза → глубина после рывка.
-	const deep = interpolate(f, [30, 38], [0, 1], clamp);
-	// Диафрагма в конце: круг вокруг краба сжимается.
-	const iris = interpolate(f, [84, 95], [1, 0], clamp);
-	const irisR = iris * Math.hypot(width, height);
-	const irisCx = width / 2 + crabX;
-	const irisCy = height / 2 + crabY;
+	const slam = spring({frame: f - 38, fps, config: {damping: 12, stiffness: 220, mass: 0.6}});
+	const emblemScale = interpolate(slam, [0, 1], [1.6, 1]);
+	const draw = p(f, 39, 56);
+	const shock = p(f, 38, 54);
+	const word = spring({frame: f - 44, fps, config: {damping: 18, stiffness: 120}});
+	const sheen = interpolate(f, [52, 66], [-30, 130], clamp);
+	const tag = p(f, 58, 70);
+	const push = interpolate(f, [38, 96], [1, 1.06], clamp);
+	const end = p(f, 86, 96);
+	const sonar = p(f, 0, 8);
+	const shake = f >= 38 && f < 44 ? (rnd(f) - 0.5) * 24 * (1 - (f - 38) / 6) : 0;
 
 	return (
-		<AbsoluteFill style={{backgroundColor: '#000'}}>
+		<AbsoluteFill style={{backgroundColor: DEEP, overflow: 'hidden'}}>
+			{/* Фон: глубина с лучами */}
 			<AbsoluteFill
 				style={{
-					clipPath: `circle(${irisR}px at ${irisCx}px ${irisCy}px)`,
-					transform: `translate(${shake}px, ${shake * 0.5}px)`,
+					background: `radial-gradient(ellipse at 50% ${logoPhase ? 42 : 30}%, #0f3a5a 0%, #061c30 40%, ${DEEP} 80%)`,
+					transform: `translate(${shake}px, ${shake * 0.4}px)`,
 				}}
-			>
-				{/* Фон */}
-				<AbsoluteFill
-					style={{
-						background: `radial-gradient(circle at 50% ${interpolate(deep, [0, 1], [70, 40])}%, ${deep < 0.5 ? '#5ee6f0' : '#2aa7d8'} 0%, ${deep < 0.5 ? '#1aa3c8' : '#0d5c9a'} 45%, ${deep < 0.5 ? '#0b6fa8' : '#06264a'} 100%)`,
-					}}
-				/>
-				{/* Вращающиеся лучи за логотипом */}
-				<AbsoluteFill style={{opacity: deep * 0.35, transform: `rotate(${f * 1.5}deg) scale(2)`}}>
-					<svg width={width} height={height} viewBox={`${-width / 2} ${-height / 2} ${width} ${height}`}>
-						{Array.from({length: 12}, (_, i) => (
-							<path key={i} d="M0,0 L-60,-1200 L60,-1200 Z" fill={C.white} transform={`rotate(${i * 30})`} opacity={0.5} />
-						))}
-					</svg>
-				</AbsoluteFill>
-				{/* Волна-«шторка» в начале: бирюзовая заливка с волнистым краем уезжает вверх */}
-				<div
-					style={{
-						position: 'absolute',
-						left: 0,
-						top: 0,
-						width,
-						height: height * 1.3,
-						transform: `translateY(${interpolate(f, [0, 12], [0, -height * 1.35], clamp)}px)`,
-					}}
-				>
-					<svg width={width} height={height * 1.3} viewBox="0 0 100 130" preserveAspectRatio="none">
-						<path d="M0,0 H100 V100 Q87.5,92 75,100 T50,100 T25,100 T0,100 Z" fill={C.aqua} />
-						<path d="M0,100 Q12.5,108 25,100 T50,100 T75,100 T100,100 V104 Q87.5,112 75,104 T50,104 T25,104 T0,104 Z" fill={C.white} opacity={0.6} />
-					</svg>
-				</div>
-				{/* Пузыри */}
-				{Array.from({length: 46}, (_, i) => {
-					const start = rnd(i) * (i < 30 ? 10 : 80);
-					const life = 18 + rnd(i + 3) * 20;
-					const pr = (f - start) / life;
-					if (pr < 0 || pr > 1) return null;
-					const r = 8 + rnd(i + 7) * (i < 30 ? 40 : 18);
-					return (
-						<div
+			/>
+			<AbsoluteFill style={{opacity: 0.18, mixBlendMode: 'screen'}}>
+				<svg width={width} height={height}>
+					{Array.from({length: 7}, (_, i) => (
+						<path
 							key={i}
-							style={{
-								position: 'absolute',
-								left: rnd(i + 11) * width,
-								top: height + 60 - pr * (height + 200),
-								width: r * 2,
-								height: r * 2,
-								borderRadius: '50%',
-								border: `${Math.max(3, r * 0.15)}px solid rgba(255,255,255,0.85)`,
-								background: 'radial-gradient(circle at 35% 35%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.05) 40%)',
-								transform: `translateX(${Math.sin(pr * 6 + i) * 20}px)`,
-							}}
+							d={`M${width * (0.2 + i * 0.1) + Math.sin(f * 0.05 + i) * 30},-20 L${width * (0.05 + i * 0.14)},${height} L${width * (0.1 + i * 0.14)},${height} Z`}
+							fill="url(#ray)"
 						/>
-					);
-				})}
-				{/* Рыбки */}
-				<div style={{position: 'absolute', top: 210, left: interpolate(f, [45, 62], [-200, width + 200], clamp)}}>
-					<Fish color={C.yellow} flip />
-				</div>
-				<div style={{position: 'absolute', top: 820, left: interpolate(f, [55, 74], [width + 200, -200], clamp)}}>
-					<Fish color={C.coral} />
-				</div>
-				{/* Логотип */}
-				<AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', paddingLeft: 380}}>
-					<div style={{display: 'flex', gap: 6}}>
-						{LETTERS.map((ch, i) => {
-							const s = spring({frame: f - 33 - i * 2, fps, config: {damping: 8, stiffness: 180, mass: 0.5}});
-							return (
-								<span key={i} style={letterStyle(COLORS[i % 4], interpolate(s, [0, 1], [-600, 0]), interpolate(s, [0, 1], [-30, (i % 2 ? 6 : -6)]))}>
-									{ch}
-								</span>
-							);
-						})}
-					</div>
-					<div style={{display: 'flex', gap: 6, marginTop: -30}}>
-						{LETTERS2.map((ch, i) => {
-							const s = spring({frame: f - 39 - i * 2, fps, config: {damping: 8, stiffness: 180, mass: 0.5}});
-							return (
-								<span key={i} style={letterStyle(COLORS[(i + 1) % 4], interpolate(s, [0, 1], [600, 0]), interpolate(s, [0, 1], [30, (i % 2 ? -5 : 5)]))}>
-									{ch}
-								</span>
-							);
-						})}
-					</div>
-					{(() => {
-						const s = spring({frame: f - 56, fps, config: {damping: 10, stiffness: 200}});
-						return (
-							<div
-								style={{
-									marginTop: 26,
-									padding: '14px 34px',
-									borderRadius: 999,
-									background: C.navy,
-									border: `5px solid ${C.yellow}`,
-									color: C.white,
-									fontFamily: fonts.body,
-									fontWeight: 800,
-									fontSize: 40,
-									transform: `scale(${s})`,
-									whiteSpace: 'nowrap',
-								}}
-							>
-								Удивительные истории подводного мира
-							</div>
-						);
-					})()}
-				</AbsoluteFill>
-				{/* Краб */}
+					))}
+					<defs>
+						<linearGradient id="ray" x1="0" y1="0" x2="0" y2="1">
+							<stop offset="0" stopColor="#bdf3ff" stopOpacity="0.9" />
+							<stop offset="1" stopColor="#bdf3ff" stopOpacity="0" />
+						</linearGradient>
+					</defs>
+				</svg>
+			</AbsoluteFill>
+
+			<Particles f={f} speed={logoPhase ? 0.6 : 2.5} />
+
+			{/* Импульс сонара из темноты */}
+			{f < 10 ? (
 				<AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
 					<div
 						style={{
-							transform: `translate(${crabX}px, ${crabY}px) scale(${crabS * (1 + 0.18 * land)}, ${crabS * (1 - 0.22 * land)})`,
-							transformOrigin: '50% 90%',
-							filter: whipBlur ? `blur(${whipBlur}px)` : undefined,
+							width: 200 + sonar * 1600,
+							height: 200 + sonar * 1600,
+							borderRadius: '50%',
+							border: `${6 - sonar * 4}px solid rgba(127,233,255,${1 - sonar})`,
+							boxShadow: `0 0 40px rgba(127,233,255,${0.6 * (1 - sonar)})`,
+						}}
+					/>
+				</AbsoluteFill>
+			) : null}
+
+			{/* Быстрый монтаж */}
+			{shotIndex === 0 ? <ShotClaw t={shotT} /> : null}
+			{shotIndex === 1 ? <ShotWhale t={shotT} /> : null}
+			{shotIndex === 2 ? <ShotGlow t={shotT} f={f} /> : null}
+			{shotIndex === 3 ? <ShotBubbles t={shotT} /> : null}
+
+			{/* Логотип */}
+			{logoPhase ? (
+				<AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', transform: `scale(${push}) translate(${shake}px, ${shake * 0.4}px)`}}>
+					{/* Ударная волна */}
+					<div
+						style={{
+							position: 'absolute',
+							width: 360 + shock * 1500,
+							height: 360 + shock * 1500,
+							borderRadius: '50%',
+							border: `${4 * (1 - shock) + 1}px solid rgba(127,233,255,${0.8 * (1 - shock)})`,
+							top: height / 2 - 160 - (360 + shock * 1500) / 2,
+						}}
+					/>
+					<div style={{transform: `translateY(-150px) scale(${emblemScale})`, opacity: Math.min(1, slam * 1.5)}}>
+						<Emblem draw={draw} glow={1 - p(f, 44, 70) * 0.6} />
+					</div>
+					<div
+						style={{
+							position: 'absolute',
+							top: height / 2 + 70,
+							fontFamily: fonts.display,
+							fontWeight: 700,
+							fontSize: 120,
+							letterSpacing: `${interpolate(word, [0, 1], [0.6, 0.12])}em`,
+							color: '#eafaff',
+							opacity: word,
+							textShadow: '0 0 30px rgba(127,233,255,0.35)',
+							backgroundImage: `linear-gradient(100deg, #eafaff 0%, #eafaff ${sheen - 12}%, #ffffff ${sheen}%, ${CYAN} ${sheen + 4}%, #eafaff ${sheen + 14}%, #eafaff 100%)`,
+							WebkitBackgroundClip: 'text',
+							WebkitTextFillColor: 'transparent',
+							whiteSpace: 'nowrap',
 						}}
 					>
-						<Crab claw={claw} wave={waveClaw} blink={blink} />
+						KOKO CRABS
+					</div>
+					<div
+						style={{
+							position: 'absolute',
+							top: height / 2 + 230,
+							display: 'flex',
+							alignItems: 'center',
+							gap: 22,
+							opacity: tag,
+							transform: `translateY(${interpolate(tag, [0, 1], [16, 0])}px)`,
+							fontFamily: fonts.body,
+							fontWeight: 600,
+							fontSize: 34,
+							letterSpacing: `${interpolate(tag, [0, 1], [0.5, 0.28])}em`,
+							textTransform: 'uppercase',
+							color: 'rgba(200,240,255,0.85)',
+						}}
+					>
+						<span style={{width: 70 * tag, height: 2, background: CYAN, display: 'inline-block'}} />
+						Уникальные истории подводного мира
+						<span style={{width: 70 * tag, height: 2, background: CYAN, display: 'inline-block'}} />
 					</div>
 				</AbsoluteFill>
-			</AbsoluteFill>
+			) : null}
+
+			{/* Виньетка, вспышки, уход в чёрное */}
+			<AbsoluteFill style={{background: 'radial-gradient(ellipse at center, rgba(0,0,0,0) 50%, rgba(0,0,0,0.75) 100%)'}} />
+			<AbsoluteFill style={{backgroundColor: '#dff8ff', opacity: Math.max(cutFlash, bigFlash)}} />
+			<AbsoluteFill style={{backgroundColor: '#000', opacity: Math.max(1 - p(f, 0, 3), end)}} />
 			<Audio src={staticFile('sfx/intro-jingle.wav')} />
 		</AbsoluteFill>
 	);
 };
-
-const letterStyle = (color: string, y: number, rot: number): React.CSSProperties => ({
-	display: 'inline-block',
-	fontFamily: fonts.display,
-	fontWeight: 800,
-	fontSize: 190,
-	lineHeight: 1,
-	color,
-	transform: `translateY(${y}px) rotate(${rot}deg)`,
-	WebkitTextStroke: `10px ${C.navy}`,
-	paintOrder: 'stroke fill',
-	textShadow: `0 12px 0 ${C.navy}`,
-});

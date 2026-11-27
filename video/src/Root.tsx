@@ -31,7 +31,7 @@ export const RemotionRoot: React.FC = () => (
 				/>
 			);
 		})}
-		{/* Заставка канала Coco Crabs (3.2 с) */}
-		<Composition id="Intro-CocoCrabs" component={ChannelIntro} durationInFrames={96} {...VIDEO} />
+		{/* Заставка канала KoKo Crabs (3.2 с) */}
+		<Composition id="Intro-KokoCrabs" component={ChannelIntro} durationInFrames={96} {...VIDEO} />
 	</>
 );
